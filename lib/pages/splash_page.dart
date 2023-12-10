@@ -21,7 +21,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
       duration: Duration(seconds: 2),
     )..repeat(reverse: true);
 
-    Future.delayed(Duration(seconds: 7)).then(
+    Future.delayed(Duration(seconds: 10)).then(
       (value) => Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (BuildContext context) => HomePage(),
@@ -67,7 +67,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                         "Bem-vindo(a) ao meu Portfólio",
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 30.00,
+                          fontSize: 25.00,
                           color: Colors.white,
                           fontWeight: FontWeight.w600,
                           fontFamily: 'Montserrat',

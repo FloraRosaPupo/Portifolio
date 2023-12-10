@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portifolio/pages/contato_page.dart';
+import 'package:portifolio/pages/experiencia_dart.dart';
 import 'package:portifolio/pages/home_page.dart';
 import 'package:portifolio/pages/sobre_page.dart';
 
@@ -129,8 +130,8 @@ menuLateralDinamico() {
                     style: TextStyle(fontSize: 20, color: Colors.white),
                   ),
                   onTap: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => SobrePage()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ExperienciaPage()));
                   });
             }),
           ],
