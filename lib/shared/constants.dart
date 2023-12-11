@@ -5,14 +5,14 @@ import 'package:portifolio/pages/home_page.dart';
 import 'package:portifolio/pages/sobre_page.dart';
 
 final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
-  onPrimary: Color.fromARGB(225, 0, 0, 0),
-  primary: Color.fromARGB(255, 255, 255, 255),
+  onPrimary: Color.fromARGB(224, 255, 255, 255),
+  primary: Color.fromARGB(255, 148, 0, 211),
   minimumSize: Size(100, 50),
   padding: EdgeInsets.symmetric(horizontal: 20),
   shape: const RoundedRectangleBorder(
     borderRadius: BorderRadius.all(Radius.circular(20)),
   ),
-  textStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+  textStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
 );
 
 appBarDinamica() {

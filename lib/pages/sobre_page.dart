@@ -23,7 +23,7 @@ class _SobrePageState extends State<SobrePage> {
             child: Column(
               children: [
                 SizedBox(
-                  height: 50,
+                  height: 20,
                 ),
                 Container(
                   height: MediaQuery.of(context).size.height * 0.75,
@@ -38,8 +38,8 @@ class _SobrePageState extends State<SobrePage> {
                         CircleAvatar(
                           backgroundColor: Colors.white,
                           radius: 100,
-                          backgroundImage: NetworkImage(
-                              'https://media.licdn.com/dms/image/D4D03AQFJvFhazyMh7A/profile-displayphoto-shrink_800_800/0/1689782742132?e=1707955200&v=beta&t=_fIARIacgkwu6-ZXY0q39bsngnzZ3Vf-2BJegRZB1o8'),
+                          backgroundImage:
+                              AssetImage('assets/images/perfil.png'),
                         ),
                         SizedBox(
                           height: 10,
@@ -54,7 +54,7 @@ class _SobrePageState extends State<SobrePage> {
                               fontFamily: 'Montserrat'),
                         ),
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 20.0),
+                          padding: EdgeInsets.symmetric(horizontal: 25.0),
                           child: Text(
                             '    Sou graduanda em Sistemas de Informação pela Universidade Federal de Viçosa (UFV), com interesse na área do Desenvolvimento Mobile, sobretudo o front-end. Ao longo da minha trajetória, adquiri experiência em gestão de projetos, engenharia de requisitos, liderança de equipes, desenvolvimento de projetos, experiência do usuário e parcerias estratégicas, graças à minha ativa participação no Movimento Empresa Júnior (MEJ).\n    Destaco-me por ser uma pessoa comunicativa, organizada e dedicada. Estou constantemente em busca de aprimoramento, tanto nas minhas habilidades técnicas quanto interpessoais, com o objetivo de contribuir de maneira significativa para projetos inovadores e impactantes. Estou aberta a oportunidades e conexões profissionais que possam enriquecer minha trajetória no campo da tecnologia.',
                             style: TextStyle(color: Colors.white, fontSize: 20),
@@ -95,6 +95,17 @@ class _SobrePageState extends State<SobrePage> {
                   ),
                 ),
               ],
+            ),
+          ),
+          Positioned(
+            bottom: 10,
+            right: -70,
+            child: Container(
+              height: MediaQuery.of(context).size.height * 0.2,
+              width: MediaQuery.of(context).size.width * 0.5,
+              child: Image.asset(
+                'assets/images/sobre.png',
+              ),
             ),
           ),
         ],

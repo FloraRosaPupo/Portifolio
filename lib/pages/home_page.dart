@@ -13,7 +13,26 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  late AnimationController _translationController;
+
+  // Cria um controlador de animação para o movimento vertical
+  @override
+  void initState() {
+    super.initState();
+
+    // Cria um controlador de animação para o movimento vertical
+    _translationController = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 2),
+    )..repeat(reverse: true);
+  }
+
+  void dispose() {
+    _translationController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,10 +52,33 @@ class _HomePageState extends State<HomePage> {
         alignment: Alignment.center,
         child: Center(
           child: SingleChildScrollView(
-            padding: EdgeInsets.symmetric(horizontal: 40),
+            padding: EdgeInsets.symmetric(horizontal: 50),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
+                Center(
+                  child: AnimatedBuilder(
+                    animation: _translationController,
+                    builder: (context, child) {
+                      return Transform.translate(
+                        offset: Offset(0.0, _translationController.value * 10),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.5,
+                          //height: MediaQuery.of(context).size.height * 0.5,
+                          child: Column(
+                            children: [
+                              Image.asset("assets/images/painel.png"),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
                 ElevatedButton(
                   style: raisedButtonStyle,
                   onPressed: () {
@@ -46,7 +88,7 @@ class _HomePageState extends State<HomePage> {
                   child: Text('Sobre'),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 5,
                 ),
                 ElevatedButton(
                   style: raisedButtonStyle,
@@ -57,7 +99,7 @@ class _HomePageState extends State<HomePage> {
                   child: Text('Experiência'),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 5,
                 ),
                 ElevatedButton(
                   style: raisedButtonStyle,
