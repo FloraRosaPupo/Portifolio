@@ -59,7 +59,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
               return Transform.translate(
                 offset: Offset(0.0, _translationController.value * 10),
                 child: Container(
-                  width: MediaQuery.of(context).size.width * 0.6,
+                  width: MediaQuery.of(context).size.width * 0.7,
                   height: MediaQuery.of(context).size.height * 0.5,
                   child: Column(
                     children: [
@@ -68,7 +68,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                         "Bem-vindo(a) ao meu Portfólio",
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 25.00,
+                          fontSize: 30.00,
                           color: Colors.white,
                           fontWeight: FontWeight.w600,
                           fontFamily: 'Montserrat',
