@@ -44,130 +44,133 @@ appBarDinamica() {
 menuLateralDinamico() {
   return Drawer(
     backgroundColor: Color.fromARGB(190, 71, 7, 82),
-    child: Column(children: [
-      Container(
-        decoration: BoxDecoration(
-          border: Border(
-            bottom: BorderSide(width: 2.0, color: Colors.white12),
+    child: Container(
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+      child: Column(children: [
+        Container(
+          decoration: BoxDecoration(
+            border: Border(
+              bottom: BorderSide(width: 2.0, color: Colors.white12),
+            ),
+          ),
+          padding: EdgeInsets.only(left: 7),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 70,
+              ),
+              Builder(builder: (BuildContext context) {
+                return ListTile(
+                    leading: Icon(
+                      Icons.home,
+                      color: Colors.white,
+                    ),
+                    title: Text(
+                      'Painel',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
+                    onTap: () {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => HomePage()));
+                    });
+              }),
+            ],
           ),
         ),
-        padding: EdgeInsets.only(left: 7),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 70,
+        Container(
+          decoration: BoxDecoration(
+            border: Border(
+              bottom: BorderSide(width: 2.0, color: Colors.white12),
             ),
-            Builder(builder: (BuildContext context) {
-              return ListTile(
-                  leading: Icon(
-                    Icons.home,
-                    color: Colors.white,
-                  ),
-                  title: Text(
-                    'Painel',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  ),
-                  onTap: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => HomePage()));
-                  });
-            }),
-          ],
-        ),
-      ),
-      Container(
-        decoration: BoxDecoration(
-          border: Border(
-            bottom: BorderSide(width: 2.0, color: Colors.white12),
+          ),
+          padding: EdgeInsets.only(left: 7),
+          child: Column(
+            children: [
+              SizedBox(
+                height: 10,
+              ),
+              Builder(builder: (BuildContext context) {
+                return ListTile(
+                    leading: Icon(
+                      Icons.person,
+                      color: Colors.white,
+                    ),
+                    title: Text(
+                      'Sobre',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
+                    onTap: () {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => SobrePage()));
+                    });
+              }),
+            ],
           ),
         ),
-        padding: EdgeInsets.only(left: 7),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 10,
+        Container(
+          decoration: BoxDecoration(
+            border: Border(
+              bottom: BorderSide(width: 2.0, color: Colors.white12),
             ),
-            Builder(builder: (BuildContext context) {
-              return ListTile(
-                  leading: Icon(
-                    Icons.person,
-                    color: Colors.white,
-                  ),
-                  title: Text(
-                    'Sobre',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  ),
-                  onTap: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => SobrePage()));
-                  });
-            }),
-          ],
-        ),
-      ),
-      Container(
-        decoration: BoxDecoration(
-          border: Border(
-            bottom: BorderSide(width: 2.0, color: Colors.white12),
+          ),
+          padding: EdgeInsets.only(left: 7),
+          child: Column(
+            children: [
+              SizedBox(
+                height: 10,
+              ),
+              Builder(builder: (BuildContext context) {
+                return ListTile(
+                    leading: Icon(
+                      Icons.computer,
+                      color: Colors.white,
+                    ),
+                    title: Text(
+                      'Experiência',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => ExperienciaPage()));
+                    });
+              }),
+            ],
           ),
         ),
-        padding: EdgeInsets.only(left: 7),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 10,
+        Container(
+          decoration: BoxDecoration(
+            border: Border(
+              bottom: BorderSide(width: 2.0, color: Colors.white12),
             ),
-            Builder(builder: (BuildContext context) {
-              return ListTile(
-                  leading: Icon(
-                    Icons.computer,
-                    color: Colors.white,
-                  ),
-                  title: Text(
-                    'Experiência',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  ),
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ExperienciaPage()));
-                  });
-            }),
-          ],
-        ),
-      ),
-      Container(
-        decoration: BoxDecoration(
-          border: Border(
-            bottom: BorderSide(width: 2.0, color: Colors.white12),
           ),
-        ),
-        padding: EdgeInsets.only(left: 7),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 10,
-            ),
-            Builder(builder: (BuildContext context) {
-              return ListTile(
-                  leading: Icon(
-                    Icons.contact_page,
-                    color: Colors.white,
-                  ),
-                  title: Text(
-                    'Contato',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  ),
-                  onTap: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => ContatoPage()));
-                  });
-            }),
-          ],
-        ),
-      )
-    ]),
+          padding: EdgeInsets.only(left: 7),
+          child: Column(
+            children: [
+              SizedBox(
+                height: 10,
+              ),
+              Builder(builder: (BuildContext context) {
+                return ListTile(
+                    leading: Icon(
+                      Icons.contact_page,
+                      color: Colors.white,
+                    ),
+                    title: Text(
+                      'Contato',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => ContatoPage()));
+                    });
+              }),
+            ],
+          ),
+        )
+      ]),
+    ),
   );
 }
 

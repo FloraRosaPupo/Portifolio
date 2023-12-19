@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portifolio/shared/constants.dart';
 
 class ContatoPage extends StatelessWidget {
@@ -9,18 +10,32 @@ class ContatoPage extends StatelessWidget {
     return Scaffold(
       appBar: appBarDinamica(),
       drawer: menuLateralDinamico(),
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color.fromARGB(255, 71, 7, 82),
-              Colors.black,
-            ],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            //stops: [],
-          ),
-        ),
+      body: Stack(
+        children: [
+          background(context),
+          SingleChildScrollView(
+              padding: EdgeInsets.symmetric(horizontal: 25),
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.9,
+                width: MediaQuery.of(context).size.width * 1,
+                child: Card(
+                  color: Colors.transparent,
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      //mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            FontAwesomeIcons.whatsapp,
+                            size: 40,
+                          ),
+                          color: Colors.white,
+                        )
+                      ]),
+                ),
+              ))
+        ],
       ),
     );
   }

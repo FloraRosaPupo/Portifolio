@@ -22,7 +22,7 @@ class _SobrePageState extends State<SobrePage> {
           Center(
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
