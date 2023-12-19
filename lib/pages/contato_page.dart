@@ -20,19 +20,25 @@ class ContatoPage extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 1,
                 child: Card(
                   color: Colors.transparent,
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      //mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            FontAwesomeIcons.whatsapp,
-                            size: 40,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        //mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            height: 20,
                           ),
-                          color: Colors.white,
-                        )
-                      ]),
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              FontAwesomeIcons.whatsapp,
+                              size: 40,
+                            ),
+                            color: Colors.white,
+                          )
+                        ]),
+                  ),
                 ),
               ))
         ],
