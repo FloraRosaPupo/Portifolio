@@ -157,7 +157,7 @@ class ChatMessage extends StatelessWidget {
                 style: TextStyle(
                   fontFamily: 'Montserrat',
                   fontWeight: FontWeight.w500,
-                  fontSize: 20,
+                  fontSize: 15,
                   color: isUser ? Colors.black : Colors.black,
                 ),
               ),
@@ -241,14 +241,14 @@ class ContactInfo extends StatelessWidget {
           children: [
             Icon(
               icon,
-              size: 30,
+              size: 20,
               color: Colors.black,
             ),
             SizedBox(width: 10),
             Text(
               text,
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 15,
                 fontFamily: 'Montserrat',
                 color: Colors.black,
               ),

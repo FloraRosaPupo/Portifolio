@@ -49,7 +49,7 @@ class _SobrePageState extends State<SobrePage> {
                               textAlign: TextAlign.start,
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 30,
+                                fontSize: 25,
                                 fontWeight: FontWeight.w600,
                                 fontFamily: 'Montserrat',
                               ),
@@ -62,40 +62,9 @@ class _SobrePageState extends State<SobrePage> {
                               child: Text(
                                 'Olá, meu nome é Flora Rosa Pupo tenho 22 anos,\nSou graduanda em Sistemas de Informação pela Universidade Federal de Viçosa (UFV), com interesse na área do Desenvolvimento Mobile, sobretudo o front-end. Ao longo da minha trajetória, adquiri experiência em gestão de projetos, engenharia de requisitos, liderança de equipes, desenvolvimento de projetos, experiência do usuário e parcerias estratégicas, graças à minha ativa participação no Movimento Empresa Júnior (MEJ).\nDestaco-me por ser uma pessoa comunicativa, organizada e dedicada. Estou constantemente em busca de aprimoramento, tanto nas minhas habilidades técnicas quanto interpessoais, com o objetivo de contribuir de maneira significativa para projetos inovadores e impactantes. Estou aberta a oportunidades e conexões profissionais que possam enriquecer minha trajetória no campo da tecnologia.',
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 20),
+                                    color: Colors.white, fontSize: 15),
                                 textAlign: TextAlign.justify,
                               ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                IconButton(
-                                  icon: const Icon(
-                                    FontAwesomeIcons.instagram,
-                                    size: 40,
-                                  ),
-                                  color: Colors.white,
-                                  onPressed: () => abrirInstagram(),
-                                ),
-                                const SizedBox(width: 5),
-                                IconButton(
-                                  icon: const Icon(
-                                    FontAwesomeIcons.linkedin,
-                                    size: 40,
-                                  ),
-                                  color: Colors.white,
-                                  onPressed: () => abrirLinkedin(),
-                                ),
-                                const SizedBox(width: 5),
-                                IconButton(
-                                  icon: const Icon(
-                                    FontAwesomeIcons.whatsapp,
-                                    size: 40,
-                                  ),
-                                  color: Colors.white,
-                                  onPressed: () => abrirWhatsApp(),
-                                ),
-                              ],
                             ),
                             const SizedBox(
                               height: 50,
@@ -106,17 +75,6 @@ class _SobrePageState extends State<SobrePage> {
                     ),
                   ],
                 ),
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: -20,
-            right: -70,
-            child: Container(
-              height: MediaQuery.of(context).size.height * 0.2,
-              width: MediaQuery.of(context).size.width * 0.5,
-              child: Image.asset(
-                'assets/images/sobre.png',
               ),
             ),
           ),
