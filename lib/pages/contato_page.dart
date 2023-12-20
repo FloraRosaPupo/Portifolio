@@ -67,16 +67,6 @@ class _ContatoPageState extends State<ContatoPage> {
                         height: 5,
                       ),
                       ContactInfo(
-                        icon: FontAwesomeIcons.whatsapp,
-                        text: "+55 34 99313-0077",
-                        onPressed: () {
-                          // Adicione a lógica para abrir o WhatsApp
-                        },
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      ContactInfo(
                         icon: FontAwesomeIcons.envelope,
                         text: "florapupo@gmail.com",
                         onPressed: () {
