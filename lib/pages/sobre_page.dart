@@ -28,7 +28,7 @@ class _SobrePageState extends State<SobrePage> {
                   children: [
                     //SizedBox(height: 10),
                     Container(
-                      height: MediaQuery.of(context).size.height * 0.75,
+                      //height: MediaQuery.of(context).size.height * 0.75,
                       //width: MediaQuery.of(context).size.width * 0.9,
                       child: Card(
                         color: Colors.transparent,
@@ -36,14 +36,14 @@ class _SobrePageState extends State<SobrePage> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            SizedBox(height: 10),
+                            SizedBox(height: 50),
                             const CircleAvatar(
                               backgroundColor: Colors.white,
                               radius: 100,
                               backgroundImage:
                                   AssetImage('assets/images/perfil.png'),
                             ),
-                            SizedBox(height: 10),
+                            SizedBox(height: 20),
                             const Text(
                               'Sobre Mim',
                               textAlign: TextAlign.start,
@@ -53,6 +53,9 @@ class _SobrePageState extends State<SobrePage> {
                                 fontWeight: FontWeight.w600,
                                 fontFamily: 'Montserrat',
                               ),
+                            ),
+                            SizedBox(
+                              height: 20,
                             ),
                             const Padding(
                               padding: EdgeInsets.symmetric(horizontal: 30.0),
@@ -95,7 +98,7 @@ class _SobrePageState extends State<SobrePage> {
                               ],
                             ),
                             const SizedBox(
-                              height: 20,
+                              height: 50,
                             ),
                           ],
                         ),
