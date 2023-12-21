@@ -68,7 +68,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                         "Bem-vindo(a) ao meu Portfólio",
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 30.00,
+                          fontSize: 20.00,
                           color: Colors.white,
                           fontWeight: FontWeight.w600,
                           fontFamily: 'Montserrat',

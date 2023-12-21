@@ -8,7 +8,7 @@ final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
   onPrimary: Color.fromARGB(224, 255, 255, 255),
   primary: Color.fromARGB(255, 148, 0, 211),
   minimumSize: Size(100, 50),
-  padding: EdgeInsets.symmetric(horizontal: 20),
+  padding: EdgeInsets.symmetric(horizontal: 10),
   shape: const RoundedRectangleBorder(
     borderRadius: BorderRadius.all(Radius.circular(20)),
   ),
@@ -29,7 +29,7 @@ appBarDinamica() {
           icon: const Icon(
             Icons.menu,
             color: Colors.white,
-            size: 40, // Changing Drawer Icon Size
+            size: 30, // Changing Drawer Icon Size
           ),
           onPressed: () {
             Scaffold.of(context).openDrawer();
@@ -43,9 +43,10 @@ appBarDinamica() {
 
 menuLateralDinamico() {
   return Drawer(
+    elevation: 10,
     backgroundColor: Color.fromARGB(190, 71, 7, 82),
     child: Container(
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
       child: Column(children: [
         Container(
           decoration: BoxDecoration(
@@ -63,18 +64,19 @@ menuLateralDinamico() {
               ),
               Builder(builder: (BuildContext context) {
                 return ListTile(
-                    leading: Icon(
-                      Icons.home,
-                      color: Colors.white,
-                    ),
-                    title: Text(
-                      'Painel',
-                      style: TextStyle(fontSize: 20, color: Colors.white),
-                    ),
-                    onTap: () {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => HomePage()));
-                    });
+                  leading: Icon(
+                    Icons.home,
+                    color: Colors.white,
+                  ),
+                  title: Text(
+                    'Painel',
+                    style: TextStyle(fontSize: 15, color: Colors.white),
+                  ),
+                  onTap: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => HomePage()));
+                  },
+                );
               }),
             ],
           ),
@@ -93,18 +95,19 @@ menuLateralDinamico() {
               ),
               Builder(builder: (BuildContext context) {
                 return ListTile(
-                    leading: Icon(
-                      Icons.person,
-                      color: Colors.white,
-                    ),
-                    title: Text(
-                      'Sobre',
-                      style: TextStyle(fontSize: 20, color: Colors.white),
-                    ),
-                    onTap: () {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => SobrePage()));
-                    });
+                  leading: Icon(
+                    Icons.person,
+                    color: Colors.white,
+                  ),
+                  title: Text(
+                    'Sobre',
+                    style: TextStyle(fontSize: 15, color: Colors.white),
+                  ),
+                  onTap: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => SobrePage()));
+                  },
+                );
               }),
             ],
           ),
@@ -123,18 +126,19 @@ menuLateralDinamico() {
               ),
               Builder(builder: (BuildContext context) {
                 return ListTile(
-                    leading: Icon(
-                      Icons.computer,
-                      color: Colors.white,
-                    ),
-                    title: Text(
-                      'Experiência',
-                      style: TextStyle(fontSize: 20, color: Colors.white),
-                    ),
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => ExperienciaPage()));
-                    });
+                  leading: Icon(
+                    Icons.computer,
+                    color: Colors.white,
+                  ),
+                  title: Text(
+                    'Experiência',
+                    style: TextStyle(fontSize: 15, color: Colors.white),
+                  ),
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ExperienciaPage()));
+                  },
+                );
               }),
             ],
           ),
@@ -153,18 +157,19 @@ menuLateralDinamico() {
               ),
               Builder(builder: (BuildContext context) {
                 return ListTile(
-                    leading: Icon(
-                      Icons.contact_page,
-                      color: Colors.white,
-                    ),
-                    title: Text(
-                      'Contato',
-                      style: TextStyle(fontSize: 20, color: Colors.white),
-                    ),
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => ContatoPage()));
-                    });
+                  leading: Icon(
+                    Icons.contact_page,
+                    color: Colors.white,
+                  ),
+                  title: Text(
+                    'Contato',
+                    style: TextStyle(fontSize: 15, color: Colors.white),
+                  ),
+                  onTap: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => ContatoPage()));
+                  },
+                );
               }),
             ],
           ),

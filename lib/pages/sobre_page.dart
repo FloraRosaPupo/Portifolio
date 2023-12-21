@@ -39,7 +39,7 @@ class _SobrePageState extends State<SobrePage> {
                             SizedBox(height: 50),
                             const CircleAvatar(
                               backgroundColor: Colors.white,
-                              radius: 100,
+                              radius: 70,
                               backgroundImage:
                                   AssetImage('assets/images/perfil.png'),
                             ),

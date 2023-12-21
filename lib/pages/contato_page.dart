@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portifolio/shared/constants.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContatoPage extends StatefulWidget {
   const ContatoPage({Key? key}) : super(key: key);
@@ -50,7 +51,7 @@ class _ContatoPageState extends State<ContatoPage> {
                         icon: FontAwesomeIcons.github,
                         text: "/FloraRosaPupo",
                         onPressed: () {
-                          // Adicione a lógica para abrir o GitHub
+                          launch('https://github.com/FloraRosaPupo');
                         },
                       ),
                       SizedBox(
@@ -60,7 +61,7 @@ class _ContatoPageState extends State<ContatoPage> {
                         icon: FontAwesomeIcons.instagram,
                         text: "@florarosapupo",
                         onPressed: () {
-                          // Adicione a lógica para abrir o Instagram
+                          launch('https://www.instagram.com/florarosapupo/');
                         },
                       ),
                       SizedBox(
@@ -70,7 +71,7 @@ class _ContatoPageState extends State<ContatoPage> {
                         icon: FontAwesomeIcons.envelope,
                         text: "florapupo@gmail.com",
                         onPressed: () {
-                          // Adicione a lógica para enviar um e-mail
+                          launch('mailto:florapupo@gmail.com');
                         },
                       ),
                       SizedBox(
@@ -79,7 +80,10 @@ class _ContatoPageState extends State<ContatoPage> {
                       ContactInfo(
                         icon: FontAwesomeIcons.linkedin,
                         text: '/flora-rosa-b386841b6',
-                        onPressed: () {},
+                        onPressed: () {
+                          launch(
+                              'https://www.linkedin.com/in/flora-rosa-b386841b6/');
+                        },
                       ),
                       SizedBox(height: 20),
                       // Resposta simulada
