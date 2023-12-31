@@ -79,36 +79,15 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 SizedBox(
                   height: 15,
                 ),
-                ElevatedButton(
-                  style: raisedButtonStyle,
-                  onPressed: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => SobrePage()));
-                  },
-                  child: Text('Sobre'),
-                ),
+                botaoPainel(context, SobrePage(), 'Sobre'),
                 SizedBox(
                   height: 5,
                 ),
-                ElevatedButton(
-                  style: raisedButtonStyle,
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ExperienciaPage()));
-                  },
-                  child: Text('Experiência'),
-                ),
+                botaoPainel(context, ExperienciaPage(), 'Experiência'),
                 SizedBox(
                   height: 5,
                 ),
-                ElevatedButton(
-                  style: raisedButtonStyle,
-                  onPressed: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => ContatoPage()));
-                  },
-                  child: Text('Contato'),
-                ),
+                botaoPainel(context, ContatoPage(), 'Contato'),
               ],
             ),
           ),
@@ -116,4 +95,15 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       ),
     );
   }
+}
+
+botaoPainel(context, _route, _label) {
+  return ElevatedButton(
+    style: raisedButtonStyle,
+    onPressed: () {
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => _route));
+    },
+    child: Text(_label),
+  );
 }
