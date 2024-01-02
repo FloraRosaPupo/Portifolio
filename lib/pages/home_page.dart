@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:portifolio/pages/contato_page.dart';
 import 'package:portifolio/pages/experiencia_dart.dart';
+import 'package:portifolio/pages/habilidades_page.dart';
+import 'package:portifolio/pages/projeto_page.dart';
 import 'package:portifolio/pages/sobre_page.dart';
 import '../shared/constants.dart';
 
@@ -88,6 +90,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   height: 5,
                 ),
                 botaoPainel(context, ContatoPage(), 'Contato'),
+                SizedBox(
+                  height: 5,
+                ),
+                botaoPainel(context, habilidadePage(), 'Habilidades'),
+                SizedBox(
+                  height: 5,
+                ),
+                botaoPainel(context, projetoPage(), 'Projetos'),
               ],
             ),
           ),
