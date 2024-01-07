@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portifolio/pages/contato_page.dart';
 import 'package:portifolio/pages/experiencia_dart.dart';
+import 'package:portifolio/pages/habilidades_page.dart';
 import 'package:portifolio/pages/home_page.dart';
+import 'package:portifolio/pages/projeto_page.dart';
 import 'package:portifolio/pages/sobre_page.dart';
 
 final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
@@ -43,15 +45,20 @@ appBarDinamica() {
 
 menuLateralDinamico() {
   return Drawer(
-    elevation: 10,
+    elevation: 20,
     backgroundColor: Color.fromARGB(190, 71, 7, 82),
     child: Container(
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
       child: Column(children: [
+        SizedBox(
+          height: 70,
+        ),
         objetosMenu(Icons.home, 'Painel', HomePage()),
         objetosMenu(Icons.person, 'Sobre', SobrePage()),
         objetosMenu(Icons.computer, 'Experiência', ExperienciaPage()),
         objetosMenu(Icons.contact_page, 'Contato', ContatoPage()),
+        objetosMenu(Icons.emoji_objects_rounded, 'Habilidades', habilidadePage()),
+        objetosMenu(Icons.devices_rounded, 'Projetos', projetoPage()),
       ]),
     ),
   );
