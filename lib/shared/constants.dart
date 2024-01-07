@@ -57,8 +57,9 @@ menuLateralDinamico() {
         objetosMenu(Icons.person, 'Sobre', SobrePage()),
         objetosMenu(Icons.computer, 'Experiência', ExperienciaPage()),
         objetosMenu(Icons.contact_page, 'Contato', ContatoPage()),
-        objetosMenu(Icons.emoji_objects_rounded, 'Habilidades', habilidadePage()),
-        objetosMenu(Icons.devices_rounded, 'Projetos', projetoPage()),
+        objetosMenu(
+            Icons.emoji_objects_rounded, 'Habilidades', HabilidadePage()),
+        objetosMenu(Icons.devices_rounded, 'Projetos', ProjetoPage()),
       ]),
     ),
   );

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class projetoPage extends StatefulWidget {
-  const projetoPage({super.key});
+class ProjetoPage extends StatefulWidget {
+  const ProjetoPage({super.key});
 
   @override
-  State<projetoPage> createState() => _projetoPageState();
+  State<ProjetoPage> createState() => _ProjetoPageState();
 }
 
-class _projetoPageState extends State<projetoPage> {
+class _ProjetoPageState extends State<ProjetoPage> {
   @override
   Widget build(BuildContext context) {
     return const Placeholder();

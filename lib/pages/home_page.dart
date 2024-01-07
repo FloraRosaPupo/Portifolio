@@ -93,11 +93,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 SizedBox(
                   height: 5,
                 ),
-                botaoPainel(context, habilidadePage(), 'Habilidades'),
+                botaoPainel(context, HabilidadePage(), 'Habilidades'),
                 SizedBox(
                   height: 5,
                 ),
-                botaoPainel(context, projetoPage(), 'Projetos'),
+                botaoPainel(context, ProjetoPage(), 'Projetos'),
               ],
             ),
           ),
