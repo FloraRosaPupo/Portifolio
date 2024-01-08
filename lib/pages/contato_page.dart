@@ -1,117 +1,98 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:portifolio/shared/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ContatoPage extends StatefulWidget {
-  const ContatoPage({Key? key}) : super(key: key);
-
-  @override
-  _ContatoPageState createState() => _ContatoPageState();
-}
-
-class _ContatoPageState extends State<ContatoPage> {
+class ContatoDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: appBarDinamica(),
-      drawer: menuLateralDinamico(),
-      body: Stack(
-        children: [
-          background(context),
-          SingleChildScrollView(
+    return Dialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
+      backgroundColor: Colors.transparent,
+      child: Container(
+        width: 500,
+        height: 600, // Adjust the height as needed
+        child: Card(
+          color: Colors.transparent,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 25),
-            child: Container(
-              //height: MediaQuery.of(context).size.height * 0.9,
-              // width: MediaQuery.of(context).size.width * 1,
-              child: Card(
-                color: Colors.transparent,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 10,
                 ),
-                child: Padding(
-                  padding: EdgeInsets.all(20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ChatMessage(
-                        message: "Olá! Como posso ajudar?",
-                        isUser: false,
-                      ),
-                      SizedBox(height: 10),
-                      ChatMessage(
-                        message: "Você me encontra aqui:",
-                        isUser: false,
-                      ),
-                      SizedBox(height: 20),
-                      ContactInfo(
-                        icon: FontAwesomeIcons.github,
-                        text: "/FloraRosaPupo",
-                        onPressed: () {
-                          launch('https://github.com/FloraRosaPupo');
-                        },
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      ContactInfo(
-                        icon: FontAwesomeIcons.instagram,
-                        text: "@florarosapupo",
-                        onPressed: () {
-                          launch('https://www.instagram.com/florarosapupo/');
-                        },
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      ContactInfo(
-                        icon: FontAwesomeIcons.envelope,
-                        text: "florapupo@gmail.com",
-                        onPressed: () {
-                          launch('mailto:florapupo@gmail.com');
-                        },
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      ContactInfo(
-                        icon: FontAwesomeIcons.linkedin,
-                        text: '/flora-rosa-b386841b6',
-                        onPressed: () {
-                          launch(
-                              'https://www.linkedin.com/in/flora-rosa-b386841b6/');
-                        },
-                      ),
-                      SizedBox(height: 20),
-                      // Resposta simulada
-                      FutureBuilder(
-                        future: Future.delayed(Duration(seconds: 3)),
-                        builder: (context, snapshot) {
-                          if (snapshot.connectionState ==
-                              ConnectionState.done) {
-                            // Quando a resposta chegar, mostra a mensagem
-                            return ChatMessage(
-                              message: "Obrigada! Fico à disposição.",
-                              isUser: false,
-                            );
-                          } else {
-                            return Container();
-                          }
-                        },
-                      ),
-                      SizedBox(
-                        height: 50,
-                      ),
-                    ],
-                  ),
+                ChatMessage(
+                  message: "Olá! Como posso ajudar?",
+                  isUser: false,
                 ),
-              ),
+                SizedBox(height: 10),
+                ChatMessage(
+                  message: "Você me encontra aqui:",
+                  isUser: false,
+                ),
+                SizedBox(height: 20),
+                ContactInfo(
+                  icon: FontAwesomeIcons.github,
+                  text: "/FloraRosaPupo",
+                  onPressed: () {
+                    launch('https://github.com/FloraRosaPupo');
+                  },
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                ContactInfo(
+                  icon: FontAwesomeIcons.instagram,
+                  text: "@florarosapupo",
+                  onPressed: () {
+                    launch('https://www.instagram.com/florarosapupo/');
+                  },
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                ContactInfo(
+                  icon: FontAwesomeIcons.envelope,
+                  text: "florapupo@gmail.com",
+                  onPressed: () {
+                    launch('mailto:florapupo@gmail.com');
+                  },
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                ContactInfo(
+                  icon: FontAwesomeIcons.linkedin,
+                  text: '/flora-rosa-b386841b6',
+                  onPressed: () {
+                    launch('https://www.linkedin.com/in/flora-rosa-b386841b6/');
+                  },
+                ),
+                SizedBox(height: 20),
+                // Resposta simulada
+                FutureBuilder(
+                  future: Future.delayed(Duration(seconds: 3)),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.done) {
+                      // Quando a resposta chegar, mostra a mensagem
+                      return ChatMessage(
+                        message: "Obrigada! Fico à disposição.",
+                        isUser: false,
+                      );
+                    } else {
+                      return Container();
+                    }
+                  },
+                ),
+              ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }
@@ -173,50 +154,6 @@ class ChatMessage extends StatelessWidget {
   }
 }
 
-class FadeIn extends StatefulWidget {
-  final Widget child;
-
-  const FadeIn({required this.child});
-
-  @override
-  _FadeInState createState() => _FadeInState();
-}
-
-class _FadeInState extends State<FadeIn> with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _opacity;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(
-      duration: const Duration(milliseconds: 500),
-      vsync: this,
-    );
-    _opacity = Tween<double>(begin: 0, end: 1).animate(_controller);
-    _controller.forward();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: _opacity,
-      builder: (context, child) {
-        return Opacity(
-          opacity: _opacity.value,
-          child: widget.child,
-        );
-      },
-    );
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-}
-
 class ContactInfo extends StatelessWidget {
   final IconData icon;
   final String text;
@@ -261,5 +198,49 @@ class ContactInfo extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class FadeIn extends StatefulWidget {
+  final Widget child;
+
+  const FadeIn({required this.child});
+
+  @override
+  _FadeInState createState() => _FadeInState();
+}
+
+class _FadeInState extends State<FadeIn> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _opacity;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 500),
+      vsync: this,
+    );
+    _opacity = Tween<double>(begin: 0, end: 1).animate(_controller);
+    _controller.forward();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      animation: _opacity,
+      builder: (context, child) {
+        return Opacity(
+          opacity: _opacity.value,
+          child: widget.child,
+        );
+      },
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 }

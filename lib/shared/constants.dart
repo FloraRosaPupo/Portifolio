@@ -9,8 +9,9 @@ import 'package:portifolio/pages/sobre_page.dart';
 final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
   onPrimary: Color.fromARGB(224, 255, 255, 255),
   primary: Color.fromARGB(255, 148, 0, 211),
-  minimumSize: Size(100, 50),
+  /*minimumSize: Size(100, 50),
   padding: EdgeInsets.symmetric(horizontal: 10),
+  */
   shape: const RoundedRectangleBorder(
     borderRadius: BorderRadius.all(Radius.circular(20)),
   ),
@@ -55,11 +56,12 @@ menuLateralDinamico() {
         ),
         objetosMenu(Icons.home, 'Painel', HomePage()),
         objetosMenu(Icons.person, 'Sobre', SobrePage()),
-        objetosMenu(Icons.computer, 'Experiência', ExperienciaPage()),
-        objetosMenu(Icons.contact_page, 'Contato', ContatoPage()),
         objetosMenu(
             Icons.emoji_objects_rounded, 'Habilidades', HabilidadePage()),
+        objetosMenu(Icons.computer, 'Experiência', ExperienciaPage()),
         objetosMenu(Icons.devices_rounded, 'Projetos', ProjetoPage()),
+        //objetosMenu(Icons.contact_page, 'Contato', ContatoPage()),
+        
       ]),
     ),
   );
