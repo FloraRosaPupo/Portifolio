@@ -8,7 +8,7 @@ import 'package:portifolio/pages/sobre_page.dart';
 
 final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
   onPrimary: Color.fromARGB(224, 255, 255, 255),
-  primary: Color.fromARGB(255, 148, 0, 211),
+  primary: Color.fromARGB(255, 111, 2, 109),
   /*minimumSize: Size(100, 50),
   padding: EdgeInsets.symmetric(horizontal: 10),
   */
@@ -21,25 +21,28 @@ final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
 appBarDinamica() {
   //TabController _tabController = TabController(length: 3, vsync: this);
 
-  return AppBar(
-    toolbarHeight: 150,
-    centerTitle: true,
-    title: Image.asset("assets/images/logo.png"),
-    backgroundColor: Color.fromARGB(255, 71, 7, 82),
-    leading: Builder(
-      builder: (BuildContext context) {
-        return IconButton(
-          icon: const Icon(
-            Icons.menu,
-            color: Colors.white,
-            size: 30, // Changing Drawer Icon Size
-          ),
-          onPressed: () {
-            Scaffold.of(context).openDrawer();
-          },
-          tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-        );
-      },
+  return PreferredSize(
+    preferredSize: Size.fromHeight(80.0),
+    child: AppBar(
+      toolbarHeight: 150,
+      centerTitle: true,
+      title: Image.asset("assets/images/logo.png"),
+      backgroundColor: Color.fromARGB(255, 71, 7, 82),
+      leading: Builder(
+        builder: (BuildContext context) {
+          return IconButton(
+            icon: const Icon(
+              Icons.menu,
+              color: Colors.white,
+              size: 30, // Changing Drawer Icon Size
+            ),
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+            tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+          );
+        },
+      ),
     ),
   );
 }
@@ -52,16 +55,15 @@ menuLateralDinamico() {
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
       child: Column(children: [
         SizedBox(
-          height: 70,
+          height: 50,
         ),
         objetosMenu(Icons.home, 'Painel', HomePage()),
         objetosMenu(Icons.person, 'Sobre', SobrePage()),
         objetosMenu(
             Icons.emoji_objects_rounded, 'Habilidades', HabilidadePage()),
-        objetosMenu(Icons.computer, 'Experiência', ExperienciaPage()),
+        objetosMenu(Icons.computer, 'Experiências', ExperienciaPage()),
         objetosMenu(Icons.devices_rounded, 'Projetos', ProjetoPage()),
         //objetosMenu(Icons.contact_page, 'Contato', ContatoPage()),
-        
       ]),
     ),
   );
@@ -115,4 +117,37 @@ background(context) {
       ),
     ),
   );
+}
+
+botaoContato(context, _counter){
+  return Container(
+        height: 100,
+        width: 100,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              (_counter % 2 == 0) ? 'Entre em contato' : '',
+              style: TextStyle(
+                  fontSize: 10, color: Colors.white, fontFamily: 'Montserrat'),
+            ),
+            SizedBox(height: 5),
+            FloatingActionButton(
+              backgroundColor: Color.fromARGB(255, 111, 2, 109),
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return ContatoDialog(); // Using the ContatoDialog widget here
+                  },
+                );
+              },
+              child: Icon(
+                Icons.chat,
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
+      );
 }

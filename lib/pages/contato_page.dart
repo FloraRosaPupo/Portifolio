@@ -12,85 +12,138 @@ class ContatoDialog extends StatelessWidget {
       backgroundColor: Colors.transparent,
       child: Container(
         width: 500,
-        height: 600, // Adjust the height as needed
+        height: 600,
         child: Card(
           color: Colors.transparent,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
           ),
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 25),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: 10,
+          child: Column(
+            children: [
+              Expanded(
+                child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 111, 2, 109),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Icon(
+                        FontAwesomeIcons.user,
+                        color: Colors.white,
+                      ),
+                      Text(
+                        'Flora Rosa Pupo',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 50,
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        icon: Icon(
+                          Icons.close,
+                          color: Colors.white,
+                          size: 25,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-                ChatMessage(
-                  message: "Olá! Como posso ajudar?",
-                  isUser: false,
-                ),
-                SizedBox(height: 10),
-                ChatMessage(
-                  message: "Você me encontra aqui:",
-                  isUser: false,
-                ),
-                SizedBox(height: 20),
-                ContactInfo(
-                  icon: FontAwesomeIcons.github,
-                  text: "/FloraRosaPupo",
-                  onPressed: () {
-                    launch('https://github.com/FloraRosaPupo');
-                  },
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                ContactInfo(
-                  icon: FontAwesomeIcons.instagram,
-                  text: "@florarosapupo",
-                  onPressed: () {
-                    launch('https://www.instagram.com/florarosapupo/');
-                  },
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                ContactInfo(
-                  icon: FontAwesomeIcons.envelope,
-                  text: "florapupo@gmail.com",
-                  onPressed: () {
-                    launch('mailto:florapupo@gmail.com');
-                  },
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                ContactInfo(
-                  icon: FontAwesomeIcons.linkedin,
-                  text: '/flora-rosa-b386841b6',
-                  onPressed: () {
-                    launch('https://www.linkedin.com/in/flora-rosa-b386841b6/');
-                  },
-                ),
-                SizedBox(height: 20),
-                // Resposta simulada
-                FutureBuilder(
-                  future: Future.delayed(Duration(seconds: 3)),
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.done) {
-                      // Quando a resposta chegar, mostra a mensagem
-                      return ChatMessage(
-                        message: "Obrigada! Fico à disposição.",
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 25),
+                child: Container(
+                  height: 500,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      ChatMessage(
+                        message: "Olá! Como posso ajudar?",
                         isUser: false,
-                      );
-                    } else {
-                      return Container();
-                    }
-                  },
+                      ),
+                      SizedBox(height: 10),
+                      ChatMessage(
+                        message: "Você me encontra aqui:",
+                        isUser: false,
+                      ),
+                      SizedBox(height: 20),
+                      ContactInfo(
+                        icon: FontAwesomeIcons.github,
+                        text: "/FloraRosaPupo",
+                        onPressed: () {
+                          launch('https://github.com/FloraRosaPupo');
+                        },
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      ContactInfo(
+                        icon: FontAwesomeIcons.instagram,
+                        text: "@florarosapupo",
+                        onPressed: () {
+                          launch('https://www.instagram.com/florarosapupo/');
+                        },
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      ContactInfo(
+                        icon: FontAwesomeIcons.envelope,
+                        text: "florapupo@gmail.com",
+                        onPressed: () {
+                          launch('mailto:florapupo@gmail.com');
+                        },
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      ContactInfo(
+                        icon: FontAwesomeIcons.linkedin,
+                        text: '/flora-rosa-b386841b6',
+                        onPressed: () {
+                          launch(
+                              'https://www.linkedin.com/in/flora-rosa-b386841b6/');
+                        },
+                      ),
+                      SizedBox(height: 20),
+                      // Resposta simulada
+                      FutureBuilder(
+                        future: Future.delayed(Duration(seconds: 3)),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.done) {
+                            // Quando a resposta chegar, mostra a mensagem
+                            return ChatMessage(
+                              message: "Obrigada! Fico à disposição.",
+                              isUser: false,
+                            );
+                          } else {
+                            return Container();
+                          }
+                        },
+                      ),
+                    ],
+                  ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
@@ -116,7 +169,7 @@ class ChatMessage extends StatelessWidget {
         children: [
           if (!isUser)
             CircleAvatar(
-              backgroundColor: Colors.purple,
+              backgroundColor: Color.fromARGB(255, 111, 2, 109),
               radius: 20,
               child: Icon(
                 FontAwesomeIcons.user,
@@ -129,7 +182,7 @@ class ChatMessage extends StatelessWidget {
               padding: EdgeInsets.all(15),
               margin: EdgeInsets.symmetric(vertical: 5),
               decoration: BoxDecoration(
-                color: isUser ? Colors.purple : Colors.white,
+                color: isUser ? Color.fromARGB(255, 111, 2, 109) : Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(isUser ? 20 : 0),
                   topRight: Radius.circular(isUser ? 0 : 20),

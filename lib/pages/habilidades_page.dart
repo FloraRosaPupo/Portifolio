@@ -1,8 +1,43 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:portifolio/shared/constants.dart';
 
-class HabilidadePage extends StatelessWidget {
-  const HabilidadePage({Key? key}) : super(key: key);
+class HabilidadePage extends StatefulWidget {
+  const HabilidadePage({super.key});
+
+  @override
+  State<HabilidadePage> createState() => _HabilidadePageState();
+}
+
+class _HabilidadePageState extends State<HabilidadePage>
+    with TickerProviderStateMixin {
+  late AnimationController _translationController;
+  late Timer _timer;
+  int _counter = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _translationController = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 2),
+    )..repeat(reverse: true);
+
+    // Inicializa o timer para atualizar o texto a cada 15 segundos
+    _timer = Timer.periodic(Duration(seconds: 10), (timer) {
+      setState(() {
+        _counter++;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _translationController.dispose();
+    _timer.cancel(); // Cancela o timer ao sair da tela
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,13 +77,14 @@ class HabilidadePage extends StatelessWidget {
           ),
         ],
       ),
+      floatingActionButton: botaoContato(context, _counter),
     );
   }
 }
 
 Widget cardHardSoft(String labelText, String textCaracteristicas) {
   return Card(
-    //color: Colors.white,
+    color: Colors.transparent,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -82,8 +118,14 @@ Widget cardHardSoft(String labelText, String textCaracteristicas) {
             children: textCaracteristicas
                 .split(', ')
                 .map((topic) => ListTile(
-                      leading: Icon(Icons.check),
-                      title: Text(topic.trim()),
+                      leading: Icon(
+                        Icons.check,
+                        color: Colors.white,
+                      ),
+                      title: Text(
+                        topic.trim(),
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ))
                 .toList(),
           ),

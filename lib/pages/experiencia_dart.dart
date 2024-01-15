@@ -1,9 +1,44 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portifolio/shared/constants.dart';
 
-class ExperienciaPage extends StatelessWidget {
+
+class ExperienciaPage extends StatefulWidget {
   const ExperienciaPage({super.key});
+
+  @override
+  State<ExperienciaPage> createState() => _ExperienciaPageState();
+}
+
+class _ExperienciaPageState extends State<ExperienciaPage> with TickerProviderStateMixin {
+  late AnimationController _translationController;
+  late Timer _timer;
+  int _counter = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _translationController = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 2),
+    )..repeat(reverse: true);
+
+    // Inicializa o timer para atualizar o texto a cada 15 segundos
+    _timer = Timer.periodic(Duration(seconds: 10), (timer) {
+      setState(() {
+        _counter++;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _translationController.dispose();
+    _timer.cancel(); // Cancela o timer ao sair da tela
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -195,6 +230,7 @@ class ExperienciaPage extends StatelessWidget {
           ),
         ],
       ),
+      floatingActionButton: botaoContato(context, _counter),
     );
   }
 }

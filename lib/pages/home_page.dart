@@ -69,7 +69,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         child: botaoPainel(
                           context,
                           HabilidadePage(),
-                          'Habilidade',
+                          'Habilidades',
                         ),
                       ),
                     ],
@@ -82,7 +82,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         child: botaoPainel(
                           context,
                           ExperienciaPage(),
-                          'Experiência',
+                          'Experiências',
                         ),
                       ),
                       Expanded(
@@ -101,39 +101,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           ),
         ],
       ),
-      floatingActionButton: Container(
-        height: 100,
-        width: 100,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              (_counter % 2 == 0) ? 'Entre em contato' : '',
-              style: TextStyle(
-                  fontSize: 10, color: Colors.white, fontFamily: 'Montserrat'),
-            ),
-            SizedBox(height: 5),
-            FloatingActionButton(
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (context) {
-                    return ContatoDialog(); // Using the ContatoDialog widget here
-                  },
-                );
-              },
-              child: Icon(Icons.chat),
-            ),
-          ],
-        ),
-      ),
+      floatingActionButton: botaoContato(context, _counter),
     );
   }
 }
 
 botaoPainel(context, _route, _label) {
   return Card(
-    color: Color.fromARGB(255, 148, 0, 211),
+    color: Color.fromARGB(255, 111, 2, 109),
     elevation: 5.0,
     child: SizedBox(
       height: 200, // Define a altura fixa do Card
