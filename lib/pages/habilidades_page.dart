@@ -10,8 +10,7 @@ class HabilidadePage extends StatefulWidget {
   State<HabilidadePage> createState() => _HabilidadePageState();
 }
 
-class _HabilidadePageState extends State<HabilidadePage>
-    with TickerProviderStateMixin {
+class _HabilidadePageState extends State<HabilidadePage> with TickerProviderStateMixin {
   late AnimationController _translationController;
   late Timer _timer;
   int _counter = 0;
@@ -38,6 +37,7 @@ class _HabilidadePageState extends State<HabilidadePage>
     _timer.cancel(); // Cancela o timer ao sair da tela
     super.dispose();
   }
+
 
   @override
   Widget build(BuildContext context) {
