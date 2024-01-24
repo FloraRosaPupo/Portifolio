@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portifolio/shared/constants.dart';
 
-
 class ExperienciaPage extends StatelessWidget {
   const ExperienciaPage({super.key});
 
@@ -17,7 +16,7 @@ class ExperienciaPage extends StatelessWidget {
         children: [
           background(context),
           SingleChildScrollView(
-            padding: EdgeInsets.symmetric(horizontal: 25),
+            padding: EdgeInsets.symmetric(horizontal: 10),
             child: Column(
               children: [
                 Container(
@@ -160,6 +159,7 @@ class ExperienciaPage extends StatelessWidget {
                                       fontWeight: FontWeight.bold,
                                       fontFamily: 'Montserrat',
                                     ),
+                                    textAlign: TextAlign.center,
                                   ),
                                   SizedBox(
                                     height: 10,

@@ -1,4 +1,3 @@
-import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:portifolio/shared/constants.dart';
@@ -17,7 +16,7 @@ class HabilidadePage extends StatelessWidget {
           Center(
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Column(
                   children: [
                     SizedBox(
@@ -32,7 +31,7 @@ class HabilidadePage extends StatelessWidget {
                     ),
                     cardHardSoft(
                       'Soft Skills',
-                      'Comunicação eficaz e cooperativa, Resolução de problemas, Aprendizado rápido, Organização, Lideraça',
+                      'Comunicação eficaz e cooperativa, Resolução de problemas, Aprendizado rápido, Organização, Proatividade, Lideraça',
                     ),
                     SizedBox(
                       height: 20,

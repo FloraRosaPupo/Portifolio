@@ -19,7 +19,7 @@ class SobrePage extends StatelessWidget {
           Center(
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -57,7 +57,7 @@ class SobrePage extends StatelessWidget {
                             const Padding(
                               padding: EdgeInsets.symmetric(horizontal: 30.0),
                               child: Text(
-                                'Olá, meu nome é Flora Rosa Pupo tenho 22 anos,\nSou graduanda em Sistemas de Informação pela Universidade Federal de Viçosa (UFV), com interesse na área do Desenvolvimento Mobile, sobretudo o front-end. Ao longo da minha trajetória, adquiri experiência em gestão de projetos, engenharia de requisitos, liderança de equipes, desenvolvimento de projetos, experiência do usuário e parcerias estratégicas, graças à minha ativa participação no Movimento Empresa Júnior (MEJ).\nDestaco-me por ser uma pessoa comunicativa, organizada e dedicada. Estou constantemente em busca de aprimoramento, tanto nas minhas habilidades técnicas quanto interpessoais, com o objetivo de contribuir de maneira significativa para projetos inovadores e impactantes. Estou aberta a oportunidades e conexões profissionais que possam enriquecer minha trajetória no campo da tecnologia.',
+                                'Sou Flora Rosa Pupo, graduanda em Sistemas de Informação na Universidade Federal de Viçosa (UFV) com especialização em Desenvolvimento Mobile, notadamente no front-end. Tenho uma paixão por tecnologia, inovação e liderança, aspirando construir uma trajetória sólida em uma empresa, ocupando eventualmente uma posição de destaque.\n Ao longo da minha formação, destaco características essenciais como organização e comunicação. Esses atributos são alicerces para a construção de processos eficientes e entregas de qualidade, contribuindo para o sucesso da equipe e da empresa como um todo.\n Minha jornada acadêmica teve início em 2020, no curso de Sistema de Informação. Na empresa júnior, fui participante ativa, envolvendo-me em projetos relevantes, incluindo iniciativas sociais, como o combate à violência doméstica. Durante essa experiência, tive a oportunidade de representar o projeto na Assembleia Estadual de Minas Gerais, um momento marcante em minha trajetória.\n Além disso, destaco minha participação no Movimento Empresa Júnior (MEJ), onde acumulei experiência em gestão de projetos, engenharia de requisitos e liderança de equipes. Minha busca constante por aprimoramento técnico e interpessoal é evidenciada por minha comunicação eficaz, organização meticulosa e dedicação.\n Estou em busca de oportunidades e conexões profissionais que enriqueçam minha trajetória no campo da tecnologia. Meu objetivo é contribuir para projetos inovadores e impactantes, aplicando os conhecimentos adquiridos ao longo da minha jornada acadêmica e profissional.',
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 15),
                                 textAlign: TextAlign.justify,
@@ -78,33 +78,5 @@ class SobrePage extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-void abrirInstagram() async {
-  const url = 'https://www.instagram.com/florarosapupo/';
-  if (await canLaunchUrl(Uri.parse(url))) {
-    await launchUrl(Uri.parse(url));
-  } else {
-    throw 'Could not launch $url';
-  }
-}
-
-void abrirWhatsApp() async {
-  var whatsappUrl = "whatsapp://send?phone=5586994324465&text=Olá,tudo bem ?";
-
-  if (await canLaunchUrl(Uri.parse(whatsappUrl))) {
-    await launchUrl(Uri.parse(whatsappUrl));
-  } else {
-    throw 'Could not launch $whatsappUrl';
-  }
-}
-
-void abrirLinkedin() async {
-  const url = 'https://www.linkedin.com/in/flora-rosa-b386841b6/';
-  if (await canLaunchUrl(Uri.parse(url))) {
-    await launchUrl(Uri.parse(url));
-  } else {
-    throw 'Could not launch $url';
   }
 }

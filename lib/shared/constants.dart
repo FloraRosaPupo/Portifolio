@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portifolio/pages/contato_page.dart';
 import 'package:portifolio/pages/experiencia_dart.dart';
 import 'package:portifolio/pages/habilidades_page.dart';
@@ -143,7 +144,7 @@ botaoContato(context, _counter){
                 );
               },
               child: Icon(
-                Icons.chat,
+                FontAwesomeIcons.headset,
                 color: Colors.white,
               ),
             ),
