@@ -27,7 +27,10 @@ appBarDinamica() {
     child: AppBar(
       toolbarHeight: 150,
       centerTitle: true,
-      title: Image.asset("assets/images/logo.png"),
+      title: Image.asset(
+        "assets/images/logo.png",
+        fit: BoxFit.fitHeight,
+      ),
       backgroundColor: Color.fromARGB(255, 71, 7, 82),
       leading: Builder(
         builder: (BuildContext context) {
@@ -120,35 +123,35 @@ background(context) {
   );
 }
 
-botaoContato(context, _counter){
+botaoContato(context, _counter) {
   return Container(
-        height: 100,
-        width: 100,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              (_counter % 2 == 0) ? 'Entre em contato' : '',
-              style: TextStyle(
-                  fontSize: 10, color: Colors.white, fontFamily: 'Montserrat'),
-            ),
-            SizedBox(height: 5),
-            FloatingActionButton(
-              backgroundColor: Color.fromARGB(255, 111, 2, 109),
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (context) {
-                    return ContatoDialog(); // Using the ContatoDialog widget here
-                  },
-                );
-              },
-              child: Icon(
-                FontAwesomeIcons.headset,
-                color: Colors.white,
-              ),
-            ),
-          ],
+    height: 100,
+    width: 100,
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(
+          (_counter % 2 == 0) ? 'Entre em contato' : '',
+          style: TextStyle(
+              fontSize: 10, color: Colors.white, fontFamily: 'Montserrat'),
         ),
-      );
+        SizedBox(height: 5),
+        FloatingActionButton(
+          backgroundColor: Color.fromARGB(255, 111, 2, 109),
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (context) {
+                return ContatoDialog(); // Using the ContatoDialog widget here
+              },
+            );
+          },
+          child: Icon(
+            FontAwesomeIcons.headset,
+            color: Colors.white,
+          ),
+        ),
+      ],
+    ),
+  );
 }

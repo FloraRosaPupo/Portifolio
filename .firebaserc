@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "portifolio-d00ca",
+    "staging": "portifolio-d00ca"
+  },
+  "targets": {},
+  "etags": {}
+}

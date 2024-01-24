@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portifolio/pages/sobre_page.dart';
+import 'package:portifolio/shared/constants.dart';
 import 'home_page.dart';
 
 class SplashPage extends StatefulWidget {
@@ -40,47 +41,47 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color.fromARGB(255, 71, 7, 82),
-              Colors.black,
-            ],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
-        ),
-        child: Center(
-          child: AnimatedBuilder(
-            animation: _translationController,
-            builder: (context, child) {
-              return Transform.translate(
-                offset: Offset(0.0, _translationController.value * 10),
-                child: Container(
-                  width: MediaQuery.of(context).size.width * 0.7,
-                  height: MediaQuery.of(context).size.height * 0.5,
-                  child: Column(
-                    children: [
-                      Image.asset("assets/images/fundo.png"),
-                      Text(
-                        "Bem-vindo(a) ao meu Portfólio",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 20.00,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                          fontFamily: 'Montserrat',
-                        ),
+      //backgroundColor: Colors.white,
+      body: Stack(
+        children: [
+          background(context),
+          Center(
+            child: AnimatedBuilder(
+              animation: _translationController,
+              builder: (context, child) {
+                return Transform.translate(
+                  offset: Offset(0.0, _translationController.value * 10),
+                  child: Container(
+                    width: 500,
+                    height: 600,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 25),
+                      child: Column(
+                        children: [
+                          // Utilize o BoxFit.cover para garantir que a imagem cubra o contêiner sem perder a proporção
+                          Image.asset(
+                            "assets/images/fundo.png",
+                            fit: BoxFit.cover,
+                          ),
+                          Text(
+                            "Bem-vindo(a) ao meu Portfólio",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 20.00,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                              fontFamily: 'Montserrat',
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
-                ),
-              );
-            },
+                );
+              },
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
