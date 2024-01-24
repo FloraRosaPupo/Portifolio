@@ -3,41 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:portifolio/shared/constants.dart';
 
-class HabilidadePage extends StatefulWidget {
+class HabilidadePage extends StatelessWidget {
   const HabilidadePage({super.key});
-
-  @override
-  State<HabilidadePage> createState() => _HabilidadePageState();
-}
-
-class _HabilidadePageState extends State<HabilidadePage> with TickerProviderStateMixin {
-  late AnimationController _translationController;
-  late Timer _timer;
-  int _counter = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    _translationController = AnimationController(
-      vsync: this,
-      duration: Duration(seconds: 2),
-    )..repeat(reverse: true);
-
-    // Inicializa o timer para atualizar o texto a cada 15 segundos
-    _timer = Timer.periodic(Duration(seconds: 10), (timer) {
-      setState(() {
-        _counter++;
-      });
-    });
-  }
-
-  @override
-  void dispose() {
-    _translationController.dispose();
-    _timer.cancel(); // Cancela o timer ao sair da tela
-    super.dispose();
-  }
-
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +44,6 @@ class _HabilidadePageState extends State<HabilidadePage> with TickerProviderStat
           ),
         ],
       ),
-      floatingActionButton: botaoContato(context, _counter),
     );
   }
 }

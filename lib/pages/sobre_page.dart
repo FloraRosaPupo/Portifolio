@@ -5,36 +5,8 @@ import 'package:portifolio/shared/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class SobrePage extends StatefulWidget {
+class SobrePage extends StatelessWidget {
   const SobrePage({super.key});
-
-  @override
-  State<SobrePage> createState() => _SobrePageState();
-}
-
-class _SobrePageState extends State<SobrePage> {
- // late AnimationController _translationController;
-  late Timer _timer;
-  int _counter = 0;
-
-  @override
-  void initState() {
-    super.initState();
-
-    // Inicializa o timer para atualizar o texto a cada 15 segundos
-    _timer = Timer.periodic(Duration(seconds: 10), (timer) {
-      setState(() {
-        _counter++;
-      });
-    });
-  }
-
-  @override
-  void dispose() {
-   // _translationController.dispose();
-    _timer.cancel(); // Cancela o timer ao sair da tela
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +77,6 @@ class _SobrePageState extends State<SobrePage> {
           ),
         ],
       ),
-      floatingActionButton: botaoContato(context, _counter),
     );
   }
 }
