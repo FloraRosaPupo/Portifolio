@@ -23,7 +23,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
       duration: Duration(seconds: 2),
     )..repeat(reverse: true);
 
-    Future.delayed(Duration(seconds: 10)).then(
+    Future.delayed(Duration(seconds: 5)).then(
       (value) => Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (BuildContext context) => HomePage(),

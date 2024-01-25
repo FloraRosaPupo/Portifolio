@@ -1,20 +1,19 @@
 {
   "hosting": {
-    "public": "apks",
+    "public": "build/web",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ],
-    "headers": [
+    "rewrites": [
       {
-        "source": "**/*.@(apk)",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "public, max-age=0, must-revalidate"
-          }
-        ]
+        "source": "/app-release.apk",
+        "destination": "https://storage.googleapis.com/seu-bucket/nome-do-seu-apk.apk"
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
       }
     ]
   }

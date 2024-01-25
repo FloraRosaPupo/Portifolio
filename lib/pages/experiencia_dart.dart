@@ -88,7 +88,9 @@ class ExperienciaPage extends StatelessWidget {
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 15,
-                                      fontFamily: 'Montserrat',
+                                      //fontFamily: 'Montserrat',
+
+
                                     ),
                                     textAlign: TextAlign.justify,
                                   ),
@@ -110,7 +112,7 @@ class ExperienciaPage extends StatelessWidget {
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 15,
-                                      fontFamily: 'Montserrat',
+                                      //fontFamily: 'Montserrat',
                                     ),
                                     textAlign: TextAlign.justify,
                                   ),
@@ -132,7 +134,7 @@ class ExperienciaPage extends StatelessWidget {
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 15,
-                                      fontFamily: 'Montserrat',
+                                      //fontFamily: 'Montserrat',
                                     ),
                                     textAlign: TextAlign.justify,
                                   ),
@@ -179,7 +181,7 @@ class ExperienciaPage extends StatelessWidget {
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 15,
-                                      fontFamily: 'Montserrat',
+                                    //  fontFamily: 'Montserrat',
                                     ),
                                     textAlign: TextAlign.justify,
                                   ),
