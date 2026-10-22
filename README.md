@@ -1,16 +1,28 @@
-# portifolio
+# Portfólio de Flora Rosa
 
-A new Flutter project.
+Apresentação de projetos, experiência e formas de contato.
 
-## Getting Started
+## Stack e organização
+Flutter/Dart, Firebase e url_launcher. As páginas estão em `lib/pages/`. A publicação web usa Firebase Hosting.
 
-This project is a starting point for a Flutter application.
+## Executar
+Use a versão de Flutter registrada em `.github/workflows/ci.yml`.
+```sh
+git clone https://github.com/FloraRosaPupo/Portifolio.git
+cd Portifolio
+flutter pub get
+flutter run
+```
 
-A few resources to get you started if this is your first Flutter project:
+## Verificações
+```sh
+flutter analyze --no-fatal-infos --no-fatal-warnings
+flutter test
+```
+A CI verifica erros de análise e os testes. Avisos e sugestões continuam visíveis no relatório do analisador. Testes locais não substituem a validação no dispositivo e dos serviços externos.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Contribuir
+Abra uma branch por alteração, descreva o comportamento esperado e inclua testes para regras ou regressões. Mantenha credenciais e arquivos gerados fora do Git.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Licença
+Não há licença de distribuição definida neste repositório.

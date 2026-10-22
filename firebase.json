@@ -8,10 +8,6 @@
     ],
     "rewrites": [
       {
-        "source": "/app-release.apk",
-        "destination": "https://storage.googleapis.com/seu-bucket/nome-do-seu-apk.apk"
-      },
-      {
         "source": "**",
         "destination": "/index.html"
       }
