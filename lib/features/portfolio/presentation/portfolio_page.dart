@@ -29,7 +29,9 @@ class _PortfolioPageState extends State<PortfolioPage> {
     final context = sections[index].currentContext;
     if (context != null) {
       Scrollable.ensureVisible(context,
-          duration: const Duration(milliseconds: 500),
+          duration: MediaQuery.disableAnimationsOf(context)
+              ? Duration.zero
+              : const Duration(milliseconds: 500),
           curve: Curves.easeOutCubic);
     }
   }
