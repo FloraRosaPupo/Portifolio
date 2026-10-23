@@ -1,25 +1,5 @@
 import 'package:flutter/material.dart';
 
-class Entrance extends StatelessWidget {
-  final Widget child;
-  const Entrance({super.key, required this.child});
-  @override
-  Widget build(BuildContext context) {
-    if (MediaQuery.disableAnimationsOf(context)) return child;
-    return TweenAnimationBuilder<double>(
-      tween: Tween(begin: 0, end: 1),
-      duration: const Duration(milliseconds: 650),
-      curve: Curves.easeOutCubic,
-      child: child,
-      builder: (context, value, child) => Opacity(
-        opacity: value,
-        child: Transform.translate(
-            offset: Offset(0, 20 * (1 - value)), child: child),
-      ),
-    );
-  }
-}
-
 class HoverLift extends StatefulWidget {
   final Widget child;
   const HoverLift({super.key, required this.child});

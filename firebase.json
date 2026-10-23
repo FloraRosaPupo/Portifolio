@@ -1,23 +1,48 @@
 {
-  "hosting": {
-    "public": "build/web",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ],
-    "redirects": [
-      {
-        "source": "/app-release.apk",
-        "destination": "https://github.com/FloraRosaPupo/Portifolio/raw/refs/heads/main/apks/app-release.apk",
-        "type": 302
-      }
-    ]
-  }
+  "hosting": [
+    {
+      "public": "build/web",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "redirects": [
+        {
+          "source": "/app-release.apk",
+          "destination": "https://github.com/FloraRosaPupo/Portifolio/raw/refs/heads/main/apks/app-release.apk",
+          "type": 302
+        }
+      ],
+      "target": "primary"
+    },
+    {
+      "public": "build/web",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "redirects": [
+        {
+          "source": "/app-release.apk",
+          "destination": "https://github.com/FloraRosaPupo/Portifolio/raw/refs/heads/main/apks/app-release.apk",
+          "type": 302
+        }
+      ],
+      "target": "professional"
+    }
+  ]
 }

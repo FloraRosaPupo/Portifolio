@@ -3,6 +3,17 @@
     "default": "portifolio-d00ca",
     "staging": "portifolio-d00ca"
   },
-  "targets": {},
+  "targets": {
+    "portifolio-d00ca": {
+      "hosting": {
+        "primary": [
+          "portifolio-d00ca"
+        ],
+        "professional": [
+          "flora-rosa"
+        ]
+      }
+    }
+  },
   "etags": {}
 }

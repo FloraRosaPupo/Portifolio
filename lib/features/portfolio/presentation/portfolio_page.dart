@@ -83,7 +83,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
               child: Center(
                   child: ConstrainedBox(
                       constraints: const BoxConstraints(maxWidth: 1160),
-                      child: Entrance(child: child))),
+                      child: child)),
             );
         return Scaffold(
             body: SafeArea(
@@ -144,9 +144,9 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                 const Eyebrow(
                                     'FLORA ROSA PUPO / DESENVOLVEDORA'),
                                 const SizedBox(height: 28),
-                                Text('Da ideia à\nexperiência.',
+                                Text('Mobile e backend,\nconectados.',
                                     style: TextStyle(
-                                        fontSize: wide ? 72 : 46,
+                                        fontSize: wide ? 62 : 40,
                                         height: 1.08,
                                         fontWeight: FontWeight.w700,
                                         letterSpacing: -2.8)),
@@ -165,7 +165,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                         color: muted)),
                                 const SizedBox(height: 24),
                                 const Text(
-                                    'Construo aplicações que conectam boas interfaces, regras de negócio e dados. Do mobile ao backend, com atenção à experiência de quem usa.',
+                                    'Desenvolvedora com experiência em aplicações multiplataforma, APIs REST e bancos de dados. Atuação em produtos publicados, conectando interface, regras de negócio e integrações.',
                                     style:
                                         TextStyle(fontSize: 18, height: 1.7)),
                                 const SizedBox(height: 32),
@@ -180,7 +180,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                               padding: const EdgeInsets.all(32),
                               decoration: BoxDecoration(
                                   color: accent,
-                                  borderRadius: BorderRadius.circular(28)),
+                                  borderRadius: BorderRadius.circular(12)),
                               child: const Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -189,7 +189,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                           color: highlight, size: 30),
                                       Spacer(),
                                       Flexible(
-                                          child: Text('DESIGN + CÓDIGO',
+                                          child: Text('ATUAÇÃO PROFISSIONAL',
                                               style: TextStyle(
                                                   color: highlight,
                                                   fontSize: 11,
@@ -197,7 +197,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                     ]),
                                     SizedBox(height: 44),
                                     Text(
-                                        'Interfaces claras.\nConexões sólidas.\nProdutos úteis.',
+                                        'Flutter & Dart\nNode.js & APIs\nPostgreSQL',
                                         style: TextStyle(
                                             fontSize: 32,
                                             height: 1.3,
@@ -207,14 +207,14 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                     SizedBox(height: 40),
                                     Divider(color: Color(0xFF9470B5)),
                                     SizedBox(height: 20),
-                                    Text('MOBILE / BACKEND / DADOS',
+                                    Text('ATUALMENTE NA DOUBLEX',
                                         style: TextStyle(
                                             color: highlight,
                                             fontSize: 11,
                                             letterSpacing: 1.4)),
                                     SizedBox(height: 14),
                                     Text(
-                                        'Formada em Sistemas de Informação pela UFV. Pós-graduanda em Inteligência Artificial Aplicada aos Negócios.',
+                                        'Desenvolvimento de aplicações e integrações. Experiência também na FlowCode, Roteo e em projetos freelance.',
                                         style: TextStyle(
                                             color: Colors.white,
                                             height: 1.8,
@@ -226,10 +226,39 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   const Eyebrow('01 / PROJETOS'),
-                                  const Heading('Código que ganha forma.'),
+                                  const Heading('Produtos & projetos.'),
                                   const Body(
-                                      'Projetos pessoais para explorar ideias, aperfeiçoar a arquitetura e transformar aprendizado em aplicações.'),
+                                      'Experiência em produtos publicados e projetos independentes com código disponível para consulta.'),
                                   const SizedBox(height: 36),
+                                  const Eyebrow('APLICATIVOS PUBLICADOS'),
+                                  const SizedBox(height: 20),
+                                  ProfessionalProduct(
+                                      number: '01',
+                                      name: 'Easy Comlink',
+                                      relationship: 'DOUBLEX',
+                                      description:
+                                          'Atuação profissional no produto pela DoubleX.',
+                                      onTap: () => open(
+                                          'https://play.google.com/store/apps/details?id=com.mycompany.easycomlink&hl=pt_BR')),
+                                  ProfessionalProduct(
+                                      number: '02',
+                                      name: 'IndicaZ Profissionais',
+                                      relationship: 'FREELANCE',
+                                      description:
+                                          'Atuação como desenvolvedora freelancer no aplicativo.',
+                                      onTap: () => open(
+                                          'https://play.google.com/store/apps/details?id=com.mycompany.indicazprofissionais&hl=pt_BR')),
+                                  ProfessionalProduct(
+                                      number: '03',
+                                      name: 'Roteo',
+                                      relationship: 'DESENVOLVIMENTO MOBILE',
+                                      description:
+                                          'Produto em que atuei durante minha experiência na Roteo.',
+                                      onTap: () => open(
+                                          'https://play.google.com/store/apps/details?id=com.roteoapp.aa&hl=pt_BR')),
+                                  const SizedBox(height: 64),
+                                  const Eyebrow('PROJETOS INDEPENDENTES'),
+                                  const SizedBox(height: 24),
                                   columns(
                                     wide,
                                     ProjectCard(
@@ -265,31 +294,6 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                   button('Mais projetos no GitHub ↗',
                                       () => open(github)),
                                   const SizedBox(height: 64),
-                                  const Eyebrow('APLICATIVOS PUBLICADOS'),
-                                  const SizedBox(height: 16),
-                                  const Body(
-                                      'Produtos em que atuei profissionalmente, disponíveis na Google Play.'),
-                                  const SizedBox(height: 24),
-                                  Wrap(spacing: 16, runSpacing: 16, children: [
-                                    StoreLink(
-                                        'Easy Comlink',
-                                        'DoubleX · Desenvolvimento',
-                                        Icons.shopping_bag_outlined,
-                                        () => open(
-                                            'https://play.google.com/store/apps/details?id=com.mycompany.easycomlink&hl=pt_BR')),
-                                    StoreLink(
-                                        'IndicaZ Profissionais',
-                                        'Projeto freelance',
-                                        Icons.handshake_outlined,
-                                        () => open(
-                                            'https://play.google.com/store/apps/details?id=com.mycompany.indicazprofissionais&hl=pt_BR')),
-                                    StoreLink(
-                                        'Roteo',
-                                        'Roteo · Desenvolvimento mobile',
-                                        Icons.route_outlined,
-                                        () => open(
-                                            'https://play.google.com/store/apps/details?id=com.roteoapp.aa&hl=pt_BR')),
-                                  ]),
                                 ]),
                             key: sections[0],
                             color: Colors.white),
@@ -298,7 +302,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   const Eyebrow('02 / TRAJETÓRIA'),
-                                  const Heading('Construção contínua.'),
+                                  const Heading('Experiência profissional.'),
                                   const Body(
                                       'Experiência em desenvolvimento, integração de sistemas e liderança de equipes.'),
                                   const SizedBox(height: 40),
@@ -347,8 +351,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   const Eyebrow('03 / SOBRE & FORMAÇÃO'),
-                                  const Heading(
-                                      'Curiosidade como ponto de partida.'),
+                                  const Heading('Formação & competências.'),
                                   columns(
                                       wide,
                                       const Column(
@@ -356,10 +359,10 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Body(
-                                                'Sou Flora, desenvolvedora com experiência em Flutter/Dart e Node.js. Gosto de entender o problema antes de escrever código e de acompanhar a solução da interface às integrações e aos dados.'),
+                                                'Graduada em Sistemas de Informação pela UFV, com atuação em desenvolvimento mobile, backend e integração de sistemas. Minha experiência reúne Flutter/Dart, Node.js, APIs REST e bancos de dados relacionais.'),
                                             SizedBox(height: 20),
                                             Body(
-                                                'Minha trajetória também passa pela liderança na InfoAlto. Levo dessa experiência o cuidado com as pessoas, a colaboração e a clareza na comunicação. Hoje aprofundo meus estudos em inteligência artificial e amplio meus conhecimentos em React.js e React Native.'),
+                                                'A experiência em liderança na InfoAlto complementa minha atuação técnica com gestão de projetos e comunicação entre equipes. Atualmente curso a pós-graduação em Inteligência Artificial Aplicada aos Negócios na UniBH.'),
                                           ]),
                                       const Column(
                                           crossAxisAlignment:
@@ -407,8 +410,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 const Eyebrow('04 / TESTES & QUALIDADE'),
-                                const Heading(
-                                    'Cuidado que vai além da interface.'),
+                                const Heading('Qualidade de software.'),
                                 const Body(
                                     'Testes fazem parte da minha prática de desenvolvimento: validar regras, acompanhar mudanças visuais e evitar regressões antes de publicar.'),
                                 const SizedBox(height: 32),
@@ -480,8 +482,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                           letterSpacing: 2,
                                           fontSize: 12)),
                                   const SizedBox(height: 24),
-                                  Text(
-                                      'Vamos construir\nalgo que faça sentido?',
+                                  Text('Vamos conversar\nsobre o seu projeto.',
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: wide ? 52 : 34,
@@ -607,36 +608,6 @@ class Education extends StatelessWidget {
       ]);
 }
 
-class StoreLink extends StatelessWidget {
-  final String name;
-  final String contextLabel;
-  final IconData icon;
-  final VoidCallback onTap;
-  const StoreLink(this.name, this.contextLabel, this.icon, this.onTap,
-      {super.key});
-  @override
-  Widget build(BuildContext context) => OutlinedButton(
-      onPressed: onTap,
-      style: OutlinedButton.styleFrom(
-          padding: const EdgeInsets.all(22), foregroundColor: accent),
-      child: Row(mainAxisSize: MainAxisSize.min, children: [
-        Icon(icon),
-        const SizedBox(width: 12),
-        Flexible(
-            child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-              Text(name, style: const TextStyle(fontWeight: FontWeight.w600)),
-              const SizedBox(height: 6),
-              Text(contextLabel,
-                  style: const TextStyle(fontSize: 12, color: muted)),
-            ])),
-        const SizedBox(width: 12),
-        const Icon(Icons.north_east, size: 16)
-      ]));
-}
-
 class ProjectCard extends StatelessWidget {
   final String title, category, image, description;
   final List<String> tags;
@@ -687,4 +658,42 @@ class ProjectCard extends StatelessWidget {
         const SizedBox(height: 18),
         TextButton(onPressed: onTap, child: const Text('Explorar projeto ↗')),
       ]));
+}
+
+class ProfessionalProduct extends StatelessWidget {
+  final String number, name, relationship, description;
+  final VoidCallback onTap;
+  const ProfessionalProduct(
+      {super.key,
+      required this.number,
+      required this.name,
+      required this.relationship,
+      required this.description,
+      required this.onTap});
+  @override
+  Widget build(BuildContext context) => Container(
+        padding: const EdgeInsets.symmetric(vertical: 28),
+        decoration: const BoxDecoration(
+            border: Border(bottom: BorderSide(color: Color(0xFFE2D8EB)))),
+        child: LayoutBuilder(
+            builder: (context, constraints) => columns(
+                constraints.maxWidth > 720,
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Eyebrow('$number / $relationship'),
+                  const SizedBox(height: 12),
+                  Text(name,
+                      style: const TextStyle(
+                          fontSize: 28,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: -.7)),
+                ]),
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Body(description),
+                  const SizedBox(height: 16),
+                  TextButton.icon(
+                      onPressed: onTap,
+                      icon: const Icon(Icons.north_east, size: 16),
+                      label: const Text('Ver produto na Google Play')),
+                ]))),
+      );
 }

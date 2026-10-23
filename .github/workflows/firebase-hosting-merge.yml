@@ -22,6 +22,7 @@ jobs:
       - run: flutter pub get
       - run: flutter analyze --no-fatal-infos --no-fatal-warnings
       - run: flutter test
+      - run: node --test test/bootstrap_test.cjs
       - run: flutter build web
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
@@ -29,3 +30,20 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PORTIFOLIO_D00CA }}'
           channelId: live
           projectId: portifolio-d00ca
+          target: primary
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare professional Hosting address
+        env:
+          FIREBASE_SERVICE_ACCOUNT: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PORTIFOLIO_D00CA }}'
+        run: |
+          python -m pip install 'google-auth>=2,<3' 'requests>=2,<3'
+          python scripts/ensure_hosting_site.py
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PORTIFOLIO_D00CA }}'
+          channelId: live
+          projectId: portifolio-d00ca
+          target: professional

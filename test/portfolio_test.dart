@@ -18,13 +18,17 @@ void main() {
     await tester.pumpAndSettle();
     expect(opened, Uri.parse('https://wa.me/5534993130077'));
   });
-  testWidgets('entrance respects reduced motion', (tester) async {
+  testWidgets('hover respects reduced motion', (tester) async {
     await tester.pumpWidget(const MaterialApp(
         home: MediaQuery(
             data: MediaQueryData(disableAnimations: true),
-            child: Entrance(child: Text('Conteúdo')))));
+            child: HoverLift(child: Text('Conteúdo')))));
     expect(find.text('Conteúdo'), findsOneWidget);
-    expect(find.byType(TweenAnimationBuilder<double>), findsNothing);
+    expect(
+        tester
+            .widget<AnimatedContainer>(find.byType(AnimatedContainer))
+            .duration,
+        Duration.zero);
   });
   for (final width in [320.0, 430.0, 768.0, 1440.0]) {
     testWidgets('layout fits width $width and enlarged text', (tester) async {
