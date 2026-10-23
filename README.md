@@ -6,15 +6,17 @@ Portfólio desenvolvido em Flutter para apresentar trajetória, experiências, p
 
 ## Stack e bibliotecas
 
-Flutter/Dart, Firebase Core, Firebase Hosting, carousel_slider e url_launcher.
+Flutter/Dart, url_launcher e Firebase Hosting. A interface não depende de inicialização de serviços externos.
 
 Dependências e versões declaradas: [pubspec.yaml](pubspec.yaml).
 
 ## Funcionalidades
 
-- Apresentação pessoal.
-- Projetos e experiência.
-- Links de contato.
+- Página responsiva com navegação por seções.
+- Projetos Avalia e Bebeu? com capturas reais de execução local.
+- Links de aplicativos publicados na Google Play.
+- Trajetória profissional, formação e competências.
+- Contato por e-mail, LinkedIn e GitHub.
 
 ## Licença
 
@@ -45,10 +47,26 @@ Abra uma branch por alteração, descreva o comportamento esperado e inclua test
 
 ## Organização e manutenção
 
-Mantidas páginas de apresentação e constantes compartilhadas: existe uma única funcionalidade, o portfólio, sem domínio de negócio que justifique Clean Architecture. Firebase Auth sem uso foi retirado. O build web e o download do APK têm destinos separados.
+`lib/features/portfolio` reúne conteúdo e apresentação. As páginas antigas foram substituídas por uma página com seções responsivas. A inicialização Firebase e as dependências sem uso foram removidas; Firebase Hosting continua hospedando a versão web.
 
 Veja [a revisão de desenvolvimento](docs/REVISAO.md) para decisões, testes e limites, e [o guia de contribuição](CONTRIBUTING.md) para o fluxo de manutenção.
 
 ## Publicação web e APK
 
-Os workflows Firebase compilam Flutter web. O APK existente continua em `apks/app-release.apk` no GitHub; `/app-release.apk` redireciona para esse arquivo, pois o plano Spark do Firebase Hosting não aceita executáveis. O workflow não recompila o APK. Firebase Auth foi removido das dependências por não ser utilizado; Firebase Core foi atualizado para a compilação web atual. O preview depende da conta de serviço já configurada no repositório.
+Os workflows Firebase compilam Flutter web. O APK existente continua em `apks/app-release.apk` no GitHub; `/app-release.apk` redireciona para esse arquivo, pois o plano Spark do Firebase Hosting não aceita executáveis. O workflow não recompila o APK. O cliente não utiliza Firebase Auth nem Firebase Core. O preview depende da conta de serviço já configurada no repositório.
+
+## Visual e conteúdo
+
+![Portfólio profissional](docs/portfolio-desktop.png)
+
+Experiência e formação atualizadas a partir do currículo da autora. [Origem do conteúdo e das capturas](docs/portfolio-conteudo.md).
+
+As capturas dos aplicativos são geradas localmente; o Bebeu? utiliza dados demonstrativos. Não representam uma sessão conectada a uma conta real.
+
+Para gerar capturas do próprio portfólio:
+
+```sh
+flutter test test/portfolio_capture_test.dart --dart-define=CAPTURE_PORTFOLIO=true
+```
+
+As imagens ficam em `captures/`. Os testes regulares verificam larguras de 320, 430, 768 e 1440 pixels, texto ampliado, navegação e abertura de links.
