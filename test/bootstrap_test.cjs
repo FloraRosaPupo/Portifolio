@@ -12,7 +12,7 @@ for (const failure of [null, 'download', 'engine', 'application']) {
     const context = {
       console: {error() {}},
       window: {showStartupError() { fallback = true; }},
-      _flutter: {loader: {async load(options) {
+      _flutter: {buildConfig: {builds: [{mainJsPath: 'main.dart.js'}, {}]}, loader: {async load(options) {
         if (failure === 'download') throw Error('offline');
         await options.onEntrypointLoaded({async initializeEngine() {
           if (failure === 'engine') throw Error('engine failed');
@@ -24,6 +24,7 @@ for (const failure of [null, 'download', 'engine', 'application']) {
       }}},
     };
     await vm.runInNewContext(source, context);
+    assert.equal(context._flutter.buildConfig.builds[0].mainJsPath, 'main.dart.js?v=dashboard-2');
     assert.equal(fallback, failure !== null);
     assert.equal(ran, failure === null);
   });

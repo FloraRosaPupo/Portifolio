@@ -20,7 +20,18 @@
           "type": 302
         }
       ],
-      "target": "primary"
+      "target": "primary",
+      "headers": [
+        {
+          "source": "**",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, max-age=0, must-revalidate"
+            }
+          ]
+        }
+      ]
     },
     {
       "public": "build/web",
@@ -42,7 +53,18 @@
           "type": 302
         }
       ],
-      "target": "professional"
+      "target": "professional",
+      "headers": [
+        {
+          "source": "**",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, max-age=0, must-revalidate"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
