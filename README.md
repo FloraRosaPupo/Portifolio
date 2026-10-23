@@ -3,7 +3,9 @@
 Apresentação de projetos, experiência e formas de contato.
 
 ## Stack e organização
-Flutter/Dart, Firebase e url_launcher. As páginas estão em `lib/pages/`. A publicação web usa Firebase Hosting.
+Flutter/Dart, Firebase Core, Firebase Hosting, carousel_slider e url_launcher.
+
+Mantidas páginas de apresentação e constantes compartilhadas: existe uma única funcionalidade, o portfólio, sem domínio de negócio que justifique Clean Architecture. Firebase Auth sem uso foi retirado. O build web e o download do APK têm destinos separados.
 
 ## Executar
 Use a versão de Flutter registrada em `.github/workflows/ci.yml`.
@@ -31,3 +33,17 @@ Não há licença de distribuição definida neste repositório.
 ### Publicação web e APK
 
 Os workflows Firebase compilam Flutter web. O APK existente continua em `apks/app-release.apk` no GitHub; `/app-release.apk` redireciona para esse arquivo, pois o plano Spark do Firebase Hosting não aceita executáveis. O workflow não recompila o APK. Firebase Auth foi removido das dependências por não ser utilizado; Firebase Core foi atualizado para a compilação web atual. O preview depende da conta de serviço já configurada no repositório.
+
+
+## Funcionalidades
+
+- Apresentação pessoal.
+- projetos e experiência.
+- links de contato.
+
+
+## Organização e manutenção
+
+Mantidas páginas de apresentação e constantes compartilhadas: existe uma única funcionalidade, o portfólio, sem domínio de negócio que justifique Clean Architecture. Firebase Auth sem uso foi retirado. O build web e o download do APK têm destinos separados.
+
+Veja [a revisão de desenvolvimento](docs/REVISAO.md) para decisões, testes e limites, e [o guia de contribuição](CONTRIBUTING.md) para o fluxo de manutenção.
