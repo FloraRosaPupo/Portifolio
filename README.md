@@ -16,7 +16,9 @@ Dependências e versões declaradas: [pubspec.yaml](pubspec.yaml).
 - Projetos Avalia e Bebeu? com capturas reais de execução local.
 - Links de aplicativos publicados na Google Play.
 - Trajetória profissional, formação e competências.
-- Contato por e-mail, LinkedIn e GitHub.
+- Contato por WhatsApp, e-mail, LinkedIn e GitHub.
+- Identidade visual roxa, interações suaves e respeito a movimento reduzido.
+- Seção de testes e qualidade com links para o código e a CI.
 
 ## Licença
 
@@ -52,6 +54,10 @@ Abra uma branch por alteração, descreva o comportamento esperado e inclua test
 Veja [a revisão de desenvolvimento](docs/REVISAO.md) para decisões, testes e limites, e [o guia de contribuição](CONTRIBUTING.md) para o fluxo de manutenção.
 
 ## Publicação web e APK
+
+O deploy da `main` atualiza o site original e o endereço profissional `flora-rosa.web.app` no mesmo projeto Firebase. O script `scripts/ensure_hosting_site.py` cria o site profissional apenas se ele ainda não existir. Uma indisponibilidade do nome ou falta de permissão interrompe essa etapa com erro, sem substituir outro site. A credencial permanece no secret do GitHub Actions.
+
+A abertura apresenta uma versão leve do texto e contatos enquanto o Flutter inicializa. A tela de espera foi removida; se a inicialização falhar, os contatos permanecem disponíveis com uma opção de nova tentativa.
 
 Os workflows Firebase compilam Flutter web. O APK existente continua em `apks/app-release.apk` no GitHub; `/app-release.apk` redireciona para esse arquivo, pois o plano Spark do Firebase Hosting não aceita executáveis. O workflow não recompila o APK. O cliente não utiliza Firebase Auth nem Firebase Core. O preview depende da conta de serviço já configurada no repositório.
 

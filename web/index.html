@@ -5,20 +5,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Flora Rosa Pupo: desenvolvimento Full Stack com Flutter, Dart, Node.js e PostgreSQL. Projetos, experiência profissional e formação.">
-  <meta name="theme-color" content="#214D43">
+  <meta name="theme-color" content="#623398">
   <meta property="og:title" content="Flora Rosa Pupo | Desenvolvimento Full Stack">
-  <meta property="og:description" content="Da ideia à experiência. Conheça meus projetos, trajetória e formação em tecnologia.">
+  <meta property="og:description" content="Desenvolvimento mobile e Full Stack. Experiência profissional, produtos publicados e projetos independentes.">
   <meta property="og:type" content="website">
   <meta name="apple-mobile-web-app-title" content="Flora Rosa">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="manifest" href="manifest.json">
   <title>Flora Rosa Pupo | Desenvolvimento Full Stack</title>
-  <style>body{margin:0;background:#f7f6f2;color:#214d43;font-family:system-ui}#loading{position:fixed;inset:0;display:grid;place-content:center;text-align:center}#loading b{font-size:32px;letter-spacing:-1px}#loading p{font-size:14px}</style>
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#FAF7FC;color:#2E2239;font-family:Arial,sans-serif}
+    #initial-content{max-width:1256px;margin:auto;padding:32px 48px 64px}
+    .brand{font-size:24px;font-weight:700;letter-spacing:-1px}.intro{padding:88px 0 32px;max-width:760px}
+    .eyebrow{color:#623398;font-size:12px;letter-spacing:2px;font-weight:600}
+    h1{font-size:62px;line-height:1.08;letter-spacing:-2px;margin:28px 0}h2{font-size:22px;color:#623398}
+    p{max-width:650px;line-height:1.8;font-size:18px;color:#6C5B77}a{color:#623398}
+    .contact{display:inline-block;background:#623398;color:white;text-decoration:none;padding:18px 26px;border-radius:8px;margin:16px 16px 16px 0}
+    #startup-error{font-size:14px}button{font:inherit;color:#623398;cursor:pointer}
+    @media(max-width:600px){#initial-content{padding:28px 24px}.intro{padding-top:64px}h1{font-size:40px}p{font-size:16px}}
+  </style>
 </head>
 <body>
-  <div id="loading" role="status"><b>flora rosa.</b><p>Carregando portfólio…</p></div>
-  <noscript>Ative o JavaScript para explorar o portfólio de Flora Rosa Pupo. Contato: florapupo@gmail.com.</noscript>
-  <script>window.addEventListener('flutter-first-frame',()=>document.getElementById('loading')?.remove());</script>
-  <script src="flutter_bootstrap.js" async></script>
+  <main id="initial-content">
+    <div class="brand">flora rosa.</div>
+    <div class="intro">
+      <div class="eyebrow">FLORA ROSA PUPO / DESENVOLVEDORA</div>
+      <h1>Mobile e backend,<br>conectados.</h1>
+      <h2>Desenvolvimento Full Stack</h2>
+      <p>Flutter &amp; Dart · Node.js · SQL &amp; PostgreSQL · UX/UI</p>
+      <p>Experiência em aplicações multiplataforma, APIs REST e bancos de dados. Atuação em produtos publicados, conectando interface, regras de negócio e integrações.</p>
+      <a class="contact" href="https://wa.me/5534993130077">Vamos conversar</a>
+      <a href="https://www.linkedin.com/in/florarosa/">LinkedIn ↗</a>
+      <p id="startup-error" hidden role="status">A versão interativa não pôde ser aberta. Os contatos continuam disponíveis. <button onclick="location.reload()">Tentar novamente</button></p>
+    </div>
+  </main>
+  <script>
+    window.addEventListener('flutter-first-frame',()=>document.getElementById('initial-content')?.remove());
+    window.showStartupError=()=>{const message=document.getElementById('startup-error');if(message)message.hidden=false;};
+  </script>
+  <script src="flutter_bootstrap.js" async onerror="showStartupError()"></script>
 </body>
 </html>

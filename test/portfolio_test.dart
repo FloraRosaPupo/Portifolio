@@ -2,8 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:portifolio/features/portfolio/presentation/portfolio_page.dart';
 import 'package:portifolio/features/portfolio/data/content.dart';
+import 'package:portifolio/features/portfolio/presentation/motion.dart';
 
 void main() {
+  testWidgets('conversation button opens WhatsApp', (tester) async {
+    Uri? opened;
+    await tester
+        .pumpWidget(MaterialApp(home: PortfolioPage(openLink: (uri) async {
+      opened = uri;
+      return true;
+    })));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Vamos conversar'));
+    await tester.tap(find.text('Vamos conversar'));
+    await tester.pumpAndSettle();
+    expect(opened, Uri.parse('https://wa.me/5534993130077'));
+  });
+  testWidgets('hover respects reduced motion', (tester) async {
+    await tester.pumpWidget(const MaterialApp(
+        home: MediaQuery(
+            data: MediaQueryData(disableAnimations: true),
+            child: HoverLift(child: Text('Conteúdo')))));
+    expect(find.text('Conteúdo'), findsOneWidget);
+    expect(
+        tester
+            .widget<AnimatedContainer>(find.byType(AnimatedContainer))
+            .duration,
+        Duration.zero);
+  });
   for (final width in [320.0, 430.0, 768.0, 1440.0]) {
     testWidgets('layout fits width $width and enlarged text', (tester) async {
       tester.view.physicalSize = Size(width, 960);

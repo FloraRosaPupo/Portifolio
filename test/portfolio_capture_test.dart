@@ -46,6 +46,12 @@ void main() {
       await tester.tap(find.text('Conheça os projetos ↗'));
       await tester.pumpAndSettle();
       await save('projetos');
+      await tester.ensureVisible(find.text('APLICATIVOS PUBLICADOS'));
+      await tester.pumpAndSettle();
+      await save('publicados');
+      await tester.ensureVisible(find.text('04 / TESTES & QUALIDADE'));
+      await tester.pumpAndSettle();
+      await save('qualidade');
     }, skip: !const bool.fromEnvironment('CAPTURE_PORTFOLIO'));
   }
 }
