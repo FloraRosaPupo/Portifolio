@@ -1,32 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:portifolio/pages/splash_page.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart'; 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+import 'features/portfolio/presentation/portfolio_page.dart';
 
-  // Inicialize o Firebase
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-
-  // Chame runApp() após a inicialização do Firebase
-  runApp(const MyApp());
-}
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
+  const MyApp({super.key});
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Portifolio',
-      theme: ThemeData(
-        // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const SplashPage(),                                                           
-    );
-  }
+  Widget build(BuildContext context) => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flora Rosa Pupo • Desenvolvimento Full Stack',
+        theme: ThemeData(
+            useMaterial3: true,
+            fontFamily: 'Montserrat',
+            scaffoldBackgroundColor: paper,
+            colorScheme: ColorScheme.fromSeed(seedColor: green, surface: paper),
+            textTheme: ThemeData.light().textTheme.apply(
+                fontFamily: 'Montserrat', bodyColor: ink, displayColor: ink)),
+        home: const PortfolioPage(),
+      );
 }

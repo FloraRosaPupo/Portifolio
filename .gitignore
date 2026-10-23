@@ -64,3 +64,5 @@ coverage/
 .env
 .env.*
 !.env.example
+
+captures/
