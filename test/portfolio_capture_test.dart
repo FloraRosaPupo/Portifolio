@@ -7,20 +7,24 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:portifolio/main.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(() async {
+    if (!const bool.fromEnvironment('CAPTURE_PORTFOLIO')) return;
+    final fonts = FontLoader('Montserrat');
+    for (final weight in ['Regular', 'Medium', 'Bold']) {
+      fonts.addFont(rootBundle.load('assets/fonts/Montserrat-$weight.ttf'));
+    }
+    await fonts.load();
+    await (FontLoader('MaterialIcons')
+          ..addFont(rootBundle.load('fonts/MaterialIcons-Regular.otf')))
+        .load();
+  });
   for (final width in [1440.0, 430.0]) {
     testWidgets('portfolio screenshots $width', (tester) async {
       tester.view.physicalSize = Size(width, 1000);
       tester.view.devicePixelRatio = 1;
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
-      final fonts = FontLoader('Montserrat');
-      for (final weight in ['Regular', 'Medium', 'Bold']) {
-        fonts.addFont(rootBundle.load('assets/fonts/Montserrat-$weight.ttf'));
-      }
-      await fonts.load();
-      await (FontLoader('MaterialIcons')
-            ..addFont(rootBundle.load('fonts/MaterialIcons-Regular.otf')))
-          .load();
       final key = GlobalKey();
       await tester.pumpWidget(RepaintBoundary(key: key, child: const MyApp()));
       await tester.pumpAndSettle();
