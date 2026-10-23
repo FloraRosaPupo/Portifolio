@@ -67,7 +67,7 @@ Os workflows Firebase compilam Flutter web. O APK existente continua em `apks/ap
 
 Experiência e formação atualizadas a partir do currículo da autora. [Origem do conteúdo e das capturas](docs/portfolio-conteudo.md).
 
-As capturas dos aplicativos são geradas localmente; o Bebeu? utiliza dados demonstrativos. Não representam uma sessão conectada a uma conta real.
+As capturas dos aplicativos são geradas localmente; o painel do Avalia e o Bebeu? utilizam dados demonstrativos. Não representam uma sessão conectada a uma conta real.
 
 Para gerar capturas do próprio portfólio:
 
