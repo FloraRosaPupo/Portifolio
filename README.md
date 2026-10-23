@@ -26,3 +26,8 @@ Abra uma branch por alteração, descreva o comportamento esperado e inclua test
 
 ## Licença
 Não há licença de distribuição definida neste repositório.
+
+
+### Publicação web e APK
+
+Os workflows Firebase compilam Flutter web. O APK existente continua em `apks/app-release.apk` no GitHub; `/app-release.apk` redireciona para esse arquivo, pois o plano Spark do Firebase Hosting não aceita executáveis. O workflow não recompila o APK. Firebase Auth foi removido das dependências por não ser utilizado; Firebase Core foi atualizado para a compilação web atual. O preview depende da conta de serviço já configurada no repositório.
