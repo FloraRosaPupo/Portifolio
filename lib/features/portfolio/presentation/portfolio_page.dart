@@ -264,7 +264,8 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                     ProjectCard(
                                         title: 'Avalia',
                                         category: 'EDUCAÇÃO / FLUTTER',
-                                        image: 'assets/projects/avalia.png',
+                                        image:
+                                            'assets/projects/avalia-dashboard.png',
                                         description:
                                             'Turmas, alunos e provas em um só lugar. Uma aplicação para organizar a rotina de professores e acompanhar submissões.',
                                         tags: const [
