@@ -13,7 +13,8 @@ class MyApp extends StatelessWidget {
             useMaterial3: true,
             fontFamily: 'Montserrat',
             scaffoldBackgroundColor: paper,
-            colorScheme: ColorScheme.fromSeed(seedColor: green, surface: paper),
+            colorScheme:
+                ColorScheme.fromSeed(seedColor: accent, surface: paper),
             textTheme: ThemeData.light().textTheme.apply(
                 fontFamily: 'Montserrat', bodyColor: ink, displayColor: ink)),
         home: const PortfolioPage(),

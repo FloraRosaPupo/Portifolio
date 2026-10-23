@@ -16,7 +16,9 @@ Dependências e versões declaradas: [pubspec.yaml](pubspec.yaml).
 - Projetos Avalia e Bebeu? com capturas reais de execução local.
 - Links de aplicativos publicados na Google Play.
 - Trajetória profissional, formação e competências.
-- Contato por e-mail, LinkedIn e GitHub.
+- Contato por WhatsApp, e-mail, LinkedIn e GitHub.
+- Identidade visual roxa, animações suaves e respeito a movimento reduzido.
+- Seção de testes e qualidade com links para o código e a CI.
 
 ## Licença
 

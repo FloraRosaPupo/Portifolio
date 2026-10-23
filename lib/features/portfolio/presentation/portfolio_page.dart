@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../data/content.dart';
+import 'motion.dart';
 
-const ink = Color(0xFF202D29);
-const green = Color(0xFF214D43);
-const muted = Color(0xFF5E6D65);
-const paper = Color(0xFFF7F6F2);
-const lime = Color(0xFFD9EDAA);
+const ink = Color(0xFF2E2239);
+const accent = Color(0xFF623398);
+const muted = Color(0xFF6C5B77);
+const paper = Color(0xFFFAF7FC);
+const highlight = Color(0xFFEAD3FF);
 
 class PortfolioPage extends StatefulWidget {
   final Future<bool> Function(Uri)? openLink;
@@ -52,7 +53,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
           ? FilledButton(
               onPressed: action,
               style: FilledButton.styleFrom(
-                  backgroundColor: green,
+                  backgroundColor: accent,
                   foregroundColor: Colors.white,
                   padding:
                       const EdgeInsets.symmetric(horizontal: 24, vertical: 22)),
@@ -80,7 +81,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
               child: Center(
                   child: ConstrainedBox(
                       constraints: const BoxConstraints(maxWidth: 1160),
-                      child: child)),
+                      child: Entrance(child: child))),
             );
         return Scaffold(
             body: SafeArea(
@@ -88,7 +89,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
           Container(
               decoration: const BoxDecoration(
                   color: paper,
-                  border: Border(bottom: BorderSide(color: Color(0xFFDBDFD8)))),
+                  border: Border(bottom: BorderSide(color: Color(0xFFE4DCEB)))),
               padding: EdgeInsets.symmetric(horizontal: pad, vertical: 16),
               child: Center(
                   child: ConstrainedBox(
@@ -152,7 +153,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                     style: TextStyle(
                                         fontSize: 22,
                                         fontWeight: FontWeight.w600,
-                                        color: green)),
+                                        color: accent)),
                                 const SizedBox(height: 12),
                                 const Text(
                                     'Flutter & Dart · Node.js · SQL & PostgreSQL · UX/UI',
@@ -169,24 +170,26 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                 Wrap(spacing: 12, runSpacing: 12, children: [
                                   button('Conheça os projetos ↗', () => go(0),
                                       filled: true),
-                                  button('Vamos conversar', () => go(3))
+                                  button(
+                                      'Vamos conversar', () => open(whatsapp))
                                 ]),
                               ]),
                           Container(
                               padding: const EdgeInsets.all(32),
                               decoration: BoxDecoration(
-                                  color: green,
+                                  color: accent,
                                   borderRadius: BorderRadius.circular(28)),
                               child: const Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Row(children: [
-                                      Icon(Icons.code, color: lime, size: 30),
+                                      Icon(Icons.code,
+                                          color: highlight, size: 30),
                                       Spacer(),
                                       Flexible(
                                           child: Text('DESIGN + CÓDIGO',
                                               style: TextStyle(
-                                                  color: lime,
+                                                  color: highlight,
                                                   fontSize: 11,
                                                   letterSpacing: 2)))
                                     ]),
@@ -200,11 +203,11 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                             fontWeight: FontWeight.w500,
                                             letterSpacing: -1)),
                                     SizedBox(height: 40),
-                                    Divider(color: Color(0xFF5E8276)),
+                                    Divider(color: Color(0xFF9470B5)),
                                     SizedBox(height: 20),
                                     Text('MOBILE / BACKEND / DADOS',
                                         style: TextStyle(
-                                            color: lime,
+                                            color: highlight,
                                             fontSize: 11,
                                             letterSpacing: 1.4)),
                                     SizedBox(height: 14),
@@ -240,7 +243,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                         ],
                                         onTap: () =>
                                             open('$github/projeto_Avalia'),
-                                        background: const Color(0xFFDCECF0)),
+                                        background: const Color(0xFFEAE0F5)),
                                     ProjectCard(
                                         title: 'Bebeu?',
                                         category: 'BEM-ESTAR / FULL STACK',
@@ -254,7 +257,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                         ],
                                         onTap: () =>
                                             open('$github/controle_agua'),
-                                        background: const Color(0xFFE4EBD8)),
+                                        background: const Color(0xFFF0E6F8)),
                                   ),
                                   const SizedBox(height: 40),
                                   button('Mais projetos no GitHub ↗',
@@ -263,21 +266,24 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                   const Eyebrow('APLICATIVOS PUBLICADOS'),
                                   const SizedBox(height: 16),
                                   const Body(
-                                      'Conheça também os aplicativos na Google Play.'),
+                                      'Produtos em que atuei profissionalmente, disponíveis na Google Play.'),
                                   const SizedBox(height: 24),
                                   Wrap(spacing: 16, runSpacing: 16, children: [
                                     StoreLink(
                                         'Easy Comlink',
+                                        'DoubleX · Desenvolvimento',
                                         Icons.shopping_bag_outlined,
                                         () => open(
                                             'https://play.google.com/store/apps/details?id=com.mycompany.easycomlink&hl=pt_BR')),
                                     StoreLink(
                                         'IndicaZ Profissionais',
+                                        'Projeto freelance',
                                         Icons.handshake_outlined,
                                         () => open(
                                             'https://play.google.com/store/apps/details?id=com.mycompany.indicazprofissionais&hl=pt_BR')),
                                     StoreLink(
                                         'Roteo',
+                                        'Roteo · Desenvolvimento mobile',
                                         Icons.route_outlined,
                                         () => open(
                                             'https://play.google.com/store/apps/details?id=com.roteoapp.aa&hl=pt_BR')),
@@ -301,7 +307,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                         decoration: const BoxDecoration(
                                             border: Border(
                                                 top: BorderSide(
-                                                    color: Color(0xFFD9DDD5)))),
+                                                    color: Color(0xFFE2D8EB)))),
                                         child: columns(
                                             wide,
                                             Column(
@@ -393,14 +399,82 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                             ])),
                                 ]),
                             key: sections[2],
-                            color: const Color(0xFFEDF0E7)),
+                            color: const Color(0xFFF1EBF7)),
+                        section(
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Eyebrow('04 / TESTES & QUALIDADE'),
+                                const Heading(
+                                    'Cuidado que vai além da interface.'),
+                                const Body(
+                                    'Testes fazem parte da minha prática de desenvolvimento: validar regras, acompanhar mudanças visuais e evitar regressões antes de publicar.'),
+                                const SizedBox(height: 32),
+                                columns(
+                                    wide,
+                                    const Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text('Nos meus projetos',
+                                              style: TextStyle(
+                                                  fontSize: 23,
+                                                  fontWeight: FontWeight.w600)),
+                                          SizedBox(height: 16),
+                                          Body(
+                                              'Testes unitários de regras e estados, mocking de dependências e Golden Tests para acompanhar a interface. GitHub Actions automatiza as verificações a cada mudança.'),
+                                          SizedBox(height: 20),
+                                          Wrap(
+                                              spacing: 8,
+                                              runSpacing: 8,
+                                              children: [
+                                                Tag('Testes unitários'),
+                                                Tag('Widget tests'),
+                                                Tag('Golden Tests'),
+                                                Tag('CI')
+                                              ]),
+                                        ]),
+                                    Container(
+                                        padding: const EdgeInsets.all(28),
+                                        decoration: BoxDecoration(
+                                            color: const Color(0xFFF1EBF7),
+                                            borderRadius:
+                                                BorderRadius.circular(20)),
+                                        child: const Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Icon(Icons.fact_check_outlined,
+                                                  color: accent, size: 32),
+                                              SizedBox(height: 16),
+                                              Text('Neste portfólio',
+                                                  style: TextStyle(
+                                                      fontSize: 23,
+                                                      fontWeight:
+                                                          FontWeight.w600)),
+                                              SizedBox(height: 16),
+                                              Body(
+                                                  'Layout verificado em 320, 430, 768 e 1440 pixels, com texto ampliado em 50%. Testes de navegação, links e mensagens de erro, além de capturas visuais e compilação web.'),
+                                            ]))),
+                                const SizedBox(height: 28),
+                                Wrap(spacing: 12, runSpacing: 12, children: [
+                                  button(
+                                      'Ver os testes ↗',
+                                      () => open(
+                                          '$github/Portifolio/tree/main/test')),
+                                  button('Acompanhar verificações ↗',
+                                      () => open('$github/Portifolio/actions')),
+                                ]),
+                              ],
+                            ),
+                            color: Colors.white),
                         section(
                             Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text('04 / CONTATO',
+                                  const Text('05 / CONTATO',
                                       style: TextStyle(
-                                          color: lime,
+                                          color: highlight,
                                           letterSpacing: 2,
                                           fontSize: 12)),
                                   const SizedBox(height: 24),
@@ -422,6 +496,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                   const SizedBox(height: 28),
                                   Wrap(spacing: 16, runSpacing: 16, children: [
                                     for (final link in [
+                                      ('WhatsApp ↗', whatsapp),
                                       ('E-mail ↗', email),
                                       ('LinkedIn ↗', linkedin),
                                       ('GitHub ↗', github)
@@ -431,7 +506,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                           style: OutlinedButton.styleFrom(
                                               foregroundColor: Colors.white,
                                               side: const BorderSide(
-                                                  color: Color(0xFF8EA99B)),
+                                                  color: Color(0xFFB998D6)),
                                               padding:
                                                   const EdgeInsets.symmetric(
                                                       horizontal: 24,
@@ -439,7 +514,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                           child: Text(link.$1))
                                   ]),
                                   const SizedBox(height: 64),
-                                  const Divider(color: Color(0xFF5E8276)),
+                                  const Divider(color: Color(0xFF9470B5)),
                                   const SizedBox(height: 24),
                                   const Text(
                                       'Flora Rosa Pupo · Desenvolvido com Flutter',
@@ -447,7 +522,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                           color: Colors.white, fontSize: 12)),
                                 ]),
                             key: sections[3],
-                            color: green),
+                            color: accent),
                       ])))),
         ])));
       });
@@ -471,7 +546,7 @@ class Eyebrow extends StatelessWidget {
       style: const TextStyle(
           fontSize: 11,
           letterSpacing: 2,
-          color: green,
+          color: accent,
           fontWeight: FontWeight.w600));
 }
 
@@ -506,7 +581,7 @@ class Tag extends StatelessWidget {
   Widget build(BuildContext context) => Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
       decoration: BoxDecoration(
-          border: Border.all(color: const Color(0xFFD0D7CD)),
+          border: Border.all(color: const Color(0xFFDCCFE6)),
           borderRadius: BorderRadius.circular(30)),
       child: Text(text, style: const TextStyle(fontSize: 12, color: ink)));
 }
@@ -519,7 +594,7 @@ class Education extends StatelessWidget {
       Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Text(school,
             style: const TextStyle(
-                color: green, fontWeight: FontWeight.w700, fontSize: 16)),
+                color: accent, fontWeight: FontWeight.w700, fontSize: 16)),
         const SizedBox(height: 8),
         Text(course,
             style: const TextStyle(
@@ -532,18 +607,29 @@ class Education extends StatelessWidget {
 
 class StoreLink extends StatelessWidget {
   final String name;
+  final String contextLabel;
   final IconData icon;
   final VoidCallback onTap;
-  const StoreLink(this.name, this.icon, this.onTap, {super.key});
+  const StoreLink(this.name, this.contextLabel, this.icon, this.onTap,
+      {super.key});
   @override
   Widget build(BuildContext context) => OutlinedButton(
       onPressed: onTap,
       style: OutlinedButton.styleFrom(
-          padding: const EdgeInsets.all(22), foregroundColor: green),
+          padding: const EdgeInsets.all(22), foregroundColor: accent),
       child: Row(mainAxisSize: MainAxisSize.min, children: [
         Icon(icon),
         const SizedBox(width: 12),
-        Flexible(child: Text(name)),
+        Flexible(
+            child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+              Text(name, style: const TextStyle(fontWeight: FontWeight.w600)),
+              const SizedBox(height: 6),
+              Text(contextLabel,
+                  style: const TextStyle(fontSize: 12, color: muted)),
+            ])),
         const SizedBox(width: 12),
         const Icon(Icons.north_east, size: 16)
       ]));
@@ -564,8 +650,9 @@ class ProjectCard extends StatelessWidget {
       required this.onTap,
       required this.background});
   @override
-  Widget build(BuildContext context) =>
-      Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+  Widget build(BuildContext context) => HoverLift(
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Container(
             width: double.infinity,
             padding: const EdgeInsets.fromLTRB(24, 32, 24, 0),
@@ -597,5 +684,5 @@ class ProjectCard extends StatelessWidget {
         Wrap(spacing: 8, runSpacing: 8, children: tags.map(Tag.new).toList()),
         const SizedBox(height: 18),
         TextButton(onPressed: onTap, child: const Text('Explorar projeto ↗')),
-      ]);
+      ]));
 }

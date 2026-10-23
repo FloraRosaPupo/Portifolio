@@ -1,12 +1,13 @@
 const github = 'https://github.com/FloraRosaPupo';
 const linkedin = 'https://www.linkedin.com/in/florarosa/';
 const email = 'mailto:florapupo@gmail.com';
+const whatsapp = 'https://wa.me/5534993130077';
 const career = [
   (
     'DoubleX',
     'Desenvolvedora Front-End',
     'MAI 2025 — ATUAL',
-    'Aplicações multiplataforma com Flutter/Dart, backend com Node.js e integrações com APIs REST. Interfaces responsivas, componentes reutilizáveis e integração com bancos de dados.'
+    'Atuação no Easy Comlink. Aplicações multiplataforma com Flutter/Dart, backend com Node.js e integrações com APIs REST. Interfaces responsivas, componentes reutilizáveis e integração com bancos de dados.'
   ),
   (
     'FlowCode',
@@ -18,7 +19,7 @@ const career = [
     'Roteo',
     'Estagiária de Desenvolvimento Mobile',
     'JUN 2024 — NOV 2024',
-    'Desenvolvimento com Flutter, consumo de APIs REST, gerenciamento de estado e integração com Firebase.'
+    'Atuação no aplicativo Roteo, com desenvolvimento em Flutter, consumo de APIs REST, gerenciamento de estado e integração com Firebase.'
   ),
   (
     'Prefeitura de Rio Paranaíba',
