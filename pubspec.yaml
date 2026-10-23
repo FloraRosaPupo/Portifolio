@@ -1,5 +1,5 @@
 name: portifolio
-description: A new Flutter project.
+description: Apresentação de projetos, experiência e formas de contato.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -28,7 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  carousel_slider: ^4.0.0
+  carousel_slider: ^5.0.0
 
   flutter:
     sdk: flutter
@@ -39,8 +39,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   url_launcher: ^6.2.2
   font_awesome_flutter: ^10.6.0
-  firebase_core: ^2.7.0
-  firebase_auth: ^4.5.0
+  firebase_core: ^5.0.0
 
 dev_dependencies:
   flutter_test:
@@ -96,13 +95,13 @@ flutter:
     - family: 'Montserrat'
       fonts:
         - asset: assets/fonts/Montserrat-Light.ttf
-    
+
         - asset: assets/fonts/Montserrat-Regular.ttf
-          
+
         - asset: assets/fonts/Montserrat-Medium.ttf
-           
+
         - asset: assets/fonts/Montserrat-Bold.ttf
-           
+
 
   #
   # For details regarding fonts from package dependencies,

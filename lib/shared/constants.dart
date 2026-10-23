@@ -8,8 +8,8 @@ import 'package:portifolio/pages/projeto_page.dart';
 import 'package:portifolio/pages/sobre_page.dart';
 
 final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
-  onPrimary: Color.fromARGB(224, 255, 255, 255),
-  primary: Color.fromARGB(255, 111, 2, 109),
+  foregroundColor: Color.fromARGB(224, 255, 255, 255),
+  backgroundColor: Color.fromARGB(255, 111, 2, 109),
   /*minimumSize: Size(100, 50),
   padding: EdgeInsets.symmetric(horizontal: 10),
   */

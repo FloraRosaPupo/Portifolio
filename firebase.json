@@ -8,12 +8,15 @@
     ],
     "rewrites": [
       {
-        "source": "/app-release.apk",
-        "destination": "https://storage.googleapis.com/seu-bucket/nome-do-seu-apk.apk"
-      },
-      {
         "source": "**",
         "destination": "/index.html"
+      }
+    ],
+    "redirects": [
+      {
+        "source": "/app-release.apk",
+        "destination": "https://github.com/FloraRosaPupo/Portifolio/raw/refs/heads/main/apks/app-release.apk",
+        "type": 302
       }
     ]
   }
