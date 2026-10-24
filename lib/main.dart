@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flora Rosa Pupo • Desenvolvedora AI-first',
+        title: 'Flora Rosa Pupo • Desenvolvedora Full Stack',
         theme: ThemeData(
             useMaterial3: true,
             fontFamily: 'Montserrat',
