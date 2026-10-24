@@ -2,7 +2,6 @@ import 'project_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../data/content.dart';
-import 'motion.dart';
 
 const ink = Color(0xFF2E2239);
 const accent = Color(0xFF623398);
