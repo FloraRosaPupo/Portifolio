@@ -13,7 +13,7 @@ Dependências e versões declaradas: [pubspec.yaml](pubspec.yaml).
 ## Funcionalidades
 
 - Página responsiva com navegação por seções.
-- Projetos Avalia e Bebeu? com capturas reais de execução local.
+- Projetos Avalia e Bebeu? com prévias de 10 segundos em loop, silenciosas, leves e com dados demonstrativos. Movimento reduzido usa imagens estáticas.
 - Links de aplicativos publicados na Google Play.
 - Trajetória profissional, formação e competências.
 - Contato por WhatsApp, e-mail, LinkedIn e GitHub.
