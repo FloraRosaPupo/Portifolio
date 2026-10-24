@@ -7,7 +7,7 @@ void main() {
     await tester.pumpWidget(const MyApp());
     await tester.pumpAndSettle();
     expect(find.byType(Scaffold), findsOneWidget);
-    expect(find.text('Desenvolvedora AI-first'), findsOneWidget);
+    expect(find.text('Desenvolvedora Full Stack'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
 }

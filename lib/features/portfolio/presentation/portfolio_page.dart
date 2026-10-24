@@ -145,15 +145,14 @@ class _PortfolioPageState extends State<PortfolioPage> {
                               children: [
                                 const Eyebrow('FLORA ROSA PUPO'),
                                 const SizedBox(height: 20),
-                                Text(
-                                    'Produtos mobile e full stack, construídos com IA.',
+                                Text('Mobile e backend, conectados.',
                                     style: TextStyle(
                                         fontSize: wide ? 52 : 36,
                                         height: 1.12,
                                         letterSpacing: -1.8,
                                         fontWeight: FontWeight.w600)),
                                 const SizedBox(height: 24),
-                                const Text('Desenvolvedora AI-first',
+                                const Text('Desenvolvedora Full Stack',
                                     style: TextStyle(
                                         fontSize: 22,
                                         color: accent,
@@ -161,10 +160,10 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                         fontWeight: FontWeight.w500)),
                                 const SizedBox(height: 20),
                                 const Body(
-                                    'Uso agentes de IA no fluxo de desenvolvimento, com testes e revisão como proteção. Atuo hoje na DoubleX, em produtos publicados na Google Play.'),
+                                    'Desenvolvedora com experiência em aplicações multiplataforma, APIs REST e bancos de dados. Atuação em produtos publicados, conectando interface, regras de negócio e integrações.'),
                                 const SizedBox(height: 20),
                                 const Text(
-                                    'Flutter & Dart · Node.js · PostgreSQL · IA aplicada',
+                                    'Flutter & Dart · Node.js · SQL & PostgreSQL · UX/UI',
                                     style: TextStyle(
                                         fontSize: 15,
                                         height: 1.8,
@@ -181,20 +180,51 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                 ]),
                               ],
                             ),
-                            Center(
-                              child: ConstrainedBox(
-                                constraints:
-                                    const BoxConstraints(maxWidth: 300),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(18),
-                                  child: const ProjectPreview(
-                                      image:
-                                          'assets/projects/avalia-dashboard.png',
-                                      title: 'Avalia',
-                                      video: 'previews/avalia.mp4'),
-                                ),
-                              ),
-                            ))),
+                            Container(
+                                padding: EdgeInsets.all(wide ? 32 : 24),
+                                decoration: BoxDecoration(
+                                    color: accent,
+                                    borderRadius: BorderRadius.circular(12)),
+                                child: const Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(children: [
+                                        Icon(Icons.code,
+                                            color: highlight, size: 30),
+                                        Spacer(),
+                                        Flexible(
+                                            child: Text('ATUAÇÃO PROFISSIONAL',
+                                                style: TextStyle(
+                                                    color: highlight,
+                                                    fontSize: 11,
+                                                    letterSpacing: 2)))
+                                      ]),
+                                      SizedBox(height: 44),
+                                      Text(
+                                          'Flutter & Dart\nNode.js & APIs\nPostgreSQL',
+                                          style: TextStyle(
+                                              fontSize: 32,
+                                              height: 1.3,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w500,
+                                              letterSpacing: -1)),
+                                      SizedBox(height: 40),
+                                      Divider(color: Color(0xFF9470B5)),
+                                      SizedBox(height: 20),
+                                      Text('ATUALMENTE NA DOUBLEX',
+                                          style: TextStyle(
+                                              color: highlight,
+                                              fontSize: 11,
+                                              letterSpacing: 1.4)),
+                                      SizedBox(height: 14),
+                                      Text(
+                                          'Desenvolvimento de aplicações e integrações. Experiência também na FlowCode, Roteo e em projetos freelance.',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              height: 1.8,
+                                              fontSize: 15)),
+                                    ])))),
                         section(
                             Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
