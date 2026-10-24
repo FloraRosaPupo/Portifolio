@@ -30,11 +30,19 @@ class _VideoPreviewState extends State<_VideoPreview> {
   html.IntersectionObserver? _observer;
   final List<StreamSubscription<dynamic>> _listeners = [];
   bool _visible = false, _pausedByUser = false, _failed = false;
+  bool _reducedMotion = false;
 
   @override
   void initState() {
     super.initState();
     _viewId = 'project-video-${_nextId++}';
+    final motionQuery = html.window.matchMedia('(prefers-reduced-motion: reduce)');
+    _reducedMotion = motionQuery.matches;
+    _listeners.add(motionQuery.onChange.listen((event) {
+      if (!mounted) return;
+      setState(() => _reducedMotion = motionQuery.matches);
+      _updatePlayback();
+    }));
     _video = html.VideoElement()
       ..muted = true
       ..loop = true
@@ -64,7 +72,7 @@ class _VideoPreviewState extends State<_VideoPreview> {
   }
 
   void _updatePlayback() {
-    if (!_visible || html.document.hidden == true) {
+    if (_reducedMotion || !_visible || html.document.hidden == true) {
       _video.pause();
     } else if (!_pausedByUser) {
       if (_video.getAttribute('src') == null) {
@@ -87,7 +95,7 @@ class _VideoPreviewState extends State<_VideoPreview> {
   }
 
   @override
-  Widget build(BuildContext context) => _failed
+  Widget build(BuildContext context) => _failed || _reducedMotion
       ? widget.fallback
       : HtmlElementView(
           viewType: _viewId,
