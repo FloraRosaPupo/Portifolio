@@ -175,6 +175,9 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                   button('Ver projetos', () => go(0),
                                       filled: true),
                                   button('Falar comigo', () => go(4)),
+                                  TextButton(
+                                      onPressed: () => open(curriculo),
+                                      child: const Text('Baixar currículo ↓')),
                                 ]),
                               ],
                             ),
@@ -474,7 +477,8 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                       ('WhatsApp ↗', whatsapp),
                                       ('E-mail ↗', email),
                                       ('LinkedIn ↗', linkedin),
-                                      ('GitHub ↗', github)
+                                      ('GitHub ↗', github),
+                                      ('Currículo ↓', curriculo)
                                     ])
                                       OutlinedButton(
                                           onPressed: () => open(link.$2),
