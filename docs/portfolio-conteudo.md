@@ -14,7 +14,7 @@ A captura do Avalia foi conferida contra a branch `main`, commit `9a4d090108dfb6
 
 `web/previews/avalia.mp4` e `bebeu.mp4` são sequências de 10 segundos, sem áudio, em H.264 (430 × 932, 10 quadros/s, faststart). Somadas, ocupam aproximadamente 200 KB. Foram renderizadas a partir dos widgets reais, com sombras habilitadas e fontes carregadas, sem acessar serviços externos.
 
-- Avalia: perfil de uma aluna fictícia, estado de processamento da IA e resultado demonstrativo com quatro acertos em cinco questões. As respostas do backend e o estado de processamento são simulados; o vídeo não mede tempo nem precisão de uma execução real de IA.
+- Avalia: perfil de uma aluna fictícia → aba Provas → detalhes de Matemática com quatro acertos em cinco questões → retorno ao perfil. A navegação ocorre pelos controles reais, sem inserir modais fora do fluxo. As respostas do backend são simuladas; o vídeo mostra o resultado demonstrativo da correção, não uma execução nem o tempo de processamento da IA.
 - Bebeu: adição de 250 ml com feedback visual e progresso de 1.200 para 1.450 ml, histórico semanal e configuração de lembretes a cada hora, das 08:00 às 20:00 nos dias úteis. Histórico, sessão e preferências são fictícios; nenhuma notificação real é agendada.
 
 O vídeo só é solicitado quando entra na área visível. A reprodução é silenciosa e em loop, com controles nativos para pausar. Ao sair da tela ou ocultar a aba, ele pausa. Movimento reduzido e falhas de vídeo usam as imagens estáticas.
