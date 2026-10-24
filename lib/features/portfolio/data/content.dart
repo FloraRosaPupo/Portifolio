@@ -60,3 +60,33 @@ const skills = {
     'Code Review'
   ],
 };
+const aiPractices = [
+  (
+    'Especificação antes do código',
+    'Descrevo o comportamento esperado, as regras de negócio e os limites antes de pedir qualquer implementação a um agente.'
+  ),
+  (
+    'Agentes em tarefas delimitadas',
+    'Divido o trabalho em passos pequenos e verificáveis, com contexto claro, em vez de pedir uma funcionalidade inteira de uma vez.'
+  ),
+  (
+    'Testes como proteção',
+    'Testes unitários, de widget e Golden Tests mostram se o código gerado respeita as regras. A CI roda as verificações a cada mudança.'
+  ),
+  (
+    'Revisão humana do que entra',
+    'Leio e questiono cada alteração gerada. Arquitetura, segurança e simplicidade continuam sendo decisões minhas.'
+  ),
+  (
+    'IA também no produto',
+    'Curso a pós-graduação em Inteligência Artificial Aplicada aos Negócios (UniBH) e levo esse olhar para onde a IA gera valor no produto.'
+  ),
+];
+const aiTools = [
+  'Claude Code',
+  'Agentes de IA',
+  'Contexto e prompts',
+  'Spec-driven',
+  'Testes automatizados',
+  'GitHub Actions',
+];

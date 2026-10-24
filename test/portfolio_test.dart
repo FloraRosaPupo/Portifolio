@@ -5,7 +5,7 @@ import 'package:portifolio/features/portfolio/data/content.dart';
 import 'package:portifolio/features/portfolio/presentation/motion.dart';
 
 void main() {
-  testWidgets('conversation button opens WhatsApp', (tester) async {
+  testWidgets('contact button opens WhatsApp', (tester) async {
     Uri? opened;
     await tester
         .pumpWidget(MaterialApp(home: PortfolioPage(openLink: (uri) async {
@@ -13,8 +13,8 @@ void main() {
       return true;
     })));
     await tester.pumpAndSettle();
-    await tester.ensureVisible(find.text('Vamos conversar'));
-    await tester.tap(find.text('Vamos conversar'));
+    await tester.ensureVisible(find.text('WhatsApp ↗'));
+    await tester.tap(find.text('WhatsApp ↗'));
     await tester.pumpAndSettle();
     expect(opened, Uri.parse('https://wa.me/5534993130077'));
   });
@@ -45,7 +45,8 @@ void main() {
       ));
       await tester.pumpAndSettle();
       expect(tester.takeException(), isNull);
-      expect(find.text('Desenvolvimento Full Stack'), findsOneWidget);
+      expect(find.text('Desenvolvedora AI-first'), findsOneWidget);
+      await tester.ensureVisible(find.text('Como eu desenvolvo com IA'));
       await tester.ensureVisible(find.text('E-mail ↗'));
       await tester.pumpAndSettle();
       expect(tester.takeException(), isNull);

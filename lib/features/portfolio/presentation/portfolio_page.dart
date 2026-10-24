@@ -17,7 +17,7 @@ class PortfolioPage extends StatefulWidget {
 }
 
 class _PortfolioPageState extends State<PortfolioPage> {
-  final sections = List.generate(4, (_) => GlobalKey());
+  final sections = List.generate(5, (_) => GlobalKey());
   final scroll = ScrollController();
   @override
   void dispose() {
@@ -107,8 +107,9 @@ class _PortfolioPageState extends State<PortfolioPage> {
                           for (final pair in [
                             (0, 'Projetos'),
                             (1, 'Trajetória'),
-                            (2, 'Sobre'),
-                            (3, 'Contato')
+                            (2, 'IA'),
+                            (3, 'Sobre'),
+                            (4, 'Contato')
                           ])
                             TextButton(
                                 onPressed: () => go(pair.$1),
@@ -123,8 +124,9 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                     for (final pair in [
                                       (0, 'Projetos'),
                                       (1, 'Trajetória'),
-                                      (2, 'Sobre'),
-                                      (3, 'Contato')
+                                      (2, 'IA'),
+                                      (3, 'Sobre'),
+                                      (4, 'Contato')
                                     ])
                                       PopupMenuItem(
                                           value: pair.$1, child: Text(pair.$2))
@@ -136,50 +138,60 @@ class _PortfolioPageState extends State<PortfolioPage> {
                   child: SingleChildScrollView(
                       controller: scroll,
                       child: Column(children: [
-                        section(Align(
-                          alignment: Alignment.centerLeft,
-                          child: ConstrainedBox(
-                            constraints: const BoxConstraints(maxWidth: 760),
-                            child: Column(
+                        section(columns(
+                            wide,
+                            Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text('Flora Rosa Pupo',
+                                const Eyebrow('FLORA ROSA PUPO'),
+                                const SizedBox(height: 20),
+                                Text(
+                                    'Produtos mobile e full stack, construídos com IA.',
                                     style: TextStyle(
-                                        fontSize: wide ? 56 : 38,
-                                        height: 1.15,
+                                        fontSize: wide ? 52 : 36,
+                                        height: 1.12,
                                         letterSpacing: -1.8,
                                         fontWeight: FontWeight.w600)),
-                                const SizedBox(height: 20),
-                                const Text('Desenvolvimento Full Stack',
+                                const SizedBox(height: 24),
+                                const Text('Desenvolvedora AI-first',
                                     style: TextStyle(
                                         fontSize: 22,
                                         color: accent,
                                         height: 1.4,
                                         fontWeight: FontWeight.w500)),
-                                const SizedBox(height: 28),
+                                const SizedBox(height: 20),
                                 const Body(
-                                    'Desenvolvo aplicações mobile e integrações que conectam interfaces, regras de negócio e dados. Atualmente na DoubleX, com experiência em produtos publicados e projetos independentes.'),
+                                    'Uso agentes de IA no fluxo de desenvolvimento, com testes e revisão como proteção. Atuo hoje na DoubleX, em produtos publicados na Google Play.'),
                                 const SizedBox(height: 20),
                                 const Text(
-                                    'Flutter & Dart · Node.js · SQL & PostgreSQL · UX/UI',
+                                    'Flutter & Dart · Node.js · PostgreSQL · IA aplicada',
                                     style: TextStyle(
-                                        fontSize: 14,
+                                        fontSize: 15,
                                         height: 1.8,
-                                        color: muted)),
+                                        color: ink,
+                                        fontWeight: FontWeight.w500)),
                                 const SizedBox(height: 32),
-                                Wrap(spacing: 20, runSpacing: 12, children: [
-                                  TextButton(
-                                      onPressed: () => go(0),
-                                      child:
-                                          const Text('Conheça os projetos ↗')),
-                                  TextButton(
-                                      onPressed: () => open(whatsapp),
-                                      child: const Text('Vamos conversar')),
+                                Wrap(spacing: 16, runSpacing: 12, children: [
+                                  button('Ver projetos', () => go(0),
+                                      filled: true),
+                                  button('Falar comigo', () => go(4)),
                                 ]),
                               ],
                             ),
-                          ),
-                        )),
+                            Center(
+                              child: ConstrainedBox(
+                                constraints:
+                                    const BoxConstraints(maxWidth: 300),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(18),
+                                  child: const ProjectPreview(
+                                      image:
+                                          'assets/projects/avalia-dashboard.png',
+                                      title: 'Avalia',
+                                      video: 'previews/avalia.mp4'),
+                                ),
+                              ),
+                            ))),
                         section(
                             Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -225,7 +237,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                           image:
                                               'assets/projects/avalia-dashboard.png',
                                           description:
-                                              'Turmas, alunos e provas em um só lugar. Uma aplicação para organizar a rotina de professores e acompanhar submissões.',
+                                              'Problema: professores dividem turmas, alunos e provas em várias ferramentas. Solução: um só lugar para organizar a rotina e acompanhar submissões. Decisão técnica: estado previsível com Cubit, dados no Supabase, testes unitários e Golden Tests.',
                                           tags: const [
                                             'Flutter',
                                             'Cubit',
@@ -240,7 +252,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                           category: 'BEM-ESTAR / FULL STACK',
                                           image: 'assets/projects/bebeu.png',
                                           description:
-                                              'Um incentivo ao cuidado diário. Registro de consumo de água, metas de hidratação, histórico e lembretes.',
+                                              'Problema: é fácil esquecer de beber água. Solução: registro de consumo, meta diária, lembretes e histórico dos últimos 7 dias. Decisão técnica: regras de negócio separadas da interface, com backend em Node.js e PostgreSQL.',
                                           tags: const [
                                             'Flutter',
                                             'Node.js',
@@ -274,6 +286,40 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                         description: entry.$4),
                                 ]),
                             key: sections[1]),
+                        section(
+                            Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Eyebrow('AI-FIRST'),
+                                  const Heading('Como eu desenvolvo com IA'),
+                                  const Body(
+                                      'IA não substitui critério técnico. Ela acelera o que está bem definido; o que protege a qualidade é a especificação, o teste e a revisão.'),
+                                  const SizedBox(height: 36),
+                                  columns(
+                                      wide,
+                                      Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            for (final item in aiPractices.take(
+                                                (aiPractices.length + 1) ~/ 2))
+                                              AiPractice(item.$1, item.$2)
+                                          ]),
+                                      Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            for (final item in aiPractices.skip(
+                                                (aiPractices.length + 1) ~/ 2))
+                                              AiPractice(item.$1, item.$2)
+                                          ])),
+                                  const SizedBox(height: 16),
+                                  Wrap(spacing: 8, runSpacing: 8, children: [
+                                    for (final t in aiTools) Tag(t)
+                                  ]),
+                                ]),
+                            key: sections[2],
+                            color: Colors.white),
                         section(
                             Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -330,7 +376,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                                   ])
                                             ])),
                                 ]),
-                            key: sections[2],
+                            key: sections[3],
                             color: const Color(0xFFF1EBF7)),
                         section(
                             Column(
@@ -450,7 +496,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 12)),
                                 ]),
-                            key: sections[3],
+                            key: sections[4],
                             color: accent),
                       ])))),
         ])));
@@ -513,6 +559,21 @@ class Tag extends StatelessWidget {
           border: Border.all(color: const Color(0xFFDCCFE6)),
           borderRadius: BorderRadius.circular(30)),
       child: Text(text, style: const TextStyle(fontSize: 12, color: ink)));
+}
+
+class AiPractice extends StatelessWidget {
+  final String title, text;
+  const AiPractice(this.title, this.text, {super.key});
+  @override
+  Widget build(BuildContext context) => Padding(
+      padding: const EdgeInsets.only(bottom: 28),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        Text(title,
+            style: const TextStyle(
+                fontSize: 19, height: 1.4, fontWeight: FontWeight.w600)),
+        const SizedBox(height: 8),
+        Body(text),
+      ]));
 }
 
 class Education extends StatelessWidget {
