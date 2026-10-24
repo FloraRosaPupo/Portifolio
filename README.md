@@ -8,16 +8,20 @@ Portfólio desenvolvido em Flutter para apresentar trajetória, experiências, p
 
 Flutter/Dart, url_launcher e Firebase Hosting. A interface não depende de inicialização de serviços externos.
 
+Para trocar o currículo, substitua `web/Curriculo_Flora_Rosa_Pupo.pdf` mantendo o nome do arquivo.
+
 Dependências e versões declaradas: [pubspec.yaml](pubspec.yaml).
 
 ## Funcionalidades
 
-- Página responsiva com navegação por seções.
-- Projetos Avalia e Bebeu? com prévias de 10 segundos em loop, silenciosas, leves e com dados demonstrativos. Movimento reduzido usa imagens estáticas.
+- Página responsiva com navegação por seções: Projetos, Trajetória, IA, Sobre e Contato.
+- Abertura com apresentação, quadro roxo de atuação profissional e botões para ver projetos, falar por contato e baixar o currículo (PDF em `web/`).
+- Projetos Avalia e Bebeu? descritos como problema, solução e decisão técnica, com prévias de 10 segundos em loop, silenciosas, leves e com dados demonstrativos. Movimento reduzido usa imagens estáticas.
 - Links de aplicativos publicados na Google Play.
 - Trajetória profissional, formação e competências.
-- Contato por WhatsApp, e-mail, LinkedIn e GitHub.
-- Identidade visual roxa, interações suaves e respeito a movimento reduzido.
+- Seção "Como eu desenvolvo com IA": fluxo AI-first com Claude e Claude Code, agentes orquestradores, agentes de code review, hooks e testes como proteção. O conteúdo fica em `lib/features/portfolio/data/content.dart` (`aiPractices` e `aiTools`).
+- Contato por WhatsApp, e-mail, LinkedIn, GitHub e download do currículo.
+- Identidade visual roxa, estilo minimalista, interações suaves e respeito a movimento reduzido.
 - Seção de testes e qualidade com links para o código e a CI.
 
 ## Licença
