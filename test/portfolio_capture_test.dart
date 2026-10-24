@@ -46,6 +46,9 @@ void main() {
       await tester.tap(find.text('Conheça os projetos ↗'));
       await tester.pumpAndSettle();
       await save('projetos');
+      await tester.ensureVisible(find.text('PROJETOS INDEPENDENTES'));
+      await tester.pumpAndSettle();
+      await save('independentes');
       await tester.ensureVisible(find.text('APLICATIVOS PUBLICADOS'));
       await tester.pumpAndSettle();
       await save('publicados');

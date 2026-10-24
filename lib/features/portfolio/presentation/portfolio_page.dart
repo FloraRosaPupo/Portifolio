@@ -260,37 +260,39 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                   const SizedBox(height: 64),
                                   const Eyebrow('PROJETOS INDEPENDENTES'),
                                   const SizedBox(height: 24),
-                                  columns(
-                                    wide,
-                                    ProjectCard(
-                                        title: 'Avalia',
-                                        category: 'EDUCAÇÃO / FLUTTER',
-                                        image:
-                                            'assets/projects/avalia-dashboard.png',
-                                        description:
-                                            'Turmas, alunos e provas em um só lugar. Uma aplicação para organizar a rotina de professores e acompanhar submissões.',
-                                        tags: const [
-                                          'Flutter',
-                                          'Cubit',
-                                          'Supabase'
-                                        ],
-                                        onTap: () =>
-                                            open('$github/projeto_Avalia'),
-                                        background: const Color(0xFFEAE0F5)),
-                                    ProjectCard(
-                                        title: 'Bebeu?',
-                                        category: 'BEM-ESTAR / FULL STACK',
-                                        image: 'assets/projects/bebeu.png',
-                                        description:
-                                            'Um incentivo ao cuidado diário. Registro de consumo de água, metas de hidratação, histórico e lembretes.',
-                                        tags: const [
-                                          'Flutter',
-                                          'Node.js',
-                                          'PostgreSQL'
-                                        ],
-                                        onTap: () =>
-                                            open('$github/controle_agua'),
-                                        background: const Color(0xFFF0E6F8)),
+                                  Column(
+                                    children: [
+                                      ProjectCard(
+                                          title: 'Avalia',
+                                          category: 'EDUCAÇÃO / FLUTTER',
+                                          image:
+                                              'assets/projects/avalia-dashboard.png',
+                                          description:
+                                              'Turmas, alunos e provas em um só lugar. Uma aplicação para organizar a rotina de professores e acompanhar submissões.',
+                                          tags: const [
+                                            'Flutter',
+                                            'Cubit',
+                                            'Supabase'
+                                          ],
+                                          onTap: () =>
+                                              open('$github/projeto_Avalia'),
+                                          background: const Color(0xFFEAE0F5)),
+                                      const SizedBox(height: 56),
+                                      ProjectCard(
+                                          title: 'Bebeu?',
+                                          category: 'BEM-ESTAR / FULL STACK',
+                                          image: 'assets/projects/bebeu.png',
+                                          description:
+                                              'Um incentivo ao cuidado diário. Registro de consumo de água, metas de hidratação, histórico e lembretes.',
+                                          tags: const [
+                                            'Flutter',
+                                            'Node.js',
+                                            'PostgreSQL'
+                                          ],
+                                          onTap: () =>
+                                              open('$github/controle_agua'),
+                                          background: const Color(0xFFF0E6F8)),
+                                    ],
                                   ),
                                   const SizedBox(height: 40),
                                   button('Mais projetos no GitHub ↗',
@@ -625,46 +627,84 @@ class ProjectCard extends StatelessWidget {
       required this.onTap,
       required this.background});
   @override
-  Widget build(BuildContext context) => HoverLift(
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Container(
-            width: double.infinity,
-            padding: const EdgeInsets.fromLTRB(24, 32, 24, 0),
-            decoration: BoxDecoration(
-                color: background, borderRadius: BorderRadius.circular(20)),
-            child: ClipRect(
-                child: Align(
-                    alignment: Alignment.topCenter,
-                    heightFactor: 1,
-                    child: Container(
-                        constraints: const BoxConstraints(maxWidth: 260),
-                        decoration: BoxDecoration(
-                            border: Border.all(color: ink, width: 7),
-                            borderRadius: BorderRadius.circular(30)),
-                        child: ClipRRect(
-                            borderRadius: BorderRadius.circular(23),
-                            child: ProjectPreview(
-                                image: image,
-                                title: title,
-                                video: title == 'Avalia'
-                                    ? 'previews/avalia.mp4'
-                                    : 'previews/bebeu.mp4')))))),
-        const SizedBox(height: 12),
-        const Text('Prévia em loop · dados demonstrativos',
-            style: TextStyle(fontSize: 11, color: muted)),
-        const SizedBox(height: 16),
-        Eyebrow(category),
-        const SizedBox(height: 12),
-        Text(title,
-            style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w600)),
-        const SizedBox(height: 12),
-        Body(description),
-        const SizedBox(height: 20),
-        Wrap(spacing: 8, runSpacing: 8, children: tags.map(Tag.new).toList()),
-        const SizedBox(height: 18),
-        TextButton(onPressed: onTap, child: const Text('Explorar projeto ↗')),
-      ]));
+  Widget build(BuildContext context) =>
+      LayoutBuilder(builder: (context, constraints) {
+        final sideBySide = constraints.maxWidth >= 760;
+        final preview = Container(
+          width: double.infinity,
+          padding: EdgeInsets.all(sideBySide ? 28 : 12),
+          decoration: BoxDecoration(
+            color: Color.lerp(background, Colors.white, .65),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Center(
+              child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 340),
+            child: Container(
+              padding: const EdgeInsets.all(2),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(color: const Color(0xFFC8B8DA)),
+                borderRadius: BorderRadius.circular(18),
+                boxShadow: const [
+                  BoxShadow(
+                      color: Color(0x14623398),
+                      blurRadius: 24,
+                      offset: Offset(0, 8))
+                ],
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: ProjectPreview(
+                    image: image,
+                    title: title,
+                    video: title == 'Avalia'
+                        ? 'previews/avalia.mp4'
+                        : 'previews/bebeu.mp4'),
+              ),
+            ),
+          )),
+        );
+        final details =
+            Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Eyebrow(category),
+          const SizedBox(height: 16),
+          Text(title,
+              style: TextStyle(
+                  fontSize: sideBySide ? 44 : 34,
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: -1.2)),
+          const SizedBox(height: 20),
+          Body(description),
+          const SizedBox(height: 24),
+          Text(tags.join('  ·  '),
+              style: const TextStyle(
+                  fontSize: 14,
+                  color: accent,
+                  height: 1.8,
+                  fontWeight: FontWeight.w500)),
+          const SizedBox(height: 28),
+          TextButton.icon(
+              onPressed: onTap,
+              icon: const Icon(Icons.north_east, size: 18),
+              label: const Text('Explorar projeto')),
+          const SizedBox(height: 20),
+          const Text('Prévia em loop · dados demonstrativos',
+              style: TextStyle(fontSize: 11, color: muted, height: 1.6)),
+        ]);
+        return Padding(
+          padding: const EdgeInsets.only(bottom: 40),
+          child: sideBySide
+              ? Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+                  Expanded(child: preview),
+                  const SizedBox(width: 64),
+                  Expanded(child: details)
+                ])
+              : Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [preview, const SizedBox(height: 28), details]),
+        );
+      });
 }
 
 class ProfessionalProduct extends StatelessWidget {
