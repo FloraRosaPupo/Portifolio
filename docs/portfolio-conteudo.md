@@ -9,3 +9,12 @@ As imagens em `assets/projects` são capturas das interfaces Flutter dos reposit
 O portfólio funciona sem inicialização de Firebase no cliente; o Firebase Hosting continua responsável pela hospedagem. O conteúdo público está organizado em `lib/features/portfolio`.
 
 A captura do Avalia foi conferida contra a branch `main`, commit `9a4d090108dfb6352e7c619ab4a55470f8b90654`. As sombras reais estão habilitadas no renderizador (`debugDisableShadows = false` durante a captura), evitando os contornos de depuração que substituem a elevação dos cartões nos testes Flutter.
+
+## Prévias animadas
+
+`web/previews/avalia.mp4` e `bebeu.mp4` são sequências de 10 segundos, sem áudio, em H.264 (430 × 932, 10 quadros/s, faststart). Somadas, ocupam aproximadamente 130 KB. Foram renderizadas a partir dos widgets reais, com sombras habilitadas e fontes carregadas, sem acessar serviços externos.
+
+- Avalia: perfil de uma aluna fictícia, estado de processamento da IA e resultado demonstrativo com quatro acertos em cinco questões. As respostas do backend e o estado de processamento são simulados; o vídeo não mede tempo nem precisão de uma execução real de IA.
+- Bebeu: dois toques de 250 ml no botão de adição, feedback visual original e progresso de 1.200 para 1.700 ml. O histórico e a sessão são fictícios.
+
+O vídeo só é solicitado quando entra na área visível. A reprodução é silenciosa e em loop, com controles nativos para pausar. Ao sair da tela ou ocultar a aba, ele pausa. Movimento reduzido e falhas de vídeo usam as imagens estáticas.

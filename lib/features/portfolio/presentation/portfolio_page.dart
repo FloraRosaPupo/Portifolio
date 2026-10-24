@@ -1,3 +1,4 @@
+import 'project_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../data/content.dart';
@@ -635,7 +636,7 @@ class ProjectCard extends StatelessWidget {
             child: ClipRect(
                 child: Align(
                     alignment: Alignment.topCenter,
-                    heightFactor: .85,
+                    heightFactor: 1,
                     child: Container(
                         constraints: const BoxConstraints(maxWidth: 260),
                         decoration: BoxDecoration(
@@ -643,11 +644,16 @@ class ProjectCard extends StatelessWidget {
                             borderRadius: BorderRadius.circular(30)),
                         child: ClipRRect(
                             borderRadius: BorderRadius.circular(23),
-                            child: Image.asset(image,
-                                fit: BoxFit.contain,
-                                semanticLabel:
-                                    'Tela do aplicativo $title executada localmente')))))),
-        const SizedBox(height: 24),
+                            child: ProjectPreview(
+                                image: image,
+                                title: title,
+                                video: title == 'Avalia'
+                                    ? 'previews/avalia.mp4'
+                                    : 'previews/bebeu.mp4')))))),
+        const SizedBox(height: 12),
+        const Text('Prévia em loop · dados demonstrativos',
+            style: TextStyle(fontSize: 11, color: muted)),
+        const SizedBox(height: 16),
         Eyebrow(category),
         const SizedBox(height: 12),
         Text(title,
