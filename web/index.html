@@ -34,15 +34,18 @@
       <h2>Desenvolvimento Full Stack</h2>
       <p>Flutter &amp; Dart · Node.js · SQL &amp; PostgreSQL · UX/UI</p>
       <p>Experiência em aplicações multiplataforma, APIs REST e bancos de dados. Atuação em produtos publicados, conectando interface, regras de negócio e integrações.</p>
+      <div id="fallback-contacts" hidden>
       <a class="contact" href="https://wa.me/5534993130077">Vamos conversar</a>
       <a href="https://www.linkedin.com/in/florarosa/">LinkedIn ↗</a>
+      </div>
       <p id="startup-error" hidden role="status">A versão interativa não pôde ser aberta. Os contatos continuam disponíveis. <button onclick="location.reload()">Tentar novamente</button></p>
     </div>
   </main>
   <script>
     window.addEventListener('flutter-first-frame',()=>document.getElementById('initial-content')?.remove());
-    window.showStartupError=()=>{const message=document.getElementById('startup-error');if(message)message.hidden=false;};
+    window.showStartupError=()=>{const message=document.getElementById('startup-error');if(message)message.hidden=false;const contacts=document.getElementById('fallback-contacts');if(contacts)contacts.hidden=false;};
   </script>
+  <noscript><style>#fallback-contacts[hidden]{display:block}</style><p style="padding:24px">Ative o JavaScript para explorar o portfólio. Os links de contato continuam disponíveis.</p></noscript>
   <script src="flutter_bootstrap.js?v=dashboard-2" async onerror="showStartupError()"></script>
 </body>
 </html>
