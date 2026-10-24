@@ -52,9 +52,12 @@ void main() {
       await tester.ensureVisible(find.text('APLICATIVOS PUBLICADOS'));
       await tester.pumpAndSettle();
       await save('publicados');
-      await tester.ensureVisible(find.text('04 / TESTES & QUALIDADE'));
+      await tester.ensureVisible(find.text('Qualidade de software'));
       await tester.pumpAndSettle();
       await save('qualidade');
+      await tester.ensureVisible(find.text('Experiência'));
+      await tester.pumpAndSettle();
+      await save('experiencia');
     }, skip: !const bool.fromEnvironment('CAPTURE_PORTFOLIO'));
   }
 }

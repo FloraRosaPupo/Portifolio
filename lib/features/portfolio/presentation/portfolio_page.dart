@@ -137,97 +137,55 @@ class _PortfolioPageState extends State<PortfolioPage> {
                   child: SingleChildScrollView(
                       controller: scroll,
                       child: Column(children: [
-                        section(columns(
-                          wide,
-                          Column(
+                        section(Align(
+                          alignment: Alignment.centerLeft,
+                          child: ConstrainedBox(
+                            constraints: const BoxConstraints(maxWidth: 760),
+                            child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Eyebrow(
-                                    'FLORA ROSA PUPO / DESENVOLVEDORA'),
-                                const SizedBox(height: 28),
-                                Text('Mobile e backend,\nconectados.',
+                                Text('Flora Rosa Pupo',
                                     style: TextStyle(
-                                        fontSize: wide ? 62 : 40,
-                                        height: 1.08,
-                                        fontWeight: FontWeight.w700,
-                                        letterSpacing: -2.8)),
-                                const SizedBox(height: 28),
+                                        fontSize: wide ? 56 : 38,
+                                        height: 1.15,
+                                        letterSpacing: -1.8,
+                                        fontWeight: FontWeight.w600)),
+                                const SizedBox(height: 20),
                                 const Text('Desenvolvimento Full Stack',
                                     style: TextStyle(
                                         fontSize: 22,
-                                        fontWeight: FontWeight.w600,
-                                        color: accent)),
-                                const SizedBox(height: 12),
+                                        color: accent,
+                                        height: 1.4,
+                                        fontWeight: FontWeight.w500)),
+                                const SizedBox(height: 28),
+                                const Body(
+                                    'Desenvolvo aplicações mobile e integrações que conectam interfaces, regras de negócio e dados. Atualmente na DoubleX, com experiência em produtos publicados e projetos independentes.'),
+                                const SizedBox(height: 20),
                                 const Text(
                                     'Flutter & Dart · Node.js · SQL & PostgreSQL · UX/UI',
                                     style: TextStyle(
-                                        fontSize: 15,
-                                        height: 1.7,
+                                        fontSize: 14,
+                                        height: 1.8,
                                         color: muted)),
-                                const SizedBox(height: 24),
-                                const Text(
-                                    'Desenvolvedora com experiência em aplicações multiplataforma, APIs REST e bancos de dados. Atuação em produtos publicados, conectando interface, regras de negócio e integrações.',
-                                    style:
-                                        TextStyle(fontSize: 18, height: 1.7)),
                                 const SizedBox(height: 32),
-                                Wrap(spacing: 12, runSpacing: 12, children: [
-                                  button('Conheça os projetos ↗', () => go(0),
-                                      filled: true),
-                                  button(
-                                      'Vamos conversar', () => open(whatsapp))
+                                Wrap(spacing: 20, runSpacing: 12, children: [
+                                  TextButton(
+                                      onPressed: () => go(0),
+                                      child:
+                                          const Text('Conheça os projetos ↗')),
+                                  TextButton(
+                                      onPressed: () => open(whatsapp),
+                                      child: const Text('Vamos conversar')),
                                 ]),
-                              ]),
-                          Container(
-                              padding: const EdgeInsets.all(32),
-                              decoration: BoxDecoration(
-                                  color: accent,
-                                  borderRadius: BorderRadius.circular(12)),
-                              child: const Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(children: [
-                                      Icon(Icons.code,
-                                          color: highlight, size: 30),
-                                      Spacer(),
-                                      Flexible(
-                                          child: Text('ATUAÇÃO PROFISSIONAL',
-                                              style: TextStyle(
-                                                  color: highlight,
-                                                  fontSize: 11,
-                                                  letterSpacing: 2)))
-                                    ]),
-                                    SizedBox(height: 44),
-                                    Text(
-                                        'Flutter & Dart\nNode.js & APIs\nPostgreSQL',
-                                        style: TextStyle(
-                                            fontSize: 32,
-                                            height: 1.3,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w500,
-                                            letterSpacing: -1)),
-                                    SizedBox(height: 40),
-                                    Divider(color: Color(0xFF9470B5)),
-                                    SizedBox(height: 20),
-                                    Text('ATUALMENTE NA DOUBLEX',
-                                        style: TextStyle(
-                                            color: highlight,
-                                            fontSize: 11,
-                                            letterSpacing: 1.4)),
-                                    SizedBox(height: 14),
-                                    Text(
-                                        'Desenvolvimento de aplicações e integrações. Experiência também na FlowCode, Roteo e em projetos freelance.',
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            height: 1.8,
-                                            fontSize: 15)),
-                                  ])),
+                              ],
+                            ),
+                          ),
                         )),
                         section(
                             Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Eyebrow('01 / PROJETOS'),
-                                  const Heading('Produtos & projetos.'),
+                                  const Heading('Projetos'),
                                   const Body(
                                       'Experiência em produtos publicados e projetos independentes com código disponível para consulta.'),
                                   const SizedBox(height: 36),
@@ -305,57 +263,23 @@ class _PortfolioPageState extends State<PortfolioPage> {
                             Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Eyebrow('02 / TRAJETÓRIA'),
-                                  const Heading('Experiência profissional.'),
+                                  const Heading('Experiência'),
                                   const Body(
                                       'Experiência em desenvolvimento, integração de sistemas e liderança de equipes.'),
                                   const SizedBox(height: 40),
                                   for (final entry in career)
-                                    Container(
-                                        padding: const EdgeInsets.symmetric(
-                                            vertical: 28),
-                                        decoration: const BoxDecoration(
-                                            border: Border(
-                                                top: BorderSide(
-                                                    color: Color(0xFFE2D8EB)))),
-                                        child: columns(
-                                            wide,
-                                            Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(entry.$3,
-                                                      style: const TextStyle(
-                                                          fontSize: 11,
-                                                          color: muted,
-                                                          letterSpacing: 1)),
-                                                  const SizedBox(height: 12),
-                                                  Text(entry.$1,
-                                                      style: const TextStyle(
-                                                          fontSize: 25,
-                                                          fontWeight:
-                                                              FontWeight.w600))
-                                                ]),
-                                            Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(entry.$2,
-                                                      style: const TextStyle(
-                                                          fontSize: 18,
-                                                          fontWeight:
-                                                              FontWeight.w600)),
-                                                  const SizedBox(height: 12),
-                                                  Body(entry.$4)
-                                                ]))),
+                                    CareerEntry(
+                                        company: entry.$1,
+                                        role: entry.$2,
+                                        dates: entry.$3,
+                                        description: entry.$4),
                                 ]),
                             key: sections[1]),
                         section(
                             Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Eyebrow('03 / SOBRE & FORMAÇÃO'),
-                                  const Heading('Formação & competências.'),
+                                  const Heading('Formação & competências'),
                                   columns(
                                       wide,
                                       const Column(
@@ -413,8 +337,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Eyebrow('04 / TESTES & QUALIDADE'),
-                                const Heading('Qualidade de software.'),
+                                const Heading('Qualidade de software'),
                                 const Body(
                                     'Testes fazem parte da minha prática de desenvolvimento: validar regras, acompanhar mudanças visuais e evitar regressões antes de publicar.'),
                                 const SizedBox(height: 32),
@@ -480,7 +403,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                             Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text('05 / CONTATO',
+                                  const Text('Contato',
                                       style: TextStyle(
                                           color: highlight,
                                           letterSpacing: 2,
@@ -552,7 +475,7 @@ class Eyebrow extends StatelessWidget {
   Widget build(BuildContext context) => Text(text,
       style: const TextStyle(
           fontSize: 11,
-          letterSpacing: 2,
+          letterSpacing: 1,
           color: accent,
           fontWeight: FontWeight.w600));
 }
@@ -567,7 +490,7 @@ class Heading extends StatelessWidget {
           header: true,
           child: Text(text,
               style: const TextStyle(
-                  fontSize: 36,
+                  fontSize: 30,
                   height: 1.2,
                   letterSpacing: -1.4,
                   fontWeight: FontWeight.w600))));
@@ -726,7 +649,7 @@ class ProfessionalProduct extends StatelessWidget {
             builder: (context, constraints) => columns(
                 constraints.maxWidth > 720,
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Eyebrow('$number / $relationship'),
+                  Eyebrow(relationship),
                   const SizedBox(height: 12),
                   Text(name,
                       style: const TextStyle(
@@ -743,4 +666,47 @@ class ProfessionalProduct extends StatelessWidget {
                       label: const Text('Ver produto na Google Play')),
                 ]))),
       );
+}
+
+class CareerEntry extends StatelessWidget {
+  final String company, role, dates, description;
+  const CareerEntry(
+      {super.key,
+      required this.company,
+      required this.role,
+      required this.dates,
+      required this.description});
+  @override
+  Widget build(BuildContext context) =>
+      LayoutBuilder(builder: (context, constraints) {
+        final date = Text(dates,
+            style: const TextStyle(fontSize: 11, height: 1.8, color: muted));
+        final details =
+            Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text(role,
+              style: const TextStyle(
+                  fontSize: 19, height: 1.5, fontWeight: FontWeight.w600)),
+          const SizedBox(height: 4),
+          Text(company,
+              style: const TextStyle(fontSize: 15, height: 1.6, color: accent)),
+          const SizedBox(height: 12),
+          ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 680),
+              child: Body(description)),
+        ]);
+        return Container(
+          padding: const EdgeInsets.symmetric(vertical: 28),
+          decoration: const BoxDecoration(
+              border: Border(top: BorderSide(color: Color(0xFFE2D8EB)))),
+          child: constraints.maxWidth >= 700
+              ? Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  SizedBox(width: 190, child: date),
+                  const SizedBox(width: 32),
+                  Expanded(child: details)
+                ])
+              : Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [date, const SizedBox(height: 12), details]),
+        );
+      });
 }

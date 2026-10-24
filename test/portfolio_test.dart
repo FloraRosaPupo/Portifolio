@@ -62,7 +62,7 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.byTooltip('Abrir navegação'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Contato'));
+    await tester.tap(find.widgetWithText(PopupMenuItem<int>, 'Contato'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('LinkedIn ↗'));
     await tester.pumpAndSettle();
