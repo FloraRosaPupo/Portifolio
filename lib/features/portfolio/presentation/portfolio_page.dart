@@ -266,15 +266,16 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                     children: [
                                       ProjectCard(
                                           title: 'Avalia',
-                                          category: 'EDUCAÇÃO / FLUTTER',
+                                          category: 'EDUCAÇÃO / INTELIGÊNCIA ARTIFICIAL',
                                           image:
                                               'assets/projects/avalia-dashboard.png',
                                           description:
-                                              'Problema: professores dividem turmas, alunos e provas em várias ferramentas. Solução: um só lugar para organizar a rotina e acompanhar submissões. Decisão técnica: estado previsível com Cubit, dados no Supabase, testes unitários e Golden Tests.',
+                                              'Correção de provas com inteligência artificial, com turmas, alunos e resultados em um só lugar. O Avalia ajuda professores a organizar a rotina, acompanhar submissões e consultar o desempenho individual dos alunos. Desenvolvido em Flutter, com Cubit, Supabase, testes unitários e Golden Tests.',
                                           tags: const [
                                             'Flutter',
                                             'Cubit',
-                                            'Supabase'
+                                            'Supabase',
+                                            'Correção com IA'
                                           ],
                                           onTap: () =>
                                               open('$github/projeto_Avalia'),
