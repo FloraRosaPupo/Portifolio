@@ -16,7 +16,7 @@ Dependências e versões declaradas: [pubspec.yaml](pubspec.yaml).
 
 - Página responsiva com navegação por seções: Projetos, Trajetória, IA, Sobre e Contato.
 - Abertura com apresentação, quadro roxo de atuação profissional e botões para ver projetos, falar por contato e baixar o currículo (PDF em `web/`).
-- Projetos Avalia e Bebeu? descritos como problema, solução e decisão técnica, com prévias de 10 segundos em loop, silenciosas, leves e com dados demonstrativos. Movimento reduzido usa imagens estáticas.
+- Projetos Avalia (correção de provas com inteligência artificial, turmas, alunos e resultados) e Bebeu? (hidratação com widget na tela inicial, notificações locais, armazenamento seguro do token com Flutter Secure Storage e backend em Node.js e PostgreSQL), com prévias de 10 segundos em loop, silenciosas, leves e com dados demonstrativos. Movimento reduzido usa imagens estáticas.
 - Links de aplicativos publicados na Google Play.
 - Trajetória profissional, formação e competências.
 - Seção "Como eu desenvolvo com IA": fluxo AI-first com Claude e Claude Code, agentes orquestradores, agentes de code review, hooks e testes como proteção. O conteúdo fica em `lib/features/portfolio/data/content.dart` (`aiPractices` e `aiTools`).
@@ -61,7 +61,7 @@ Veja [a revisão de desenvolvimento](docs/REVISAO.md) para decisões, testes e l
 
 O deploy da `main` atualiza o site original e o endereço profissional `flora-rosa.web.app` no mesmo projeto Firebase. O script `scripts/ensure_hosting_site.py` cria o site profissional apenas se ele ainda não existir. Uma indisponibilidade do nome ou falta de permissão interrompe essa etapa com erro, sem substituir outro site. A credencial permanece no secret do GitHub Actions.
 
-A abertura apresenta uma versão leve do texto e contatos enquanto o Flutter inicializa. A tela de espera foi removida; se a inicialização falhar, os contatos permanecem disponíveis com uma opção de nova tentativa.
+Enquanto o Flutter inicializa, a página mostra uma tela de carregamento com a marca, o nome e uma barra de progresso, com saída suave quando o site fica pronto. O texto de carregamento fica oculto visualmente e permanece disponível para leitores de tela; após 20 segundos aparece um aviso de carregamento lento. Se a inicialização falhar, uma versão leve do texto e os contatos ficam disponíveis, com opção de tentar novamente. O movimento reduzido é respeitado.
 
 Os workflows Firebase compilam Flutter web. O APK existente continua em `apks/app-release.apk` no GitHub; `/app-release.apk` redireciona para esse arquivo, pois o plano Spark do Firebase Hosting não aceita executáveis. O workflow não recompila o APK. O cliente não utiliza Firebase Auth nem Firebase Core. O preview depende da conta de serviço já configurada no repositório.
 
