@@ -26,6 +26,7 @@
     #loading-state{min-height:70vh;min-height:70svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:24px;padding:32px 0}
     #loading-state[hidden],.intro[hidden]{display:none}
     #loading-state p{font-size:12px;line-height:1.8;letter-spacing:.3px;max-width:300px;margin:0;color:#6C5B77}
+    .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
     #initial-content{transition:opacity .45s ease}#initial-content.done{opacity:0;pointer-events:none}
     .loading-mark{position:relative;display:grid;place-items:center;width:84px;height:84px;border-radius:26px;color:#fff;font-size:34px;font-weight:700;letter-spacing:-2px;background:#623398;box-shadow:0 12px 32px rgba(98,51,152,.25);animation:rise .7s ease-out both}
     .loading-mark::before{content:'';position:absolute;inset:0;border-radius:inherit;border:2px solid #623398;animation:ring 2s ease-out infinite}
@@ -49,7 +50,7 @@
       <div class="loading-mark" aria-hidden="true">fr</div>
       <div class="loading-name" aria-hidden="true">Flora Rosa Pupo</div>
       <div class="loading-line" aria-hidden="true"></div>
-      <p id="loading-message">Carregando portfólio</p>
+      <p id="loading-message" class="sr">Carregando portfólio</p>
     </div>
     <div class="intro" id="fallback-intro" hidden>
       <h1>Mobile e backend, conectados.</h1>
@@ -64,7 +65,7 @@
     </div>
   </main>
   <script>
-    const slowStartup=setTimeout(()=>{const message=document.getElementById('loading-message');if(message)message.textContent='Ainda carregando. A primeira visita pode levar um pouco mais de tempo.';},20000);
+    const slowStartup=setTimeout(()=>{const message=document.getElementById('loading-message');if(message){message.classList.remove('sr');message.textContent='Ainda carregando. A primeira visita pode levar um pouco mais de tempo.';}},20000);
     window.addEventListener('flutter-first-frame',()=>{clearTimeout(slowStartup);const initial=document.getElementById('initial-content');if(!initial)return;initial.classList.add('done');setTimeout(()=>initial.remove(),500);});
     window.showStartupError=()=>{clearTimeout(slowStartup);const loading=document.getElementById('loading-state');if(loading)loading.hidden=true;for(const id of ['fallback-intro','startup-error','fallback-contacts']){const element=document.getElementById(id);if(element)element.hidden=false;}};
   </script>
