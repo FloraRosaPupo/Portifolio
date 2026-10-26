@@ -286,11 +286,14 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                           category: 'BEM-ESTAR / FULL STACK',
                                           image: 'assets/projects/bebeu.png',
                                           description:
-                                              'Problema: é fácil esquecer de beber água. Solução: registro de consumo, meta diária, lembretes e histórico dos últimos 7 dias. Decisão técnica: regras de negócio separadas da interface, com backend em Node.js e PostgreSQL.',
+                                              'Hidratação no dia a dia: registro de consumo, meta diária e histórico dos últimos 7 dias. Widget na tela inicial para acompanhar a meta e adicionar água, notificações locais para os lembretes e armazenamento seguro do token de autenticação com Flutter Secure Storage. Backend em Node.js e PostgreSQL, com regras de negócio separadas da interface.',
                                           tags: const [
                                             'Flutter',
                                             'Node.js',
-                                            'PostgreSQL'
+                                            'PostgreSQL',
+                                            'Home Widget',
+                                            'Notificações locais',
+                                            'Secure Storage'
                                           ],
                                           onTap: () =>
                                               open('$github/controle_agua'),
