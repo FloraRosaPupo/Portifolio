@@ -12,10 +12,10 @@
   <meta name="apple-mobile-web-app-title" content="Flora Rosa">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
   <title>Flora Rosa Pupo | Desenvolvedora Full Stack</title>
   <style>
-    @font-face{font-family:Montserrat;src:url('assets/assets/fonts/Montserrat-Regular.ttf')}@font-face{font-family:Montserrat;src:url('assets/assets/fonts/Montserrat-Bold.ttf');font-weight:600 700}
-    *{box-sizing:border-box}body{margin:0;background:#FAF7FC;color:#2E2239;font-family:Montserrat,Arial,sans-serif}
+    *{box-sizing:border-box}body{margin:0;background:#FAF7FC;color:#2E2239;font-family:Arial,sans-serif}
     #initial-content{max-width:1256px;margin:auto;padding:24px 48px 64px}
     .brand{font-size:24px;font-weight:700;letter-spacing:-1px}.intro{padding:88px 0 32px;max-width:760px}
     .eyebrow{color:#623398;font-size:12px;letter-spacing:2px;font-weight:600}
@@ -23,13 +23,24 @@
     p{max-width:760px;line-height:1.8;font-size:16px;color:#6C5B77;margin:0 0 20px}a{color:#623398}
     .contact{display:inline-block;background:#623398;color:white;text-decoration:none;padding:18px 26px;border-radius:8px;margin:16px 16px 16px 0}
     #startup-error{font-size:14px}button{font:inherit;color:#623398;cursor:pointer}
+    #loading-state{min-height:65vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:20px}
+    #loading-state[hidden],.intro[hidden]{display:none}
+    #loading-state p{font-size:14px;margin:0}
+    .loading-line{width:120px;height:3px;background:#E4DCEB;overflow:hidden;border-radius:3px}
+    .loading-line::after{content:'';display:block;width:45%;height:100%;background:#623398;animation:loading 1.4s ease-in-out infinite}
+    @keyframes loading{from{transform:translateX(-100%)}to{transform:translateX(325%)}}
+    @media(prefers-reduced-motion:reduce){.loading-line::after{animation:none;width:100%}}
     @media(max-width:899px){.intro{padding-top:56px}h1{font-size:38px}}@media(max-width:600px){#initial-content{padding:24px}.intro{padding-top:56px}}
   </style>
 </head>
 <body>
   <main id="initial-content">
     <div class="brand">flora rosa.</div>
-    <div class="intro">
+    <div id="loading-state" role="status" aria-live="polite">
+      <div class="loading-line" aria-hidden="true"></div>
+      <p id="loading-message">Abrindo o portfólio…</p>
+    </div>
+    <div class="intro" id="fallback-intro" hidden>
       <h1>Mobile e backend, conectados.</h1>
       <h2>Desenvolvedora Full Stack</h2>
       <p>Desenvolvedora com experiência em aplicações multiplataforma, APIs REST e bancos de dados. Atuação em produtos publicados, conectando interface, regras de negócio e integrações.</p>
@@ -42,10 +53,11 @@
     </div>
   </main>
   <script>
-    window.addEventListener('flutter-first-frame',()=>document.getElementById('initial-content')?.remove());
-    window.showStartupError=()=>{const message=document.getElementById('startup-error');if(message)message.hidden=false;const contacts=document.getElementById('fallback-contacts');if(contacts)contacts.hidden=false;};
+    const slowStartup=setTimeout(()=>{const message=document.getElementById('loading-message');if(message)message.textContent='Ainda carregando. A primeira visita pode levar um pouco mais de tempo.';},20000);
+    window.addEventListener('flutter-first-frame',()=>{clearTimeout(slowStartup);document.getElementById('initial-content')?.remove();});
+    window.showStartupError=()=>{clearTimeout(slowStartup);const loading=document.getElementById('loading-state');if(loading)loading.hidden=true;for(const id of ['fallback-intro','startup-error','fallback-contacts']){const element=document.getElementById(id);if(element)element.hidden=false;}};
   </script>
-  <noscript><style>#fallback-contacts[hidden]{display:block}</style><p style="padding:24px">Ative o JavaScript para explorar o portfólio. Os links de contato continuam disponíveis.</p></noscript>
+  <noscript><style>#loading-state{display:none}#fallback-intro[hidden],#fallback-contacts[hidden]{display:block}</style><p style="padding:24px">Ative o JavaScript para explorar o portfólio. Os links de contato continuam disponíveis.</p></noscript>
   <script src="flutter_bootstrap.js?v=dashboard-2" async onerror="showStartupError()"></script>
 </body>
 </html>
