@@ -7,11 +7,16 @@ import 'package:portifolio/features/portfolio/presentation/motion.dart';
 void main() {
   testWidgets('contact button opens WhatsApp', (tester) async {
     Uri? opened;
-    await tester
-        .pumpWidget(MaterialApp(home: PortfolioPage(openLink: (uri) async {
-      opened = uri;
-      return true;
-    })));
+    await tester.pumpWidget(
+      MaterialApp(
+        home: PortfolioPage(
+          openLink: (uri) async {
+            opened = uri;
+            return true;
+          },
+        ),
+      ),
+    );
     await tester.pumpAndSettle();
     await tester.ensureVisible(find.text('WhatsApp ↗'));
     await tester.tap(find.text('WhatsApp ↗'));
@@ -19,16 +24,19 @@ void main() {
     expect(opened, Uri.parse('https://wa.me/5534993130077'));
   });
   testWidgets('hover respects reduced motion', (tester) async {
-    await tester.pumpWidget(const MaterialApp(
+    await tester.pumpWidget(
+      const MaterialApp(
         home: MediaQuery(
-            data: MediaQueryData(disableAnimations: true),
-            child: HoverLift(child: Text('Conteúdo')))));
+          data: MediaQueryData(disableAnimations: true),
+          child: HoverLift(child: Text('Conteúdo')),
+        ),
+      ),
+    );
     expect(find.text('Conteúdo'), findsOneWidget);
     expect(
-        tester
-            .widget<AnimatedContainer>(find.byType(AnimatedContainer))
-            .duration,
-        Duration.zero);
+      tester.widget<AnimatedContainer>(find.byType(AnimatedContainer)).duration,
+      Duration.zero,
+    );
   });
   for (final width in [320.0, 430.0, 768.0, 1440.0]) {
     testWidgets('layout fits width $width and enlarged text', (tester) async {
@@ -36,30 +44,40 @@ void main() {
       tester.view.devicePixelRatio = 1;
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
-      await tester.pumpWidget(MaterialApp(
-        builder: (context, child) => MediaQuery(
-            data: MediaQuery.of(context)
-                .copyWith(textScaler: const TextScaler.linear(1.5)),
-            child: child!),
-        home: const PortfolioPage(),
-      ));
+      await tester.pumpWidget(
+        MaterialApp(
+          builder: (context, child) => MediaQuery(
+            data: MediaQuery.of(
+              context,
+            ).copyWith(textScaler: const TextScaler.linear(1.5)),
+            child: child!,
+          ),
+          home: const PortfolioPage(),
+        ),
+      );
       await tester.pumpAndSettle();
       expect(tester.takeException(), isNull);
-      expect(find.text('Desenvolvedora Full Stack'), findsOneWidget);
+      expect(find.text('Desenvolvedora Full Stack'), findsWidgets);
       await tester.ensureVisible(find.text('Como eu desenvolvo com IA'));
       await tester.ensureVisible(find.text('E-mail ↗'));
       await tester.pumpAndSettle();
       expect(tester.takeException(), isNull);
     });
   }
-  testWidgets('navigation and contact open the requested destination',
-      (tester) async {
+  testWidgets('navigation and contact open the requested destination', (
+    tester,
+  ) async {
     Uri? opened;
-    await tester
-        .pumpWidget(MaterialApp(home: PortfolioPage(openLink: (uri) async {
-      opened = uri;
-      return true;
-    })));
+    await tester.pumpWidget(
+      MaterialApp(
+        home: PortfolioPage(
+          openLink: (uri) async {
+            opened = uri;
+            return true;
+          },
+        ),
+      ),
+    );
     await tester.pumpAndSettle();
     await tester.tap(find.byTooltip('Abrir navegação'));
     await tester.pumpAndSettle();
@@ -71,12 +89,15 @@ void main() {
   });
   testWidgets('failed external link provides feedback', (tester) async {
     await tester.pumpWidget(
-        MaterialApp(home: PortfolioPage(openLink: (_) async => false)));
+      MaterialApp(home: PortfolioPage(openLink: (_) async => false)),
+    );
     await tester.pumpAndSettle();
     await tester.ensureVisible(find.text('GitHub ↗'));
     await tester.tap(find.text('GitHub ↗'));
     await tester.pumpAndSettle();
-    expect(find.text('Não foi possível abrir o link. Tente novamente.'),
-        findsOneWidget);
+    expect(
+      find.text('Não foi possível abrir o link. Tente novamente.'),
+      findsOneWidget,
+    );
   });
 }

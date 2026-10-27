@@ -4,21 +4,31 @@ import 'dart:html' as html;
 import 'dart:ui_web' as ui_web;
 import 'package:flutter/material.dart';
 
-Widget buildPreview(
-        {required String video,
-        required String image,
-        required String title,
-        required Widget fallback}) =>
-    _VideoPreview(video: video, image: image, title: title, fallback: fallback);
+Widget buildPreview({
+  required String video,
+  required String image,
+  required String title,
+  required String label,
+  required Widget fallback,
+}) =>
+    _VideoPreview(
+      video: video,
+      image: image,
+      title: title,
+      label: label,
+      fallback: fallback,
+    );
 
 class _VideoPreview extends StatefulWidget {
-  final String video, image, title;
+  final String video, image, title, label;
   final Widget fallback;
-  const _VideoPreview(
-      {required this.video,
-      required this.image,
-      required this.title,
-      required this.fallback});
+  const _VideoPreview({
+    required this.video,
+    required this.image,
+    required this.title,
+    required this.label,
+    required this.fallback,
+  });
   @override
   State<_VideoPreview> createState() => _VideoPreviewState();
 }
@@ -36,13 +46,17 @@ class _VideoPreviewState extends State<_VideoPreview> {
   void initState() {
     super.initState();
     _viewId = 'project-video-${_nextId++}';
-    final motionQuery = html.window.matchMedia('(prefers-reduced-motion: reduce)');
+    final motionQuery = html.window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    );
     _reducedMotion = motionQuery.matches;
-    _listeners.add(motionQuery.onChange.listen((event) {
-      if (!mounted) return;
-      setState(() => _reducedMotion = motionQuery.matches);
-      _updatePlayback();
-    }));
+    _listeners.add(
+      motionQuery.onChange.listen((event) {
+        if (!mounted) return;
+        setState(() => _reducedMotion = motionQuery.matches);
+        _updatePlayback();
+      }),
+    );
     _video = html.VideoElement()
       ..muted = true
       ..loop = true
@@ -50,25 +64,35 @@ class _VideoPreviewState extends State<_VideoPreview> {
       ..preload = 'none'
       ..poster = Uri.base.resolve('assets/${widget.image}').toString()
       ..setAttribute('playsinline', '')
-      ..setAttribute('aria-label',
-          'Prévia de ${widget.title}, dados demonstrativos. Controles para reproduzir e pausar.')
+      ..setAttribute('aria-label', widget.label)
       ..style.width = '100%'
       ..style.height = '100%'
       ..style.objectFit = 'contain';
-    _listeners.add(_video.onPause.listen((_) {
-      if (_visible && !html.document.hidden!) _pausedByUser = true;
-    }));
+    _listeners.add(
+      _video.onPause.listen((_) {
+        if (_visible && !html.document.hidden!) _pausedByUser = true;
+      }),
+    );
     _listeners.add(_video.onPlay.listen((_) => _pausedByUser = false));
-    _listeners.add(_video.onError.listen((_) {
-      if (mounted) setState(() => _failed = true);
-    }));
-    _listeners
-        .add(html.document.onVisibilityChange.listen((_) => _updatePlayback()));
+    _listeners.add(
+      _video.onError.listen((_) {
+        if (mounted) setState(() => _failed = true);
+      }),
+    );
+    _listeners.add(
+      html.document.onVisibilityChange.listen((_) => _updatePlayback()),
+    );
     _observer = html.IntersectionObserver((entries, _) {
       _visible = entries.any((entry) => entry.isIntersecting == true);
       _updatePlayback();
     }, {'threshold': 0.15});
     ui_web.platformViewRegistry.registerViewFactory(_viewId, (_) => _video);
+  }
+
+  @override
+  void didUpdateWidget(covariant _VideoPreview oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    _video.setAttribute('aria-label', widget.label);
   }
 
   void _updatePlayback() {
@@ -78,7 +102,9 @@ class _VideoPreviewState extends State<_VideoPreview> {
       if (_video.getAttribute('src') == null) {
         _video.src = Uri.base.resolve(widget.video).toString();
       }
-      _video.play().catchError((_) {/* Native controls remain available. */});
+      _video.play().catchError((_) {
+        /* Native controls remain available. */
+      });
     }
   }
 
