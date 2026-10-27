@@ -116,7 +116,42 @@ class _PortfolioPageState extends State<PortfolioPage> {
                     child: Center(
                       child: ConstrainedBox(
                         constraints: const BoxConstraints(maxWidth: 1160),
-                        child: Wrap(
+                        child: wide
+                            ? Row(
+                                children: [
+                                  const PortfolioText(
+                                    'flora rosa.',
+                                    style: TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w700,
+                                      letterSpacing: -1,
+                                    ),
+                                  ),
+                                  const Spacer(),
+                                  for (final pair in [
+                                    (0, 'Projetos'),
+                                    (1, 'Trajetória'),
+                                    (2, 'IA'),
+                                    (3, 'Sobre'),
+                                    (4, 'Contato'),
+                                  ])
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 6),
+                                      child: TextButton(
+                                        onPressed: () => go(pair.$1),
+                                        child: PortfolioText(
+                                          pair.$2,
+                                          style: TextStyle(
+                                              color: palette(context).ink),
+                                        ),
+                                      ),
+                                    ),
+                                  const Spacer(),
+                                  const PreferenceControls(),
+                                ],
+                              )
+                            : Wrap(
                           alignment: WrapAlignment.spaceBetween,
                           crossAxisAlignment: WrapCrossAlignment.center,
                           spacing: 8,
@@ -133,24 +168,6 @@ class _PortfolioPageState extends State<PortfolioPage> {
                               ),
                             ),
                             const PreferenceControls(),
-                            if (wide) ...[
-                              for (final pair in [
-                                (0, 'Projetos'),
-                                (1, 'Trajetória'),
-                                (2, 'IA'),
-                                (3, 'Sobre'),
-                                (4, 'Contato'),
-                              ])
-                                TextButton(
-                                  onPressed: () => go(pair.$1),
-                                  child: PortfolioText(
-                                    pair.$2,
-                                    style:
-                                        TextStyle(color: palette(context).ink),
-                                  ),
-                                ),
-                            ],
-                            if (!wide)
                               PopupMenuButton<int>(
                                 tooltip: tr(context, 'Abrir navegação'),
                                 onSelected: go,
