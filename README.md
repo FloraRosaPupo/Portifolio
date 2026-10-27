@@ -80,3 +80,18 @@ flutter test test/portfolio_capture_test.dart --dart-define=CAPTURE_PORTFOLIO=tr
 ```
 
 As imagens ficam em `captures/`. Os testes regulares verificam larguras de 320, 430, 768 e 1440 pixels, texto ampliado, navegação e abertura de links.
+
+## Rascunho de revisão: idiomas e tema
+
+A interface oferece português, inglês e espanhol pelo seletor discreto com bandeiras
+no cabeçalho. O texto do currículo PDF continua em português e os links indicam
+`(PT)`. Traduções de interface não representam uma declaração de fluência.
+
+O tema acompanha o sistema na primeira visita e pode ser alternado no cabeçalho.
+Idioma e tema escolhidos ficam salvos somente no armazenamento local do navegador;
+se o navegador bloquear armazenamento, os controles continuam funcionando na sessão.
+Não há novo serviço, analytics ou transmissão dessas preferências.
+
+A lista começa pelo trabalho profissional e voluntário, com contexto curto. ASSID
+leva apenas ao site institucional; não há link para código privado nem vídeo
+simulado. Avalia e Bebeu? são identificados como projetos autorais de aprendizado.

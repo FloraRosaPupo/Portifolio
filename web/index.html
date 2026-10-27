@@ -14,25 +14,43 @@
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
   <title>Flora Rosa Pupo | Desenvolvedora Full Stack</title>
+  <script>
+    // Read only our two presentation preferences; blocked storage is harmless.
+    (() => {
+      let language = 'pt', theme = null;
+      try {
+        const savedLanguage = localStorage.getItem('portfolio.language');
+        if (['pt', 'en', 'es'].includes(savedLanguage)) language = savedLanguage;
+        theme = localStorage.getItem('portfolio.theme');
+      } catch (_) {}
+      const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = theme === 'dark' || (theme !== 'light' && systemDark) ? 'dark' : 'light';
+      document.documentElement.lang = language === 'pt' ? 'pt-BR' : language;
+      window.portfolioStartupLanguage = language;
+    })();
+  </script>
   <style>
-    *{box-sizing:border-box}body{margin:0;background:#FAF7FC;color:#2E2239;font-family:Arial,sans-serif}
+    :root{--paper:#FAF7FC;--ink:#2E2239;--muted:#6C5B77;--accent:#623398;--line:#E4DCEB;color-scheme:light}
+    :root[data-theme="dark"]{--paper:#19131F;--ink:#F3EDF8;--muted:#C8BBD2;--accent:#D4AEFC;--line:#46364F;color-scheme:dark}
+    html{background:var(--paper)}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,sans-serif}
     #initial-content{max-width:1256px;margin:auto;padding:24px 48px 64px}
     .brand{font-size:24px;font-weight:700;letter-spacing:-1px}.intro{padding:88px 0 32px;max-width:760px}
-    .eyebrow{color:#623398;font-size:12px;letter-spacing:2px;font-weight:600}
-    h1{font-size:56px;line-height:1.15;letter-spacing:-1.8px;margin:0 0 20px;font-weight:600}h2{font-size:22px;color:#623398;font-weight:500;line-height:1.4;margin:0 0 28px}
-    p{max-width:760px;line-height:1.8;font-size:16px;color:#6C5B77;margin:0 0 20px}a{color:#623398}
+    .eyebrow{color:var(--accent);font-size:12px;letter-spacing:2px;font-weight:600}
+    h1{font-size:56px;line-height:1.15;letter-spacing:-1.8px;margin:0 0 20px;font-weight:600}h2{font-size:22px;color:var(--accent);font-weight:500;line-height:1.4;margin:0 0 28px}
+    p{max-width:760px;line-height:1.8;font-size:16px;color:var(--muted);margin:0 0 20px}a{color:var(--accent)}
     .contact{display:inline-block;background:#623398;color:white;text-decoration:none;padding:18px 26px;border-radius:8px;margin:16px 16px 16px 0}
-    #startup-error{font-size:14px}button{font:inherit;color:#623398;cursor:pointer}
+    #startup-error{font-size:14px}button{font:inherit;color:var(--accent);cursor:pointer}
     #loading-state{min-height:70vh;min-height:70svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:24px;padding:32px 0}
     #loading-state[hidden],.intro[hidden]{display:none}
-    #loading-state p{font-size:12px;line-height:1.8;letter-spacing:.3px;max-width:300px;margin:0;color:#6C5B77}
+    #loading-state p{font-size:12px;line-height:1.8;letter-spacing:.3px;max-width:300px;margin:0;color:var(--muted)}
     .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
     #initial-content{transition:opacity .45s ease}#initial-content.done{opacity:0;pointer-events:none}
     .loading-mark{position:relative;display:grid;place-items:center;width:84px;height:84px;border-radius:26px;color:#fff;font-size:34px;font-weight:700;letter-spacing:-2px;background:#623398;box-shadow:0 12px 32px rgba(98,51,152,.25);animation:rise .7s ease-out both}
     .loading-mark::before{content:'';position:absolute;inset:0;border-radius:inherit;border:2px solid #623398;animation:ring 2s ease-out infinite}
     .loading-mark::after{content:'';position:absolute;bottom:16px;right:15px;width:6px;height:6px;border-radius:50%;background:#EAD3FF;animation:breathe 1.8s ease-in-out infinite}
-    .loading-name{font-size:20px;font-weight:700;letter-spacing:-.8px;margin:0;color:#2E2239;animation:rise .7s .1s ease-out both}
-    .loading-line{width:160px;height:3px;background:#E4DCEB;overflow:hidden;border-radius:3px;animation:rise .7s .2s ease-out both}
+    .loading-name{font-size:20px;font-weight:700;letter-spacing:-.8px;margin:0;color:var(--ink);animation:rise .7s .1s ease-out both}
+    .loading-line{width:160px;height:3px;background:var(--line);overflow:hidden;border-radius:3px;animation:rise .7s .2s ease-out both}
     .loading-line::after{content:'';display:block;width:40%;height:100%;border-radius:3px;background:linear-gradient(90deg,#623398,#B998D6);animation:loading 1.4s ease-in-out infinite alternate}
     #loading-state p{animation:rise .7s .3s ease-out both}
     @keyframes loading{from{transform:translateX(0)}to{transform:translateX(150%)}}
@@ -53,19 +71,52 @@
       <p id="loading-message" class="sr">Carregando portfólio</p>
     </div>
     <div class="intro" id="fallback-intro" hidden>
-      <h1>Mobile e backend, conectados.</h1>
-      <h2>Desenvolvedora Full Stack</h2>
-      <p>Desenvolvedora com experiência em aplicações multiplataforma, APIs REST e bancos de dados. Atuação em produtos publicados, conectando interface, regras de negócio e integrações.</p>
+      <h1 id="fallback-heading">Mobile e backend, conectados.</h1>
+      <h2 id="fallback-role">Desenvolvedora Full Stack</h2>
+      <p id="fallback-description">Desenvolvedora com experiência em aplicações multiplataforma, APIs REST e bancos de dados. Atuação em produtos publicados, conectando interface, regras de negócio e integrações.</p>
       <p style="font-size:14px">Flutter &amp; Dart · Node.js · SQL &amp; PostgreSQL · UX/UI</p>
       <div id="fallback-contacts" hidden>
-      <a class="contact" href="https://wa.me/5534993130077">Vamos conversar</a>
+      <a id="fallback-contact-label" class="contact" href="https://wa.me/5534993130077">Vamos conversar</a>
       <a href="https://www.linkedin.com/in/florarosa/">LinkedIn ↗</a>
       </div>
-      <p id="startup-error" hidden role="status">A versão interativa não pôde ser aberta. Os contatos continuam disponíveis. <button onclick="location.reload()">Tentar novamente</button></p>
+      <p id="startup-error" hidden role="status"><span id="startup-error-message">A versão interativa não pôde ser aberta. Os contatos continuam disponíveis.</span> <button id="startup-retry" onclick="location.reload()">Tentar novamente</button></p>
     </div>
   </main>
   <script>
-    const slowStartup=setTimeout(()=>{const message=document.getElementById('loading-message');if(message){message.classList.remove('sr');message.textContent='Ainda carregando. A primeira visita pode levar um pouco mais de tempo.';}},20000);
+    const startupCopy = {
+      pt: {
+        loading: 'Carregando portfólio',
+        slow: 'Ainda carregando. A primeira visita pode levar um pouco mais de tempo.',
+        heading: 'Mobile e backend, conectados.', role: 'Desenvolvedora Full Stack',
+        description: 'Desenvolvedora com experiência em aplicações multiplataforma, APIs REST e bancos de dados. Atuação em produtos publicados, conectando interface, regras de negócio e integrações.',
+        contact: 'Vamos conversar', error: 'A versão interativa não pôde ser aberta. Os contatos continuam disponíveis.', retry: 'Tentar novamente'
+      },
+      en: {
+        loading: 'Loading portfolio',
+        slow: 'Still loading. Your first visit may take a little longer.',
+        heading: 'Mobile and backend, connected.', role: 'Full Stack Developer',
+        description: 'Developer experienced in cross-platform applications, REST APIs and databases. I work on published products, connecting interfaces, business logic and integrations.',
+        contact: 'Let’s talk', error: 'The interactive version could not be opened. Contact links are still available.', retry: 'Try again'
+      },
+      es: {
+        loading: 'Cargando portafolio',
+        slow: 'Seguimos cargando. La primera visita puede tardar un poco más.',
+        heading: 'Mobile y backend, conectados.', role: 'Desarrolladora Full Stack',
+        description: 'Desarrolladora con experiencia en aplicaciones multiplataforma, API REST y bases de datos. Trabajo en productos publicados, conectando interfaces, lógica de negocio e integraciones.',
+        contact: 'Hablemos', error: 'No se pudo abrir la versión interactiva. Los enlaces de contacto siguen disponibles.', retry: 'Intentar de nuevo'
+      }
+    }[window.portfolioStartupLanguage || 'pt'];
+    for (const [id, key] of Object.entries({
+      'loading-message': 'loading', 'fallback-heading': 'heading',
+      'fallback-role': 'role', 'fallback-description': 'description',
+      'fallback-contact-label': 'contact', 'startup-error-message': 'error',
+      'startup-retry': 'retry'
+    })) {
+      const element = document.getElementById(id);
+      if (element) element.textContent = startupCopy[key];
+    }
+    document.title = 'Flora Rosa Pupo | ' + startupCopy.role;
+    const slowStartup=setTimeout(()=>{const message=document.getElementById('loading-message');if(message){message.classList.remove('sr');message.textContent=startupCopy.slow;}},20000);
     window.addEventListener('flutter-first-frame',()=>{clearTimeout(slowStartup);const initial=document.getElementById('initial-content');if(!initial)return;initial.classList.add('done');setTimeout(()=>initial.remove(),500);});
     window.showStartupError=()=>{clearTimeout(slowStartup);const loading=document.getElementById('loading-state');if(loading)loading.hidden=true;for(const id of ['fallback-intro','startup-error','fallback-contacts']){const element=document.getElementById(id);if(element)element.hidden=false;}};
   </script>
