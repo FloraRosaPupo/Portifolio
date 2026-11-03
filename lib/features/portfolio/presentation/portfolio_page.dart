@@ -361,6 +361,12 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                         open('https://www.assid.org.br/'),
                                   ),
                                   const SizedBox(height: 64),
+                                  const Heading('Projetos recentes'),
+                                  const Body(
+                                      'Explore meus projetos mais recentes de IA e machine learning.'),
+                                  const SizedBox(height: 24),
+                                  RecentProjects(onOpen: open),
+                                  const SizedBox(height: 40),
                                   const Eyebrow(
                                       'PROJETOS AUTORAIS / APRENDIZADO'),
                                   const SizedBox(height: 24),
@@ -368,6 +374,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                     children: [
                                       ProjectCard(
                                         title: 'Avalia',
+                                        video: 'previews/avalia.mp4',
                                         category:
                                             'EDUCAÇÃO / INTELIGÊNCIA ARTIFICIAL',
                                         image:
@@ -376,9 +383,27 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                             'Projeto autoral de aprendizado para correção de provas com IA. Desenvolvi a aplicação em Flutter com Cubit, Supabase e testes.',
                                         tags: const [
                                           'Flutter',
+                                          'Dart',
                                           'Cubit',
+                                          'BLoC',
                                           'Supabase',
-                                          'Correção com IA',
+                                          'Google Gemini',
+                                          'Equatable',
+                                          'Image Picker',
+                                          'File Picker',
+                                          'CSV',
+                                          'Lottie',
+                                          'Timeago',
+                                          'Flutter Colorpicker',
+                                          'Dotted Border',
+                                          'Font Awesome',
+                                          'flutter_dotenv',
+                                          'Flutter Test',
+                                          'bloc_test',
+                                          'Mocktail',
+                                          'Flutter Lints',
+                                          'Flutter Native Splash',
+                                          'Flutter Launcher Icons',
                                         ],
                                         onTap: () =>
                                             open('$github/projeto_Avalia'),
@@ -387,17 +412,43 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                       const SizedBox(height: 56),
                                       ProjectCard(
                                         title: 'Bebeu?',
+                                        video: 'previews/bebeu.mp4',
                                         category: 'BEM-ESTAR / FULL STACK',
                                         image: 'assets/projects/bebeu.png',
                                         description:
                                             'Projeto autoral de aprendizado para acompanhar a hidratação. Desenvolvi o app Flutter e o backend em Node.js e PostgreSQL.',
                                         tags: const [
                                           'Flutter',
+                                          'Dart',
                                           'Node.js',
+                                          'TypeScript',
+                                          'Express',
+                                          'Prisma',
                                           'PostgreSQL',
+                                          'JWT',
+                                          'bcrypt',
+                                          'CORS',
+                                          'dotenv',
+                                          'Provider',
+                                          'BLoC',
+                                          'GoRouter',
+                                          'SQLite / sqflite',
+                                          'Shared Preferences',
+                                          'Supabase Flutter',
                                           'Home Widget',
                                           'Notificações locais',
                                           'Secure Storage',
+                                          'Connectivity Plus',
+                                          'Path Provider',
+                                          'Intl',
+                                          'Timezone',
+                                          'Lottie / dotLottie',
+                                          'Android Alarm Manager Plus',
+                                          'Flutter Test',
+                                          'Mocktail',
+                                          'Flutter Lints',
+                                          'Flutter Native Splash',
+                                          'Flutter Launcher Icons',
                                         ],
                                         onTap: () =>
                                             open('$github/controle_agua'),
@@ -870,14 +921,139 @@ class Education extends StatelessWidget {
       );
 }
 
+class RecentProjects extends StatefulWidget {
+  final Future<void> Function(String) onOpen;
+  const RecentProjects({super.key, required this.onOpen});
+
+  @override
+  State<RecentProjects> createState() => _RecentProjectsState();
+}
+
+class _RecentProjectsState extends State<RecentProjects> {
+  int index = 0;
+
+  void move(int delta) => setState(() => index = (index + delta) % 2);
+
+  @override
+  Widget build(BuildContext context) => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Wrap(
+            spacing: 12,
+            runSpacing: 8,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              for (final entry in ['RepoMentor', 'Triagem'].asMap().entries)
+                ChoiceChip(
+                  label: Text(entry.value),
+                  selected: index == entry.key,
+                  onSelected: (_) => setState(() => index = entry.key),
+                ),
+              IconButton(
+                tooltip: tr(context, 'Projeto anterior'),
+                onPressed: () => move(-1),
+                icon: const Icon(Icons.arrow_back),
+              ),
+              Semantics(liveRegion: true, child: Text('${index + 1} / 2')),
+              IconButton(
+                tooltip: tr(context, 'Próximo projeto'),
+                onPressed: () => move(1),
+                icon: const Icon(Icons.arrow_forward),
+              ),
+            ],
+          ),
+          const SizedBox(height: 24),
+          if (index == 0)
+            ProjectCard(
+              key: const ValueKey('repomentor'),
+              title: 'RepoMentor',
+              category: 'OPEN SOURCE / INTELIGÊNCIA ARTIFICIAL',
+              image: 'assets/projects/repomentor.png',
+              video: 'previews/repomentor.mp4',
+              aspectRatio: 1440 / 1000,
+              description:
+                  'Projeto autoral para explorar repositórios públicos, entender issues e preparar contribuições com o apoio do Gemma. Desenvolvi a interface React e a API FastAPI, com análises e guias sujeitos à revisão humana.',
+              tags: const [
+                'React',
+                'JavaScript',
+                'HTML',
+                'CSS',
+                'Vite',
+                'Python',
+                'FastAPI',
+                'Uvicorn',
+                'Pydantic Settings',
+                'HTTPX',
+                'GitHub REST API',
+                'Gemma 4',
+                'Google AI Studio',
+                'Vertex AI (opcional)',
+                'Google Auth',
+                'Local Storage',
+                'Vitest',
+                'Testing Library',
+                'jsdom',
+                'Pytest',
+                'Ruff',
+                'ESLint',
+                'Prettier',
+                'GitHub Actions',
+                'Vercel',
+              ],
+              onTap: () => widget.onOpen('$github/repomentor'),
+              background: const Color(0xFFEAE0F5),
+            )
+          else
+            ProjectCard(
+              key: const ValueKey('triagem'),
+              title: 'Triagem',
+              category: 'SUPORTE / MACHINE LEARNING',
+              image: 'assets/projects/triagem.png',
+              video: 'previews/triagem.mp4',
+              aspectRatio: 1440 / 1000,
+              description:
+                  'Projeto didático que sugere assuntos para chamados de suporte usando TF-IDF e regressão logística. Desenvolvi o painel React com busca, filtros, Kanban e revisão humana, integrado à API Python. A base é pequena e sintética; não representa desempenho em produção.',
+              tags: const [
+                'React',
+                'JavaScript',
+                'HTML',
+                'CSS',
+                'Parcel',
+                'Python',
+                'http.server',
+                'scikit-learn',
+                'TF-IDF',
+                'Regressão logística',
+                'NumPy',
+                'SciPy',
+                'Joblib',
+                'Cloudpickle',
+                'Narwhals',
+                'Threadpoolctl',
+                'RandomAPI',
+                'MyMemory API',
+                'unittest',
+                'Playwright',
+                'Prettier',
+              ],
+              onTap: () => widget.onOpen('$github/ticket-triage-ml'),
+              background: const Color(0xFFF0E6F8),
+            ),
+        ],
+      );
+}
+
 class ProjectCard extends StatelessWidget {
-  final String title, category, image, description;
+  final String title, category, image, description, video;
+  final double aspectRatio;
   final List<String> tags;
   final VoidCallback onTap;
   final Color background;
   const ProjectCard({
     super.key,
     required this.title,
+    required this.video,
+    this.aspectRatio = 430 / 932,
     required this.category,
     required this.image,
     required this.description,
@@ -888,7 +1064,7 @@ class ProjectCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) => LayoutBuilder(
         builder: (context, constraints) {
-          final sideBySide = constraints.maxWidth >= 760;
+          final sideBySide = constraints.maxWidth >= 760 && aspectRatio < 1;
           final preview = Container(
             width: double.infinity,
             padding: EdgeInsets.all(sideBySide ? 28 : 12),
@@ -898,7 +1074,8 @@ class ProjectCard extends StatelessWidget {
             ),
             child: Center(
               child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 340),
+                constraints:
+                    BoxConstraints(maxWidth: aspectRatio > 1 ? 760 : 340),
                 child: Container(
                   padding: const EdgeInsets.all(2),
                   decoration: BoxDecoration(
@@ -918,9 +1095,8 @@ class ProjectCard extends StatelessWidget {
                     child: ProjectPreview(
                       image: image,
                       title: title,
-                      video: title == 'Avalia'
-                          ? 'previews/avalia.mp4'
-                          : 'previews/bebeu.mp4',
+                      video: video,
+                      aspectRatio: aspectRatio,
                     ),
                   ),
                 ),

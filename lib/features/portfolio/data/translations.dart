@@ -1,5 +1,32 @@
 // Portuguese is the source language. Product and technology names stay unchanged.
 const translations = <String, (String, String)>{
+  'Projetos recentes': ('Recent projects', 'Proyectos recientes'),
+  'Explore meus projetos mais recentes de IA e machine learning.': (
+    'Explore my latest AI and machine learning projects.',
+    'Explora mis proyectos más recientes de IA y machine learning.',
+  ),
+  'Projeto anterior': ('Previous project', 'Proyecto anterior'),
+  'Próximo projeto': ('Next project', 'Proyecto siguiente'),
+  'OPEN SOURCE / INTELIGÊNCIA ARTIFICIAL': (
+    'OPEN SOURCE / ARTIFICIAL INTELLIGENCE',
+    'OPEN SOURCE / INTELIGENCIA ARTIFICIAL'
+  ),
+  'SUPORTE / MACHINE LEARNING': (
+    'SUPPORT / MACHINE LEARNING',
+    'SOPORTE / MACHINE LEARNING'
+  ),
+  'Vertex AI (opcional)': ('Vertex AI (optional)', 'Vertex AI (opcional)'),
+  'Regressão logística': ('Logistic regression', 'Regresión logística'),
+  'Projeto autoral para explorar repositórios públicos, entender issues e preparar contribuições com o apoio do Gemma. Desenvolvi a interface React e a API FastAPI, com análises e guias sujeitos à revisão humana.':
+      (
+    'A personal project to explore public repositories, understand issues and prepare contributions with Gemma. I built the React interface and FastAPI backend, with analyses and guides subject to human review.',
+    'Proyecto personal para explorar repositorios públicos, comprender issues y preparar contribuciones con Gemma. Desarrollé la interfaz React y la API FastAPI, con análisis y guías sujetos a revisión humana.',
+  ),
+  'Projeto didático que sugere assuntos para chamados de suporte usando TF-IDF e regressão logística. Desenvolvi o painel React com busca, filtros, Kanban e revisão humana, integrado à API Python. A base é pequena e sintética; não representa desempenho em produção.':
+      (
+    'An educational project that suggests topics for support tickets using TF-IDF and logistic regression. I built the React dashboard with search, filters, Kanban and human review, integrated with a Python API. The dataset is small and synthetic; it does not represent production performance.',
+    'Proyecto didáctico que sugiere temas para tickets de soporte usando TF-IDF y regresión logística. Desarrollé el panel React con búsqueda, filtros, Kanban y revisión humana, integrado con una API Python. El conjunto de datos es pequeño y sintético; no representa el rendimiento en producción.',
+  ),
   "TRABALHO PROFISSIONAL & VOLUNTÁRIO": (
     "PROFESSIONAL & VOLUNTEER WORK",
     "TRABAJO PROFESIONAL Y VOLUNTARIO",

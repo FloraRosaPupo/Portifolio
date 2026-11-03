@@ -75,6 +75,13 @@ void main() {
         await tester.tap(find.text('Ver projetos'));
         await tester.pumpAndSettle();
         await save('projetos');
+        await tester.ensureVisible(find.text('Projetos recentes'));
+        await tester.pumpAndSettle();
+        await save('recentes-repomentor');
+        await tester.ensureVisible(find.byTooltip('Próximo projeto'));
+        await tester.tap(find.byTooltip('Próximo projeto'));
+        await tester.pumpAndSettle();
+        await save('recentes-triagem');
         await tester.ensureVisible(
           find.text('PROJETOS AUTORAIS / APRENDIZADO'),
         );
