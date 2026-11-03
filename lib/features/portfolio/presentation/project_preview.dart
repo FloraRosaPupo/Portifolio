@@ -5,11 +5,13 @@ import 'project_preview_stub.dart'
 
 class ProjectPreview extends StatelessWidget {
   final String image, video, title;
+  final double aspectRatio;
   const ProjectPreview({
     super.key,
     required this.image,
     required this.video,
     required this.title,
+    this.aspectRatio = 430 / 932,
   });
 
   @override
@@ -23,7 +25,7 @@ class ProjectPreview extends StatelessWidget {
       ).replaceAll('{title}', title),
     );
     return AspectRatio(
-      aspectRatio: 430 / 932,
+      aspectRatio: aspectRatio,
       child: MediaQuery.of(context).disableAnimations
           ? poster
           : platform.buildPreview(

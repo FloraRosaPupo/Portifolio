@@ -34,6 +34,12 @@ void main() {
           RepaintBoundary(key: key, child: const MyApp()),
         );
         await tester.pumpAndSettle();
+        await tester.runAsync(() async {
+          for (final name in ['repomentor', 'triagem']) {
+            await precacheImage(AssetImage('assets/projects/$name.png'),
+                tester.element(find.byType(Scaffold).first));
+          }
+        });
         Future<void> save(String section) async {
           expect(tester.takeException(), isNull);
           final boundary =
@@ -75,6 +81,13 @@ void main() {
         await tester.tap(find.text('Ver projetos'));
         await tester.pumpAndSettle();
         await save('projetos');
+        await tester.ensureVisible(find.text('Projetos recentes'));
+        await tester.pumpAndSettle();
+        await save('recentes-repomentor');
+        await tester.ensureVisible(find.byTooltip('Próximo projeto'));
+        await tester.tap(find.byTooltip('Próximo projeto'));
+        await tester.pumpAndSettle();
+        await save('recentes-triagem');
         await tester.ensureVisible(
           find.text('PROJETOS AUTORAIS / APRENDIZADO'),
         );
