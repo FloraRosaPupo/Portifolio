@@ -35,7 +35,7 @@ As gravações mostram interfaces reais. O Triagem usa chamados fictícios e uma
 
 - Um único carrossel automático de **Projetos pessoais**, feito com `PageView`, reúne **RepoMentor, Triagem, Avalia e Bebeu?**. Mostra um projeto por vez, com demonstração à esquerda e descrição e tecnologias à direita no desktop; no celular, os elementos ficam empilhados.
 - No desktop, as abas acompanham o projeto selecionado; no celular, quatro indicadores na base permitem ir direto a cada projeto. O `PageView` também aceita deslize.
-- Troca a cada **12 segundos** enquanto visível, pausa ao passar o mouse e botão de pausa/retomada.
+- Troca a cada **12 segundos** enquanto visível e pausa ao passar o mouse.
 - Experiência profissional e voluntária com Easy Comlink, IndicaZ Profissionais, Roteo e ASSID, com links públicos dos produtos.
 - Interface responsiva em **português, inglês e espanhol**, temas claro e escuro e respeito à preferência por movimento reduzido.
 - Trajetória, formação, competências e uma seção sobre meu processo de desenvolvimento com IA.

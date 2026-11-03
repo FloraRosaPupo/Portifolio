@@ -8,8 +8,6 @@ const translations = <String, (String, String)>{
     'Applications I built to explore mobile, backend, artificial intelligence and machine learning.',
     'Aplicaciones que desarrollé para explorar mobile, backend, inteligencia artificial y machine learning.',
   ),
-  'Pausar carrossel': ('Pause carousel', 'Pausar carrusel'),
-  'Retomar carrossel': ('Resume carousel', 'Reanudar carrusel'),
   'Explore meus projetos mais recentes de IA e machine learning.': (
     'Explore my latest AI and machine learning projects.',
     'Explora mis proyectos más recientes de IA y machine learning.',

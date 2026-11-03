@@ -866,7 +866,7 @@ class _RecentProjectsState extends State<RecentProjects>
   final pageHeights = <int, double>{};
   bool dragging = false;
   late final Timer timer;
-  bool paused = false, hovered = false;
+  bool hovered = false;
   int elapsed = 0;
 
   @override
@@ -875,7 +875,6 @@ class _RecentProjectsState extends State<RecentProjects>
     tabs = TabController(length: 4, vsync: this);
     timer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (!mounted ||
-          paused ||
           hovered ||
           dragging ||
           MediaQuery.disableAnimationsOf(context)) {
@@ -1092,30 +1091,7 @@ class _RecentProjectsState extends State<RecentProjects>
                     ],
                   ),
                 ),
-                if (!MediaQuery.disableAnimationsOf(context))
-                  IconButton(
-                    tooltip: tr(context,
-                        paused ? 'Retomar carrossel' : 'Pausar carrossel'),
-                    onPressed: () => setState(() {
-                      paused = !paused;
-                      elapsed = 0;
-                    }),
-                    icon: Icon(paused ? Icons.play_arrow : Icons.pause),
-                  ),
-              ])
-            else if (!MediaQuery.disableAnimationsOf(context))
-              Align(
-                alignment: Alignment.centerRight,
-                child: IconButton(
-                  tooltip: tr(context,
-                      paused ? 'Retomar carrossel' : 'Pausar carrossel'),
-                  onPressed: () => setState(() {
-                    paused = !paused;
-                    elapsed = 0;
-                  }),
-                  icon: Icon(paused ? Icons.play_arrow : Icons.pause),
-                ),
-              ),
+              ]),
             const SizedBox(height: 24),
             SizedBox(
               height: pageHeights[index] ?? 720,

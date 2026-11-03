@@ -4,7 +4,7 @@ import 'package:portifolio/features/portfolio/presentation/portfolio_page.dart';
 import 'package:portifolio/features/portfolio/presentation/project_preview.dart';
 
 void main() {
-  testWidgets('PageView advances and the tab bar follows its selected page',
+  testWidgets('PageView advances without a pause button and updates its tabs',
       (tester) async {
     await tester.pumpWidget(MaterialApp(
         home: Scaffold(
@@ -14,12 +14,7 @@ void main() {
     await tester.pump(const Duration(seconds: 12));
     await tester.pumpAndSettle();
     expect(tester.widget<TabBar>(find.byType(TabBar)).controller!.index, 1);
-    await tester.tap(find.byTooltip('Pausar carrossel'));
-    await tester.pump();
-    await tester.pump(const Duration(seconds: 24));
-    expect(tester.widget<TabBar>(find.byType(TabBar)).controller!.index, 1);
-    await tester.tap(find.byTooltip('Retomar carrossel'));
-    await tester.pump();
+    expect(find.byTooltip('Pausar carrossel'), findsNothing);
     await tester.pump(const Duration(seconds: 12));
     await tester.pumpAndSettle();
     expect(tester.widget<TabBar>(find.byType(TabBar)).controller!.index, 2);
