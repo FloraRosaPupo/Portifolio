@@ -1,6 +1,12 @@
 // Portuguese is the source language. Product and technology names stay unchanged.
 const translations = <String, (String, String)>{
   'Projetos recentes': ('Recent projects', 'Proyectos recientes'),
+  'Projetos pessoais': ('Personal projects', 'Proyectos personales'),
+  'Aplicações que desenvolvi para explorar mobile, backend, inteligência artificial e machine learning.':
+      (
+    'Applications I built to explore mobile, backend, artificial intelligence and machine learning.',
+    'Aplicaciones que desarrollé para explorar mobile, backend, inteligencia artificial y machine learning.',
+  ),
   'Pausar carrossel': ('Pause carousel', 'Pausar carrusel'),
   'Retomar carrossel': ('Resume carousel', 'Reanudar carrusel'),
   'Explore meus projetos mais recentes de IA e machine learning.': (

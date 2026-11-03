@@ -35,7 +35,12 @@ void main() {
         );
         await tester.pumpAndSettle();
         await tester.runAsync(() async {
-          for (final name in ['repomentor', 'triagem']) {
+          for (final name in [
+            'repomentor',
+            'triagem',
+            'avalia-dashboard',
+            'bebeu'
+          ]) {
             await precacheImage(AssetImage('assets/projects/$name.png'),
                 tester.element(find.byType(Scaffold).first));
           }
@@ -81,15 +86,21 @@ void main() {
         await tester.tap(find.text('Ver projetos'));
         await tester.pumpAndSettle();
         await save('projetos');
-        await tester.ensureVisible(find.text('Projetos recentes'));
+        await tester.ensureVisible(find.text('Projetos pessoais'));
         await tester.pumpAndSettle();
         await save('recentes-repomentor');
         await tester.ensureVisible(find.byTooltip('Próximo projeto'));
         await tester.tap(find.byTooltip('Próximo projeto'));
         await tester.pumpAndSettle();
         await save('recentes-triagem');
+        for (final name in ['avalia', 'bebeu']) {
+          await tester.ensureVisible(find.byTooltip('Próximo projeto'));
+          await tester.tap(find.byTooltip('Próximo projeto'));
+          await tester.pumpAndSettle();
+          await save('pessoais-$name');
+        }
         await tester.ensureVisible(
-          find.text('PROJETOS AUTORAIS / APRENDIZADO'),
+          find.text('Projetos pessoais'),
         );
         await tester.pumpAndSettle();
         await save('independentes');

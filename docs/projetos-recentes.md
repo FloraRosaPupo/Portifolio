@@ -41,8 +41,13 @@ incluem linguagens, bibliotecas de aplicação, serviços, ferramentas de build 
 testes. Não são uma lista de todas as dependências transitivas. Vertex AI é uma
 opção de integração do RepoMentor e aparece explicitamente como opcional.
 
+Um único `PageView` reúne RepoMentor, Triagem, Avalia e Bebeu na seção de projetos
+pessoais, mostrando um projeto por vez. No desktop, a demonstração fica à esquerda
+e o texto à direita; no celular, ficam empilhados. A altura é medida a partir do
+conteúdo de cada página para acomodar todas as tecnologias e texto ampliado.
+
 O carrossel avança automaticamente a cada 12 segundos enquanto visível, com pausa
-ao passar o mouse, botão de pausa/retomada, seleção direta e botões anterior/próximo.
+ao passar o mouse, botão de pausa/retomada, seleção direta, deslize e botões anterior/próximo.
 Movimento reduzido desativa a rotação automática. O cartão usa altura natural para acomodar texto
 ampliado. A chave de cada projeto recria a prévia ao trocar o cartão, evitando
 que o vídeo do projeto anterior permaneça na tela.
