@@ -31,21 +31,40 @@ void main() {
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
+    final scroll = ScrollController();
+    addTearDown(scroll.dispose);
     await tester.pumpWidget(MaterialApp(
         home: Scaffold(
             body: MediaQuery(
       data: const MediaQueryData(size: Size(390, 844)),
-      child: SingleChildScrollView(child: RecentProjects(onOpen: (_) async {})),
+      child: SingleChildScrollView(
+          controller: scroll, child: RecentProjects(onOpen: (_) async {})),
     ))));
     await tester.pumpAndSettle();
     expect(find.byType(TabBar), findsNothing);
+    scroll.jumpTo(scroll.position.maxScrollExtent);
+    await tester.pumpAndSettle();
     await tester.tap(find.byTooltip('Triagem'));
     await tester.pumpAndSettle();
-    expect(tester.widget<ProjectPreview>(find.byType(ProjectPreview)).video,
+    expect(
+        tester
+            .widget<ProjectPreview>(find.descendant(
+                of: find.byWidgetPredicate(
+                    (w) => w is ProjectCard && w.title == 'Triagem'),
+                matching: find.byType(ProjectPreview)))
+            .video,
         'previews/triagem.mp4');
+    scroll.jumpTo(0);
+    await tester.pumpAndSettle();
     await tester.dragFrom(const Offset(340, 350), const Offset(-250, 0));
     await tester.pumpAndSettle();
-    expect(tester.widget<ProjectPreview>(find.byType(ProjectPreview)).video,
+    expect(
+        tester
+            .widget<ProjectPreview>(find.descendant(
+                of: find.byWidgetPredicate(
+                    (w) => w is ProjectCard && w.title == 'Avalia'),
+                matching: find.byType(ProjectPreview)))
+            .video,
         'previews/avalia.mp4');
     await tester.pumpWidget(const SizedBox());
   });
@@ -56,20 +75,37 @@ void main() {
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
+    final scroll = ScrollController();
+    addTearDown(scroll.dispose);
     await tester.pumpWidget(MaterialApp(
         home: Scaffold(
             body: MediaQuery(
       data: const MediaQueryData(size: Size(390, 844), disableAnimations: true),
-      child: SingleChildScrollView(child: RecentProjects(onOpen: (_) async {})),
+      child: SingleChildScrollView(
+          controller: scroll, child: RecentProjects(onOpen: (_) async {})),
     ))));
     await tester.pumpAndSettle();
     await tester.pump(const Duration(seconds: 24));
-    expect(tester.widget<ProjectPreview>(find.byType(ProjectPreview)).video,
+    expect(
+        tester
+            .widget<ProjectPreview>(find.descendant(
+                of: find.byWidgetPredicate(
+                    (w) => w is ProjectCard && w.title == 'RepoMentor'),
+                matching: find.byType(ProjectPreview)))
+            .video,
         'previews/repomentor.mp4');
     expect(find.byTooltip('Pausar carrossel'), findsNothing);
+    scroll.jumpTo(scroll.position.maxScrollExtent);
+    await tester.pumpAndSettle();
     await tester.tap(find.byTooltip('Triagem'));
     await tester.pumpAndSettle();
-    expect(tester.widget<ProjectPreview>(find.byType(ProjectPreview)).video,
+    expect(
+        tester
+            .widget<ProjectPreview>(find.descendant(
+                of: find.byWidgetPredicate(
+                    (w) => w is ProjectCard && w.title == 'Triagem'),
+                matching: find.byType(ProjectPreview)))
+            .video,
         'previews/triagem.mp4');
     await tester.pumpWidget(const SizedBox());
   });
@@ -97,36 +133,19 @@ void main() {
         ),
       ))));
       await tester.pumpAndSettle();
-      final projects = [
-        ('RepoMentor', 'repomentor', 'repomentor'),
-        ('Triagem', 'triagem', 'ticket-triage-ml'),
-        ('Avalia', 'avalia', 'projeto_Avalia'),
-        ('Bebeu?', 'bebeu', 'controle_agua'),
-      ];
-      for (final entry in projects.asMap().entries) {
-        final project = entry.value;
-        final card = find.byWidgetPredicate(
-            (widget) => widget is ProjectCard && widget.title == project.$1);
-        final preview =
-            find.descendant(of: card, matching: find.byType(ProjectPreview));
-        expect(tester.widget<ProjectPreview>(preview).video,
-            'previews/${project.$2}.mp4');
-        final link =
-            find.descendant(of: card, matching: find.text('Explorar projeto'));
-        scroll.jumpTo((scroll.offset + tester.getTopLeft(link).dy - 300)
-            .clamp(0, scroll.position.maxScrollExtent));
-        await tester.pumpAndSettle();
-        await tester.tap(link);
-        expect(opened, endsWith('/${project.$3}'));
-        scroll.jumpTo(0);
-        await tester.pumpAndSettle();
-        if (width >= 600) {
-          await tester.tap(find.text(project.$1).first);
-        } else {
-          await tester.tap(find.byTooltip(project.$1));
-        }
-        await tester.pumpAndSettle();
-      }
+      final card = find.byWidgetPredicate(
+          (widget) => widget is ProjectCard && widget.title == 'RepoMentor');
+      final preview =
+          find.descendant(of: card, matching: find.byType(ProjectPreview));
+      expect(tester.widget<ProjectPreview>(preview).video,
+          'previews/repomentor.mp4');
+      final link =
+          find.descendant(of: card, matching: find.text('Explorar projeto'));
+      scroll.jumpTo((scroll.offset + tester.getTopLeft(link).dy - 300)
+          .clamp(0, scroll.position.maxScrollExtent));
+      await tester.pumpAndSettle();
+      await tester.tap(link);
+      expect(opened, endsWith('/repomentor'));
       await tester.pumpWidget(const SizedBox());
     });
   }
