@@ -3,6 +3,7 @@ const translations = <String, (String, String)>{
   'Projetos recentes': ('Recent projects', 'Proyectos recientes'),
   'Projetos pessoais': ('Personal projects', 'Proyectos personales'),
   'Projeto': ('Project', 'Proyecto'),
+  'Versão na Vercel ↗': ('Live on Vercel ↗', 'Versión en Vercel ↗'),
   'Aplicações que desenvolvi para explorar mobile, backend, inteligência artificial e machine learning.':
       (
     'Applications I built to explore mobile, backend, artificial intelligence and machine learning.',
@@ -72,7 +73,10 @@ const translations = <String, (String, String)>{
   "Falar comigo": ("Get in touch", "Hablemos"),
   "Baixar currículo ↓": ("Download résumé ↓", "Descargar CV ↓"),
   "ATUAÇÃO PROFISSIONAL": ("PROFESSIONAL WORK", "TRABAJO PROFESIONAL"),
-  "ATUALMENTE NA DOUBLEX": ("CURRENTLY AT DOUBLEX", "ACTUALMENTE EN DOUBLEX"),
+  "EXPERIÊNCIA EM PRODUTO B2B": (
+    "EXPERIENCE WITH A B2B PRODUCT",
+    "EXPERIENCIA EN UN PRODUCTO B2B",
+  ),
   "Desenvolvimento de aplicações e integrações. Experiência também na FlowCode, Roteo e em projetos freelance.":
       (
     "Application development and integrations. Also experienced at FlowCode, Roteo and on freelance projects.",

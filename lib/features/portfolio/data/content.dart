@@ -7,7 +7,7 @@ const career = [
   (
     'DoubleX',
     'Desenvolvedora Full Stack',
-    'MAI 2025 — ATUAL',
+    'MAI 2025',
     'Desenvolvimento full stack no Easy Comlink, plataforma B2B de cotações e negociações. Flutter/Dart, Node.js, APIs REST, bancos de dados e CI/CD.',
   ),
   (

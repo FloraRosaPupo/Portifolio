@@ -5,10 +5,14 @@ repositórios locais, sem redesenhar telas nem substituir respostas HTTP.
 
 - **RepoMentor:** cadastro de `FloraRosaPupo/repomentor`, consulta de issues públicas
   pela API FastAPI, abertura da descrição, troca de issue e busca por `local`.
-  A gravação não executa inferência nem demonstra tempo ou qualidade do Gemma.
+  A gravação está no tema escuro; a demonstração publicada fica em
+  `https://repomentor-alpha.vercel.app`. Ela não executa inferência nem demonstra
+  tempo ou qualidade do Gemma.
 - **Triagem:** nove chamados fictícios da demonstração local, classificação com
-  o modelo scikit-learn carregado pela API Python, detalhes de um chamado e
-  relatório de classificação. Não usa dados pessoais reais. A base pequena e
+  o modelo scikit-learn carregado pela API Python. A gravação mostra a fila antes
+  da classificação, o clique em “Identificar assuntos”, a organização dos nove
+  chamados em três categorias e o relatório de classificação validado na tela.
+  Não usa dados pessoais reais. A base pequena e
   sintética não valida desempenho em produção.
 
 O site usa MP4 H.264 sem áudio, com controles, reprodução em loop apenas quando

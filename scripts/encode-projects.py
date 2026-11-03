@@ -6,7 +6,7 @@ import imageio_ffmpeg
 ffmpeg = imageio_ffmpeg.get_ffmpeg_exe()
 out = Path('web/previews')
 out.mkdir(parents=True, exist_ok=True)
-for name, start in [('repomentor', 24), ('triagem', 6)]:
+for name, start in [('repomentor', 0), ('triagem', 1.5)]:
     source = ['-ss', str(start), '-i', f'captures/{name}.webm']
     subprocess.run([
         ffmpeg, '-y', *source, '-an', '-vf', 'fps=12,scale=1080:750',

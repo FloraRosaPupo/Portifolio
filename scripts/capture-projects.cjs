@@ -1,4 +1,4 @@
-// Uses the real local applications and APIs. No HTTP response mocking.
+﻿// Uses the real local applications and APIs. No HTTP response mocking.
 // Usage: node scripts/capture-projects.cjs <path-to-playwright>
 const { chromium } = require(process.argv[2] || 'playwright');
 const fs = require('node:fs');
@@ -18,11 +18,15 @@ async function main() {
     if (project === 'triagem') {
       await page.goto('http://127.0.0.1:1234/?source=local');
       await page.locator('.ticket-card').first().waitFor();
-      await hold();
+      await page.waitForTimeout(4000);
       await page.getByRole('button', { name: 'Identificar assuntos', exact: true }).click();
       await page.locator('.theme-badge.acesso').first().waitFor();
-      await hold();
+      await page.waitForFunction(() =>
+        ['acesso', 'cobranca', 'problema_tecnico'].every(category =>
+          document.querySelectorAll(`.theme-badge.${category}`).length === 3));
+      await page.waitForTimeout(1200);
       await page.screenshot({ path: 'assets/projects/triagem.png' });
+      await page.waitForTimeout(3800);
       await page.locator('.ticket-title').first().click();
       await page.getByRole('dialog').waitFor();
       await hold();
@@ -39,6 +43,10 @@ async function main() {
         await route.fulfill({ response });
       });
       await page.goto('http://127.0.0.1:5174');
+      await page.getByRole('button', { name: 'Alternar tema claro/escuro' }).click();
+      await page.waitForFunction(() => document.documentElement.dataset.theme === 'dark');
+      await page.waitForTimeout(1200);
+      await page.screenshot({ path: 'assets/projects/repomentor.png' });
       await page.getByLabel('Repositório GitHub').fill('FloraRosaPupo/repomentor');
       await page.getByLabel('Repositório GitHub').scrollIntoViewIfNeeded();
       await hold();
@@ -49,7 +57,6 @@ async function main() {
       await page.locator('.issue-card').first().click();
       await page.locator('.description summary').click();
       await hold();
-      await page.screenshot({ path: 'assets/projects/repomentor.png' });
       if (await page.locator('.issue-card').count() > 1) {
         await page.locator('.issue-card').nth(1).click();
         await hold();
@@ -66,4 +73,4 @@ async function main() {
   }
   await browser.close();
 }
-main().catch(error => { console.error(error); process.exit(1); });
+main().catch(error => { console.error(error); process.exit(1); });\n

@@ -306,7 +306,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                       Divider(color: Color(0xFF9470B5)),
                                       SizedBox(height: 20),
                                       PortfolioText(
-                                        'ATUALMENTE NA DOUBLEX',
+                                        'EXPERIÊNCIA EM PRODUTO B2B',
                                         style: TextStyle(
                                           color: highlight,
                                           fontSize: 11,
@@ -315,7 +315,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                       ),
                                       SizedBox(height: 14),
                                       PortfolioText(
-                                        'Atuação full stack no Easy Comlink, da interface às integrações e à CI/CD.',
+                                        'Desenvolvimento full stack em uma plataforma B2B de cotações, da interface às integrações e à CI/CD.',
                                         style: TextStyle(
                                           color: Colors.white,
                                           height: 1.8,
@@ -952,6 +952,8 @@ class _RecentProjectsState extends State<RecentProjects>
             'Vercel',
           ],
           onTap: () => widget.onOpen('$github/repomentor'),
+          extraUrl: 'https://repomentor-alpha.vercel.app',
+          extraLabel: 'Versão na Vercel ↗',
           background: const Color(0xFFEAE0F5),
         ),
         ProjectCard(
@@ -1154,7 +1156,7 @@ class _RecentProjectsState extends State<RecentProjects>
                         child: Semantics(
                           button: true,
                           selected: index == entry.key,
-                          label: tr(context, 'Projeto') + ' ${entry.value}',
+                          label: '${tr(context, 'Projeto')} ${entry.value}',
                           child: InkResponse(
                             onTap: () => select(entry.key),
                             radius: 20,
@@ -1212,6 +1214,7 @@ class _ProjectSize extends RenderProxyBox {
 
 class ProjectCard extends StatelessWidget {
   final String title, category, image, description, video;
+  final String? extraUrl, extraLabel;
   final double aspectRatio;
   final List<String> tags;
   final VoidCallback onTap;
@@ -1220,6 +1223,8 @@ class ProjectCard extends StatelessWidget {
     super.key,
     required this.title,
     required this.video,
+    this.extraUrl,
+    this.extraLabel,
     this.aspectRatio = 430 / 932,
     required this.category,
     required this.image,
@@ -1296,10 +1301,23 @@ class ProjectCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 28),
-              TextButton.icon(
-                onPressed: onTap,
-                icon: const Icon(Icons.north_east, size: 18),
-                label: const PortfolioText('Explorar projeto'),
+              Wrap(
+                spacing: 16,
+                runSpacing: 8,
+                children: [
+                  TextButton.icon(
+                    onPressed: onTap,
+                    icon: const Icon(Icons.north_east, size: 18),
+                    label: const PortfolioText('Explorar projeto'),
+                  ),
+                  if (extraUrl != null)
+                    TextButton.icon(
+                      onPressed: () => launchUrl(Uri.parse(extraUrl!),
+                          mode: LaunchMode.platformDefault),
+                      icon: const Icon(Icons.open_in_new, size: 18),
+                      label: PortfolioText(extraLabel ?? 'Abrir projeto ↗'),
+                    ),
+                ],
               ),
               const SizedBox(height: 20),
               PortfolioText(

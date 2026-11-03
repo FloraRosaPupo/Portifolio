@@ -10,7 +10,7 @@ Portfólio profissional de uma desenvolvedora Full Stack, com experiência em Fl
 
 | Projeto | O que faz | Tecnologias principais |
 | --- | --- | --- |
-| [RepoMentor](https://github.com/FloraRosaPupo/repomentor) | Explora repositórios públicos, issues e caminhos para contribuir com apoio do Gemma. | React, JavaScript, Vite, Python, FastAPI, HTTPX, Pydantic, GitHub API, Gemma 4, Google AI Studio e integração opcional com Vertex AI. |
+| [RepoMentor: código](https://github.com/FloraRosaPupo/repomentor) · [app na Vercel](https://repomentor-alpha.vercel.app) | Explora repositórios públicos, issues e caminhos para contribuir com apoio do Gemma. | React, JavaScript, Vite, Python, FastAPI, HTTPX, Pydantic, GitHub API, Gemma 4, Google AI Studio e integração opcional com Vertex AI. |
 | [Triagem](https://github.com/FloraRosaPupo/ticket-triage-ml) | Sugere assuntos para chamados de suporte e organiza a revisão em um painel Kanban. | React, JavaScript, Parcel, Python, scikit-learn, TF-IDF, regressão logística, NumPy, SciPy, Joblib, RandomAPI, MyMemory e Playwright. |
 | [Avalia](https://github.com/FloraRosaPupo/projeto_Avalia) | Projeto de aprendizado para correção de provas com IA, gestão de turmas e acompanhamento de resultados. | Flutter, Dart, Cubit/BLoC, Supabase, Google Gemini, Equatable, Lottie, Flutter Test, bloc_test e Mocktail. |
 | [Bebeu?](https://github.com/FloraRosaPupo/controle_agua) | Acompanha a hidratação, com histórico, lembretes e widget na tela inicial. | Flutter, Dart, Provider/BLoC, GoRouter, SQLite, Home Widget, notificações locais, Secure Storage, Node.js, TypeScript, Express, Prisma, PostgreSQL e JWT. |
