@@ -858,9 +858,11 @@ class RecentProjects extends StatefulWidget {
   State<RecentProjects> createState() => _RecentProjectsState();
 }
 
-class _RecentProjectsState extends State<RecentProjects> {
+class _RecentProjectsState extends State<RecentProjects>
+    with SingleTickerProviderStateMixin {
   int index = 0;
   final pages = PageController();
+  late final TabController tabs;
   final pageHeights = <int, double>{};
   bool dragging = false;
   late final Timer timer;
@@ -870,6 +872,7 @@ class _RecentProjectsState extends State<RecentProjects> {
   @override
   void initState() {
     super.initState();
+    tabs = TabController(length: 4, vsync: this);
     timer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (!mounted ||
           paused ||
@@ -891,6 +894,7 @@ class _RecentProjectsState extends State<RecentProjects> {
   void dispose() {
     timer.cancel();
     pages.dispose();
+    tabs.dispose();
     super.dispose();
   }
 
@@ -904,6 +908,11 @@ class _RecentProjectsState extends State<RecentProjects> {
           duration: const Duration(milliseconds: 450),
           curve: Curves.easeInOutCubic);
     }
+  }
+
+  void select(int target) {
+    final delta = (target - index + 4) % 4;
+    if (delta != 0) move(delta);
   }
 
   List<ProjectCard> projectCards() => [
@@ -1069,47 +1078,44 @@ class _RecentProjectsState extends State<RecentProjects> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Wrap(
-              spacing: 12,
-              runSpacing: 8,
-              crossAxisAlignment: WrapCrossAlignment.center,
-              children: [
-                for (final entry in [
-                  'RepoMentor',
-                  'Triagem',
-                  'Avalia',
-                  'Bebeu?'
-                ].asMap().entries)
-                  ChoiceChip(
-                    label: Text(entry.value),
-                    selected: index == entry.key,
-                    onSelected: (_) => move(entry.key - index),
+            if (MediaQuery.sizeOf(context).width >= 600)
+              Row(children: [
+                Expanded(
+                  child: TabBar(
+                    controller: tabs,
+                    onTap: select,
+                    tabs: const [
+                      Tab(text: 'RepoMentor'),
+                      Tab(text: 'Triagem'),
+                      Tab(text: 'Avalia'),
+                      Tab(text: 'Bebeu?'),
+                    ],
                   ),
-                Row(mainAxisSize: MainAxisSize.min, children: [
+                ),
+                if (!MediaQuery.disableAnimationsOf(context))
                   IconButton(
-                    tooltip: tr(context, 'Projeto anterior'),
-                    onPressed: () => move(-1),
-                    icon: const Icon(Icons.arrow_back),
+                    tooltip: tr(context,
+                        paused ? 'Retomar carrossel' : 'Pausar carrossel'),
+                    onPressed: () => setState(() {
+                      paused = !paused;
+                      elapsed = 0;
+                    }),
+                    icon: Icon(paused ? Icons.play_arrow : Icons.pause),
                   ),
-                  Semantics(liveRegion: true, child: Text('${index + 1} / 4')),
-                  IconButton(
-                    tooltip: tr(context, 'Próximo projeto'),
-                    onPressed: () => move(1),
-                    icon: const Icon(Icons.arrow_forward),
-                  ),
-                  if (!MediaQuery.disableAnimationsOf(context))
-                    IconButton(
-                      tooltip: tr(context,
-                          paused ? 'Retomar carrossel' : 'Pausar carrossel'),
-                      onPressed: () => setState(() {
-                        paused = !paused;
-                        elapsed = 0;
-                      }),
-                      icon: Icon(paused ? Icons.play_arrow : Icons.pause),
-                    ),
-                ]),
-              ],
-            ),
+              ])
+            else if (!MediaQuery.disableAnimationsOf(context))
+              Align(
+                alignment: Alignment.centerRight,
+                child: IconButton(
+                  tooltip: tr(context,
+                      paused ? 'Retomar carrossel' : 'Pausar carrossel'),
+                  onPressed: () => setState(() {
+                    paused = !paused;
+                    elapsed = 0;
+                  }),
+                  icon: Icon(paused ? Icons.play_arrow : Icons.pause),
+                ),
+              ),
             const SizedBox(height: 24),
             SizedBox(
               height: pageHeights[index] ?? 720,
@@ -1127,10 +1133,13 @@ class _RecentProjectsState extends State<RecentProjects> {
                 },
                 child: PageView(
                   controller: pages,
-                  onPageChanged: (value) => setState(() {
-                    index = value;
-                    elapsed = 0;
-                  }),
+                  onPageChanged: (value) {
+                    setState(() {
+                      index = value;
+                      elapsed = 0;
+                    });
+                    if (tabs.index != value) tabs.animateTo(value);
+                  },
                   children: [
                     for (final entry in projectCards().asMap().entries)
                       OverflowBox(
@@ -1152,6 +1161,43 @@ class _RecentProjectsState extends State<RecentProjects> {
                 ),
               ),
             ),
+            if (MediaQuery.sizeOf(context).width < 600)
+              Padding(
+                padding: const EdgeInsets.only(top: 12),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    for (final entry in [
+                      'RepoMentor',
+                      'Triagem',
+                      'Avalia',
+                      'Bebeu?'
+                    ].asMap().entries)
+                      Tooltip(
+                        message: entry.value,
+                        child: Semantics(
+                          button: true,
+                          selected: index == entry.key,
+                          label: tr(context, 'Projeto') + ' ${entry.value}',
+                          child: InkResponse(
+                            onTap: () => select(entry.key),
+                            radius: 20,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8),
+                              child: Icon(
+                                index == entry.key
+                                    ? Icons.circle
+                                    : Icons.circle_outlined,
+                                size: 11,
+                                color: palette(context).accent,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
+              ),
           ],
         ),
       );

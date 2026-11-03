@@ -4,49 +4,78 @@ import 'package:portifolio/features/portfolio/presentation/portfolio_page.dart';
 import 'package:portifolio/features/portfolio/presentation/project_preview.dart';
 
 void main() {
-  testWidgets('PageView automatically advances, pauses and resumes',
+  testWidgets('PageView advances and the tab bar follows its selected page',
       (tester) async {
     await tester.pumpWidget(MaterialApp(
         home: Scaffold(
       body: SingleChildScrollView(child: RecentProjects(onOpen: (_) async {})),
     )));
     await tester.pumpAndSettle();
-    expect(find.byType(PageView), findsOneWidget);
     await tester.pump(const Duration(seconds: 12));
     await tester.pumpAndSettle();
-    expect(find.text('2 / 4'), findsOneWidget);
+    expect(tester.widget<TabBar>(find.byType(TabBar)).controller!.index, 1);
     await tester.tap(find.byTooltip('Pausar carrossel'));
     await tester.pump();
     await tester.pump(const Duration(seconds: 24));
-    expect(find.text('2 / 4'), findsOneWidget);
+    expect(tester.widget<TabBar>(find.byType(TabBar)).controller!.index, 1);
     await tester.tap(find.byTooltip('Retomar carrossel'));
     await tester.pump();
     await tester.pump(const Duration(seconds: 12));
     await tester.pumpAndSettle();
-    expect(find.text('3 / 4'), findsOneWidget);
+    expect(tester.widget<TabBar>(find.byType(TabBar)).controller!.index, 2);
     await tester.pumpWidget(const SizedBox());
   });
 
-  testWidgets('reduced motion disables automatic rotation and supports swiping',
-      (tester) async {
+  testWidgets('mobile uses project dots and supports swiping', (tester) async {
+    tester.view.physicalSize = const Size(390, 844);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
     await tester.pumpWidget(MaterialApp(
         home: Scaffold(
             body: MediaQuery(
-      data: const MediaQueryData(size: Size(800, 600), disableAnimations: true),
+      data: const MediaQueryData(size: Size(390, 844)),
+      child: SingleChildScrollView(child: RecentProjects(onOpen: (_) async {})),
+    ))));
+    await tester.pumpAndSettle();
+    expect(find.byType(TabBar), findsNothing);
+    await tester.tap(find.byTooltip('Triagem'));
+    await tester.pumpAndSettle();
+    expect(tester.widget<ProjectPreview>(find.byType(ProjectPreview)).video,
+        'previews/triagem.mp4');
+    await tester.dragFrom(const Offset(340, 350), const Offset(-250, 0));
+    await tester.pumpAndSettle();
+    expect(tester.widget<ProjectPreview>(find.byType(ProjectPreview)).video,
+        'previews/avalia.mp4');
+    await tester.pumpWidget(const SizedBox());
+  });
+
+  testWidgets('reduced motion disables rotation and retains project navigation',
+      (tester) async {
+    tester.view.physicalSize = const Size(390, 844);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await tester.pumpWidget(MaterialApp(
+        home: Scaffold(
+            body: MediaQuery(
+      data: const MediaQueryData(size: Size(390, 844), disableAnimations: true),
       child: SingleChildScrollView(child: RecentProjects(onOpen: (_) async {})),
     ))));
     await tester.pumpAndSettle();
     await tester.pump(const Duration(seconds: 24));
-    expect(find.text('1 / 4'), findsOneWidget);
+    expect(tester.widget<ProjectPreview>(find.byType(ProjectPreview)).video,
+        'previews/repomentor.mp4');
     expect(find.byTooltip('Pausar carrossel'), findsNothing);
-    await tester.dragFrom(const Offset(650, 250), const Offset(-600, 0));
+    await tester.tap(find.byTooltip('Triagem'));
     await tester.pumpAndSettle();
-    expect(find.text('2 / 4'), findsOneWidget);
+    expect(tester.widget<ProjectPreview>(find.byType(ProjectPreview)).video,
+        'previews/triagem.mp4');
     await tester.pumpWidget(const SizedBox());
   });
 
   for (final width in [320.0, 768.0, 1440.0]) {
-    testWidgets('all four projects fit and open their own links at $width',
+    testWidgets('all four projects fit and open their links at $width',
         (tester) async {
       tester.view.physicalSize = Size(width, 1000);
       tester.view.devicePixelRatio = 1;
@@ -76,8 +105,6 @@ void main() {
       ];
       for (final entry in projects.asMap().entries) {
         final project = entry.value;
-        expect(find.text('${entry.key + 1} / 4'), findsOneWidget);
-        expect(tester.takeException(), isNull);
         final card = find.byWidgetPredicate(
             (widget) => widget is ProjectCard && widget.title == project.$1);
         final preview =
@@ -93,10 +120,13 @@ void main() {
         expect(opened, endsWith('/${project.$3}'));
         scroll.jumpTo(0);
         await tester.pumpAndSettle();
-        await tester.tap(find.byTooltip('Próximo projeto'));
+        if (width >= 600) {
+          await tester.tap(find.text(project.$1).first);
+        } else {
+          await tester.tap(find.byTooltip(project.$1));
+        }
         await tester.pumpAndSettle();
       }
-      expect(find.text('1 / 4'), findsOneWidget);
       await tester.pumpWidget(const SizedBox());
     });
   }

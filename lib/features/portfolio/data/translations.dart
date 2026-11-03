@@ -1,7 +1,8 @@
-// Portuguese is the source language. Product and technology names stay unchanged.
+﻿// Portuguese is the source language. Product and technology names stay unchanged.
 const translations = <String, (String, String)>{
   'Projetos recentes': ('Recent projects', 'Proyectos recientes'),
   'Projetos pessoais': ('Personal projects', 'Proyectos personales'),
+  'Projeto': ('Project', 'Proyecto'),
   'Aplicações que desenvolvi para explorar mobile, backend, inteligência artificial e machine learning.':
       (
     'Applications I built to explore mobile, backend, artificial intelligence and machine learning.',
