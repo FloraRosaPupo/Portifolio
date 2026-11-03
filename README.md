@@ -1,99 +1,112 @@
-# Portfólio de Flora Rosa
+# Flora Rosa Pupo · Portfólio
 
-## Descrição
+Portfólio profissional de uma desenvolvedora Full Stack, com experiência em Flutter, backend e integrações. Reúne minha trajetória, trabalhos profissionais, projetos autorais de IA e machine learning e demonstrações dos aplicativos.
 
-Portfólio desenvolvido em Flutter para apresentar trajetória, experiências, projetos e canais de contato de Flora Rosa. A versão web utiliza Firebase Hosting.
+**[Acessar o portfólio](https://flora-rosa.web.app)** · [LinkedIn](https://www.linkedin.com/in/florarosa/) · [GitHub](https://github.com/FloraRosaPupo)
 
-## Stack e bibliotecas
+![Página inicial do portfólio](docs/portfolio-desktop.png)
 
-Flutter/Dart, url_launcher e Firebase Hosting. A interface não depende de inicialização de serviços externos.
+## Projetos em destaque
 
-Para trocar o currículo, substitua `web/Curriculo_Flora_Rosa_Pupo.pdf` mantendo o nome do arquivo.
+| Projeto | O que faz | Tecnologias principais |
+| --- | --- | --- |
+| [RepoMentor](https://github.com/FloraRosaPupo/repomentor) | Explora repositórios públicos, issues e caminhos para contribuir com apoio do Gemma. | React, JavaScript, Vite, Python, FastAPI, HTTPX, Pydantic, GitHub API, Gemma 4, Google AI Studio e integração opcional com Vertex AI. |
+| [Triagem](https://github.com/FloraRosaPupo/ticket-triage-ml) | Sugere assuntos para chamados de suporte e organiza a revisão em um painel Kanban. | React, JavaScript, Parcel, Python, scikit-learn, TF-IDF, regressão logística, NumPy, SciPy, Joblib, RandomAPI, MyMemory e Playwright. |
+| [Avalia](https://github.com/FloraRosaPupo/projeto_Avalia) | Projeto de aprendizado para correção de provas com IA, gestão de turmas e acompanhamento de resultados. | Flutter, Dart, Cubit/BLoC, Supabase, Google Gemini, Equatable, Lottie, Flutter Test, bloc_test e Mocktail. |
+| [Bebeu?](https://github.com/FloraRosaPupo/controle_agua) | Acompanha a hidratação, com histórico, lembretes e widget na tela inicial. | Flutter, Dart, Provider/BLoC, GoRouter, SQLite, Home Widget, notificações locais, Secure Storage, Node.js, TypeScript, Express, Prisma, PostgreSQL e JWT. |
 
-Dependências e versões declaradas: [pubspec.yaml](pubspec.yaml).
+Os cartões no site apresentam as listas ampliadas de tecnologias, incluindo bibliotecas, integrações e ferramentas de testes e build de cada projeto.
 
-## Funcionalidades
+### Demonstrações
 
-- Carrossel automático de projetos recentes com RepoMentor e Triagem: troca a cada 12 segundos enquanto visível, pausa ao passar o mouse, botão de pausa e seleção manual. Movimento reduzido desativa a rotação. Cada projeto tem descrição, stack, link para o código e demonstração real da interface. Avalia e Bebeu permanecem na seção de projetos autorais.
-- GIFs de RepoMentor e Triagem em `web/previews/`, com versões MP4 leves usadas no site, controles de reprodução e imagem estática para movimento reduzido.
-- Página responsiva com navegação por seções: Projetos, Trajetória, IA, Sobre e Contato.
-- Abertura com apresentação, quadro roxo de atuação profissional e botões para ver projetos, falar por contato e baixar o currículo (PDF em `web/`).
-- Projetos Avalia (correção de provas com inteligência artificial, turmas, alunos e resultados) e Bebeu? (hidratação com widget na tela inicial, notificações locais, armazenamento seguro do token com Flutter Secure Storage e backend em Node.js e PostgreSQL), com prévias de 10 segundos em loop, silenciosas, leves e com dados demonstrativos. Movimento reduzido usa imagens estáticas.
-- Links de aplicativos publicados na Google Play.
-- Trajetória profissional, formação e competências.
-- Seção "Como eu desenvolvo com IA": fluxo AI-first com Claude e Claude Code, agentes orquestradores, agentes de code review, hooks e testes como proteção. O conteúdo fica em `lib/features/portfolio/data/content.dart` (`aiPractices` e `aiTools`).
-- Contato por WhatsApp, e-mail, LinkedIn, GitHub e download do currículo.
-- Identidade visual roxa, estilo minimalista, interações suaves e respeito a movimento reduzido.
-- Seção de testes e qualidade com links para o código e a CI.
+**RepoMentor — consulta, seleção e busca de issues públicas**
 
-## Licença
+![RepoMentor em funcionamento](web/previews/repomentor.gif)
 
-Não há uma licença de distribuição definida para este repositório. Nenhuma licença MIT, Apache ou equivalente é concedida por este README. As atribuições e os direitos dos materiais de terceiros permanecem preservados.
+**Triagem — classificação de chamados fictícios, detalhes e relatório**
 
-## Validação e limites
+![Triagem em funcionamento](web/previews/triagem.gif)
 
-Renderização da apresentação, compilação web e preview Firebase. O APK histórico não é recompilado por esta pipeline.
+No site, as prévias usam vídeos MP4 leves, silenciosos e com controles de pausa. Os [vídeos do Avalia](web/previews/avalia.mp4) e do [Bebeu?](web/previews/bebeu.mp4) continuam disponíveis. Movimento reduzido utiliza imagens estáticas.
 
-## Executar
-Use a versão de Flutter registrada em `.github/workflows/ci.yml`.
+As gravações mostram interfaces reais. O Triagem usa chamados fictícios e uma base pequena e sintética, sem comprovar desempenho em produção. A prévia do RepoMentor consulta issues públicas e não executa inferência do Gemma. Avalia e Bebeu utilizam dados demonstrativos. Veja a [origem das novas demonstrações](docs/projetos-recentes.md) e o [registro das capturas anteriores](docs/portfolio-conteudo.md).
+
+## O que o portfólio oferece
+
+- Carrossel automático de projetos recentes: troca a cada **12 segundos** enquanto visível, pausa ao passar o mouse, botão de pausa/retomada e navegação manual.
+- Experiência profissional e voluntária com Easy Comlink, IndicaZ Profissionais, Roteo e ASSID, com links públicos dos produtos.
+- Interface responsiva em **português, inglês e espanhol**, temas claro e escuro e respeito à preferência por movimento reduzido.
+- Trajetória, formação, competências e uma seção sobre meu processo de desenvolvimento com IA.
+- Contato por WhatsApp, e-mail, LinkedIn e GitHub, além do currículo em português.
+- Carregamento com feedback e uma alternativa textual com contatos se a aplicação falhar.
+
+Idioma e tema ficam salvos no navegador. O currículo PDF permanece em português; as traduções da interface não representam uma declaração de fluência.
+
+## Tecnologias deste repositório
+
+| Área | Tecnologias |
+| --- | --- |
+| Aplicação | Flutter, Dart, Material Design, `url_launcher` e `flutter_localizations`. |
+| Interface web | HTML, CSS, JavaScript, vídeo HTML5 e armazenamento local do navegador. |
+| Identidade visual | Fonte Montserrat, Material Icons e paleta roxa com tema claro/escuro. |
+| Qualidade | Flutter Test, Flutter Lints, análise estática Dart e testes de inicialização com Node.js. |
+| Publicação | Firebase Hosting, GitHub Actions e scripts Python para configuração de hospedagem. |
+
+As versões e dependências diretas estão no [pubspec.yaml](pubspec.yaml). O cliente não precisa inicializar Firebase Auth ou Firebase Core para funcionar.
+
+## Executar localmente
+
+Use **Flutter 3.41.1**, versão registrada na [CI](.github/workflows/ci.yml).
+
 ```sh
 git clone https://github.com/FloraRosaPupo/Portifolio.git
 cd Portifolio
 flutter pub get
-flutter run
+flutter run -d chrome
 ```
 
-## Verificações
+## Validar e compilar
+
 ```sh
 flutter analyze --no-fatal-infos --no-fatal-warnings
 flutter test
+node --test test/bootstrap_test.cjs
+flutter build web
 ```
-A CI verifica erros de análise e os testes. Avisos e sugestões continuam visíveis no relatório do analisador. Testes locais não substituem a validação no dispositivo e dos serviços externos.
 
-## Contribuir
-Abra uma branch por alteração, descreva o comportamento esperado e inclua testes para regras ou regressões. Mantenha credenciais e arquivos gerados fora do Git.
+Os testes cobrem navegação, links, idiomas, temas, rotação automática, pausa, movimento reduzido e layouts de 320, 430, 768 e 1440 pixels com texto ampliado. O build web é gerado em `build/web`.
 
-## Organização e manutenção
-
-`lib/features/portfolio` reúne conteúdo e apresentação. As páginas antigas foram substituídas por uma página com seções responsivas. A inicialização Firebase e as dependências sem uso foram removidas; Firebase Hosting continua hospedando a versão web.
-
-Veja [a revisão de desenvolvimento](docs/REVISAO.md) para decisões, testes e limites, e [o guia de contribuição](CONTRIBUTING.md) para o fluxo de manutenção.
-
-## Publicação web e APK
-
-O deploy da `main` atualiza o site original e o endereço profissional `flora-rosa.web.app` no mesmo projeto Firebase. O script `scripts/ensure_hosting_site.py` cria o site profissional apenas se ele ainda não existir. Uma indisponibilidade do nome ou falta de permissão interrompe essa etapa com erro, sem substituir outro site. A credencial permanece no secret do GitHub Actions.
-
-Enquanto o Flutter inicializa, a página mostra uma tela de carregamento com a marca, o nome e uma barra de progresso, com saída suave quando o site fica pronto. O texto de carregamento fica oculto visualmente e permanece disponível para leitores de tela; após 20 segundos aparece um aviso de carregamento lento. Se a inicialização falhar, uma versão leve do texto e os contatos ficam disponíveis, com opção de tentar novamente. O movimento reduzido é respeitado.
-
-Os workflows Firebase compilam Flutter web. O APK existente continua em `apks/app-release.apk` no GitHub; `/app-release.apk` redireciona para esse arquivo, pois o plano Spark do Firebase Hosting não aceita executáveis. O workflow não recompila o APK. O cliente não utiliza Firebase Auth nem Firebase Core. O preview depende da conta de serviço já configurada no repositório.
-
-## Visual e conteúdo
-
-![Portfólio profissional](docs/portfolio-desktop.png)
-
-Experiência e formação atualizadas a partir do currículo da autora. [Origem do conteúdo e das capturas](docs/portfolio-conteudo.md).
-
-As capturas dos aplicativos são geradas localmente; o painel do Avalia e o Bebeu? utilizam dados demonstrativos. Não representam uma sessão conectada a uma conta real.
-
-Para gerar capturas do próprio portfólio:
+Para gerar capturas desktop e mobile:
 
 ```sh
 flutter test test/portfolio_capture_test.dart --dart-define=CAPTURE_PORTFOLIO=true
 ```
 
-As imagens ficam em `captures/`. Os testes regulares verificam larguras de 320, 430, 768 e 1440 pixels, texto ampliado, navegação e abertura de links.
+As imagens ficam em `captures/`. A reprodução das gravações dos projetos está documentada em [docs/projetos-recentes.md](docs/projetos-recentes.md).
 
-## Rascunho de revisão: idiomas e tema
+## Organização
 
-A interface oferece português, inglês e espanhol pelo seletor discreto com bandeiras
-no cabeçalho. O texto do currículo PDF continua em português e os links indicam
-`(PT)`. Traduções de interface não representam uma declaração de fluência.
+```text
+lib/features/portfolio/
+  data/           Conteúdo e traduções
+  presentation/   Página, carrossel, preferências e prévias
+assets/projects/  Imagens estáticas dos projetos
+web/previews/     Vídeos e GIFs demonstrativos
+test/             Testes de interface e inicialização
+scripts/          Captura, conversão e configuração de hospedagem
+docs/             Decisões, evidências e documentação
+```
 
-O tema acompanha o sistema na primeira visita e pode ser alternado no cabeçalho.
-Idioma e tema escolhidos ficam salvos somente no armazenamento local do navegador;
-se o navegador bloquear armazenamento, os controles continuam funcionando na sessão.
-Não há novo serviço, analytics ou transmissão dessas preferências.
+Para atualizar o currículo, substitua `web/Curriculo_Flora_Rosa_Pupo.pdf`. Para alterar os projetos e suas tecnologias, edite `portfolio_page.dart`; os textos em inglês e espanhol ficam em `translations.dart`.
 
-A lista começa pelo trabalho profissional e voluntário, com contexto curto. ASSID
-leva apenas ao site institucional; não há link para código privado nem vídeo
-simulado. Avalia e Bebeu? são identificados como projetos autorais de aprendizado.
+## Publicação
+
+Pull requests do próprio repositório passam pelas verificações e geram uma prévia no Firebase Hosting. Atualizações na `main` publicam o site original e o endereço profissional **[flora-rosa.web.app](https://flora-rosa.web.app)**. As credenciais de publicação ficam nos secrets do GitHub Actions.
+
+O APK em `apks/app-release.apk` é histórico; os workflows atuais não o recompilam.
+
+## Contribuições e licença
+
+Consulte o [guia de contribuição](CONTRIBUTING.md). Mantenha credenciais e arquivos gerados fora do Git e inclua testes para mudanças de comportamento.
+
+Este repositório não define uma licença de distribuição. As atribuições e os direitos dos materiais de terceiros permanecem preservados.
