@@ -36,7 +36,7 @@ void main() {
           controller: scroll, child: RecentProjects(onOpen: (_) async {})),
     ))));
     await tester.pumpAndSettle();
-    expect(find.byType(TabBar), findsNothing);
+    expect(tester.widget<TabBar>(find.byType(TabBar)).isScrollable, isTrue);
     scroll.jumpTo(scroll.position.maxScrollExtent);
     await tester.pumpAndSettle();
     await tester.tap(find.byTooltip('Triagem'));

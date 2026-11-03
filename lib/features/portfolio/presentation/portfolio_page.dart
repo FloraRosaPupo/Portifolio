@@ -1077,21 +1077,21 @@ class _RecentProjectsState extends State<RecentProjects>
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if (MediaQuery.sizeOf(context).width >= 600)
-              Row(children: [
-                Expanded(
-                  child: TabBar(
-                    controller: tabs,
-                    onTap: select,
-                    tabs: const [
-                      Tab(text: 'RepoMentor'),
-                      Tab(text: 'Triagem'),
-                      Tab(text: 'Avalia'),
-                      Tab(text: 'Bebeu?'),
-                    ],
-                  ),
+            Row(children: [
+              Expanded(
+                child: TabBar(
+                  controller: tabs,
+                  onTap: select,
+                  isScrollable: MediaQuery.sizeOf(context).width < 600,
+                  tabs: const [
+                    Tab(text: 'RepoMentor'),
+                    Tab(text: 'Triagem'),
+                    Tab(text: 'Avalia'),
+                    Tab(text: 'Bebeu?'),
+                  ],
                 ),
-              ]),
+              ),
+            ]),
             const SizedBox(height: 24),
             SizedBox(
               height: pageHeights[index] ?? 720,
