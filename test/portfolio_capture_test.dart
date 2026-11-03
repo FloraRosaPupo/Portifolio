@@ -34,6 +34,12 @@ void main() {
           RepaintBoundary(key: key, child: const MyApp()),
         );
         await tester.pumpAndSettle();
+        await tester.runAsync(() async {
+          for (final name in ['repomentor', 'triagem']) {
+            await precacheImage(AssetImage('assets/projects/$name.png'),
+                tester.element(find.byType(Scaffold).first));
+          }
+        });
         Future<void> save(String section) async {
           expect(tester.takeException(), isNull);
           final boundary =

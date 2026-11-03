@@ -14,7 +14,7 @@ Dependências e versões declaradas: [pubspec.yaml](pubspec.yaml).
 
 ## Funcionalidades
 
-- Carrossel manual de projetos recentes com RepoMentor e Triagem, seleção direta e botões anterior/próximo. Cada projeto tem descrição, stack, link para o código e demonstração real da interface. Avalia e Bebeu permanecem na seção de projetos autorais.
+- Carrossel automático de projetos recentes com RepoMentor e Triagem: troca a cada 12 segundos enquanto visível, pausa ao passar o mouse, botão de pausa e seleção manual. Movimento reduzido desativa a rotação. Cada projeto tem descrição, stack, link para o código e demonstração real da interface. Avalia e Bebeu permanecem na seção de projetos autorais.
 - GIFs de RepoMentor e Triagem em `web/previews/`, com versões MP4 leves usadas no site, controles de reprodução e imagem estática para movimento reduzido.
 - Página responsiva com navegação por seções: Projetos, Trajetória, IA, Sobre e Contato.
 - Abertura com apresentação, quadro roxo de atuação profissional e botões para ver projetos, falar por contato e baixar o currículo (PDF em `web/`).
