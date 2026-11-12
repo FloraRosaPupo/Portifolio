@@ -112,3 +112,11 @@ O APK em `apks/app-release.apk` é histórico; os workflows atuais não o recomp
 Consulte o [guia de contribuição](CONTRIBUTING.md). Mantenha credenciais e arquivos gerados fora do Git e inclua testes para mudanças de comportamento.
 
 Este repositório não define uma licença de distribuição. As atribuições e os direitos dos materiais de terceiros permanecem preservados.
+
+## Flora × IA
+
+A rota `/ia` abre uma frente autoral separada da apresentação de desenvolvimento, com tema escuro fixo e seletor PT/EN/ES. O tema escolhido no portfólio de desenvolvimento é preservado. O menu desktop e mobile inclui Flora × IA.
+
+Dois carrosséis compactos apresentam: (1) Triagem, estudo acadêmico de VGG19 e precificação imobiliária; (2) cinco casos documentados: Amazon, Duolingo, See & Spray, Netflix e Walmart, acompanhados de propostas de adaptação. Cada item abre uma análise em janela de leitura. As propostas citam notícias com fonte, data e link e distinguem o fato publicado da solução exploratória. Manchetes originais são preservadas no idioma da fonte e identificadas como tal; análises e interface têm tradução editorial.
+
+Triagem usa dados pequenos e sintéticos, sem comprovação em produção. O estudo acadêmico não tem treinamento ou resultados medidos. As cinco propostas são pesquisa assistida por IA para revisão da autora, sem alegações de participação nos casos noticiados. Fontes consultadas em 12/11/2026, listadas em `docs/casos-documentados.md`. A animação abstrata respeita movimento reduzido. Navegação manual por setas e gestos, com indicador de posição e altura ajustada ao conteúdo. O modal do Triagem inclui vídeo e fluxo de classificação. O projeto VGG19 recebeu três testes de preparação e verificação de sintaxe, sem treinamento ou inferências sobre rostos. Coautoria preservada.

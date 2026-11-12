@@ -29,6 +29,10 @@ class _PortfolioPageState extends State<PortfolioPage> {
   }
 
   void go(int index) {
+    if (index == 2) {
+      Navigator.of(this.context).pushNamed('/ia');
+      return;
+    }
     final context = sections[index].currentContext;
     if (context != null) {
       Scrollable.ensureVisible(
@@ -133,7 +137,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                   for (final pair in [
                                     (0, 'Projetos'),
                                     (1, 'Trajetória'),
-                                    (2, 'IA'),
+                                    (2, 'Flora × IA'),
                                     (3, 'Sobre'),
                                     (4, 'Contato'),
                                   ])
@@ -177,7 +181,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                       for (final pair in [
                                         (0, 'Projetos'),
                                         (1, 'Trajetória'),
-                                        (2, 'IA'),
+                                        (2, 'Flora × IA'),
                                         (3, 'Sobre'),
                                         (4, 'Contato'),
                                       ])

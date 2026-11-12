@@ -86,21 +86,18 @@
     const startupCopy = {
       pt: {
         loading: 'Carregando portfólio',
-        slow: 'Ainda carregando. A primeira visita pode levar um pouco mais de tempo.',
         heading: 'Mobile e backend, conectados.', role: 'Desenvolvedora Full Stack',
         description: 'Desenvolvedora com experiência em aplicações multiplataforma, APIs REST e bancos de dados. Atuação em produtos publicados, conectando interface, regras de negócio e integrações.',
         contact: 'Vamos conversar', error: 'A versão interativa não pôde ser aberta. Os contatos continuam disponíveis.', retry: 'Tentar novamente'
       },
       en: {
         loading: 'Loading portfolio',
-        slow: 'Still loading. Your first visit may take a little longer.',
         heading: 'Mobile and backend, connected.', role: 'Full Stack Developer',
         description: 'Developer experienced in cross-platform applications, REST APIs and databases. I work on published products, connecting interfaces, business logic and integrations.',
         contact: 'Let’s talk', error: 'The interactive version could not be opened. Contact links are still available.', retry: 'Try again'
       },
       es: {
         loading: 'Cargando portafolio',
-        slow: 'Seguimos cargando. La primera visita puede tardar un poco más.',
         heading: 'Mobile y backend, conectados.', role: 'Desarrolladora Full Stack',
         description: 'Desarrolladora con experiencia en aplicaciones multiplataforma, API REST y bases de datos. Trabajo en productos publicados, conectando interfaces, lógica de negocio e integraciones.',
         contact: 'Hablemos', error: 'No se pudo abrir la versión interactiva. Los enlaces de contacto siguen disponibles.', retry: 'Intentar de nuevo'
@@ -116,9 +113,8 @@
       if (element) element.textContent = startupCopy[key];
     }
     document.title = 'Flora Rosa Pupo | ' + startupCopy.role;
-    const slowStartup=setTimeout(()=>{const message=document.getElementById('loading-message');if(message){message.classList.remove('sr');message.textContent=startupCopy.slow;}},20000);
-    window.addEventListener('flutter-first-frame',()=>{clearTimeout(slowStartup);const initial=document.getElementById('initial-content');if(!initial)return;initial.classList.add('done');setTimeout(()=>initial.remove(),500);});
-    window.showStartupError=()=>{clearTimeout(slowStartup);const loading=document.getElementById('loading-state');if(loading)loading.hidden=true;for(const id of ['fallback-intro','startup-error','fallback-contacts']){const element=document.getElementById(id);if(element)element.hidden=false;}};
+    window.addEventListener('flutter-first-frame',()=>{const initial=document.getElementById('initial-content');if(!initial)return;initial.classList.add('done');setTimeout(()=>initial.remove(),500);});
+    window.showStartupError=()=>{const loading=document.getElementById('loading-state');if(loading)loading.hidden=true;for(const id of ['fallback-intro','startup-error','fallback-contacts']){const element=document.getElementById(id);if(element)element.hidden=false;}};
   </script>
   <noscript><style>#loading-state{display:none}#fallback-intro[hidden],#fallback-contacts[hidden]{display:block}</style><p style="padding:24px">Ative o JavaScript para explorar o portfólio. Os links de contato continuam disponíveis.</p></noscript>
   <script src="flutter_bootstrap.js?v=dashboard-2" async onerror="showStartupError()"></script>
