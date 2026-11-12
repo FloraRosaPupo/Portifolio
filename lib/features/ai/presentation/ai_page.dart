@@ -421,9 +421,9 @@ class _AiPageState extends State<AiPage> with SingleTickerProviderStateMixin {
                         const SizedBox(height: 18),
                         Text(
                             l(
-                                'Pós-graduanda em IA aplicada a negócios · UniBH',
-                                'Postgraduate student in AI applied to business · UniBH',
-                                'Estudiante de posgrado en IA aplicada a los negocios · UniBH'),
+                                'Pós-graduada em IA aplicada a negócios · UniBH',
+                                'Postgraduate qualification in AI applied to business · UniBH',
+                                'Posgraduada en IA aplicada a los negocios · UniBH'),
                             style: const TextStyle(
                                 fontSize: 12,
                                 color: Color(0xFFC8BBD2),

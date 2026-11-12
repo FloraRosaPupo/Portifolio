@@ -233,10 +233,10 @@ const translations = <String, (String, String)>{
     "AI in the product, too",
     "IA también en el producto",
   ),
-  "Curso a pós-graduação em Inteligência Artificial Aplicada aos Negócios (UniBH) e levo esse olhar para onde a IA gera valor no produto.":
+  "Sou pós-graduada em Inteligência Artificial Aplicada aos Negócios pela UniBH e levo esse olhar para onde a IA gera valor no produto.":
       (
-    "I am pursuing postgraduate studies in Artificial Intelligence Applied to Business at UniBH, bringing that perspective to areas where AI adds product value.",
-    "Curso un posgrado en Inteligencia Artificial Aplicada a los Negocios en UniBH y llevo esa perspectiva a donde la IA aporta valor al producto.",
+    "I have completed postgraduate studies in Artificial Intelligence Applied to Business at UniBH, bringing that perspective to areas where AI adds product value.",
+    "He completado el posgrado en Inteligencia Artificial Aplicada a los Negocios en UniBH y llevo esa perspectiva a donde la IA aporta valor al producto.",
   ),
   "Análise e refatoração": (
     "Analysis and refactoring",
@@ -250,18 +250,18 @@ const translations = <String, (String, String)>{
     "Information Systems graduate from UFV, working in mobile development, backend and systems integration. My experience spans Flutter/Dart, Node.js, REST APIs and relational databases.",
     "Graduada en Sistemas de Información por la UFV, con experiencia en desarrollo mobile, backend e integración de sistemas. Mi experiencia abarca Flutter/Dart, Node.js, API REST y bases de datos relacionales.",
   ),
-  "A experiência em liderança na InfoAlto complementa minha atuação técnica com gestão de projetos e comunicação entre equipes. Atualmente curso a pós-graduação em Inteligência Artificial Aplicada aos Negócios na UniBH.":
+  "A experiência em liderança na InfoAlto complementa minha atuação técnica com gestão de projetos e comunicação entre equipes. Sou pós-graduada em Inteligência Artificial Aplicada aos Negócios pela UniBH.":
       (
-    "My leadership experience at InfoAlto complements my technical work with project management and cross-team communication. I am currently pursuing postgraduate studies in Artificial Intelligence Applied to Business at UniBH.",
-    "La experiencia de liderazgo en InfoAlto complementa mi trabajo técnico con gestión de proyectos y comunicación entre equipos. Actualmente curso el posgrado en Inteligencia Artificial Aplicada a los Negocios en UniBH.",
+    "My leadership experience at InfoAlto complements my technical work with project management and cross-team communication. I have completed postgraduate studies in Artificial Intelligence Applied to Business at UniBH.",
+    "La experiencia de liderazgo en InfoAlto complementa mi trabajo técnico con gestión de proyectos y comunicación entre equipos. He completado el posgrado en Inteligencia Artificial Aplicada a los Negocios en UniBH.",
   ),
   "Inteligência Artificial Aplicada aos Negócios": (
     "Artificial Intelligence Applied to Business",
     "Inteligencia Artificial Aplicada a los Negocios",
   ),
-  "PÓS-GRADUAÇÃO • EM ANDAMENTO\n2026 · conclusão prevista em dezembro": (
-    "POSTGRADUATE STUDIES • IN PROGRESS\n2026 · expected completion in December",
-    "POSGRADO • EN CURSO\n2026 · finalización prevista en diciembre",
+  "PÓS-GRADUAÇÃO • CONCLUÍDA": (
+    "POSTGRADUATE STUDIES • COMPLETED",
+    "POSGRADO • COMPLETADO",
   ),
   "Universidade Federal de Viçosa": (
     "Federal University of Viçosa",
