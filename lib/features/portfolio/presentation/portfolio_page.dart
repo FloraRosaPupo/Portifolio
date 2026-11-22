@@ -384,28 +384,6 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                         open('https://www.assid.org.br/'),
                                   ),
                                   const SizedBox(height: 64),
-                                  const Eyebrow('ENGENHARIA DE IA'),
-                                  const Heading('Projetos de IA aplicada'),
-                                  const Body(
-                                      'Prévias das interfaces com dados e respostas simulados.'),
-                                  for (final entry
-                                      in aiProjects.asMap().entries) ...[
-                                    const SizedBox(height: 32),
-                                    ProjectCard(
-                                      title: entry.value.$1,
-                                      category: 'ENGENHARIA DE IA',
-                                      image:
-                                          'assets/projects/${aiProjectSlugs[entry.key]}.png',
-                                      video:
-                                          'previews/${aiProjectSlugs[entry.key]}.mp4',
-                                      aspectRatio: 1440 / 1000,
-                                      description: entry.value.$2,
-                                      tags: entry.value.$3,
-                                      onTap: () => open(entry.value.$4),
-                                      background: const Color(0xFFEAD3FF),
-                                    ),
-                                  ],
-                                  const SizedBox(height: 48),
                                   const Heading('Projetos pessoais'),
                                   const Body(
                                       'Aplicações que desenvolvi para explorar mobile, backend, inteligência artificial e machine learning.'),
@@ -905,6 +883,14 @@ class RecentProjects extends StatefulWidget {
 class _RecentProjectsState extends State<RecentProjects>
     with SingleTickerProviderStateMixin {
   int index = 0;
+  static const projectNames = [
+    'RepoMentor',
+    'Triagem',
+    'Avalia',
+    'Bebeu?',
+    'Chat com contratos',
+    'Assistente de pesquisa'
+  ];
   final pages = PageController();
   late final TabController tabs;
   final pageHeights = <int, double>{};
@@ -916,7 +902,7 @@ class _RecentProjectsState extends State<RecentProjects>
   @override
   void initState() {
     super.initState();
-    tabs = TabController(length: 4, vsync: this);
+    tabs = TabController(length: projectNames.length, vsync: this);
     timer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (!mounted ||
           hovered ||
@@ -943,7 +929,7 @@ class _RecentProjectsState extends State<RecentProjects>
 
   void move(int delta) {
     elapsed = 0;
-    final target = (index + delta) % 4;
+    final target = (index + delta) % projectNames.length;
     if (MediaQuery.disableAnimationsOf(context)) {
       pages.jumpToPage(target);
     } else {
@@ -954,7 +940,7 @@ class _RecentProjectsState extends State<RecentProjects>
   }
 
   void select(int target) {
-    final delta = (target - index + 4) % 4;
+    final delta = (target - index + projectNames.length) % projectNames.length;
     if (delta != 0) move(delta);
   }
 
@@ -1113,7 +1099,20 @@ class _RecentProjectsState extends State<RecentProjects>
           ],
           onTap: () => widget.onOpen('$github/controle_agua'),
           background: const Color(0xFFF0E6F8),
-        )
+        ),
+        for (final entry in aiProjects.asMap().entries)
+          ProjectCard(
+            key: ValueKey(aiProjectSlugs[entry.key]),
+            title: entry.value.$1,
+            category: 'ENGENHARIA DE IA',
+            image: 'assets/projects/${aiProjectSlugs[entry.key]}.png',
+            video: 'previews/${aiProjectSlugs[entry.key]}.mp4',
+            aspectRatio: 1440 / 1000,
+            description: entry.value.$2,
+            tags: entry.value.$3,
+            onTap: () => widget.onOpen(entry.value.$4),
+            background: const Color(0xFFEAD3FF),
+          ),
       ];
 
   @override
@@ -1128,12 +1127,10 @@ class _RecentProjectsState extends State<RecentProjects>
                 child: TabBar(
                   controller: tabs,
                   onTap: select,
-                  isScrollable: MediaQuery.sizeOf(context).width < 600,
-                  tabs: const [
-                    Tab(text: 'RepoMentor'),
-                    Tab(text: 'Triagem'),
-                    Tab(text: 'Avalia'),
-                    Tab(text: 'Bebeu?'),
+                  isScrollable: true,
+                  tabs: [
+                    for (final name in projectNames)
+                      Tab(child: PortfolioText(name))
                   ],
                 ),
               ),
@@ -1189,12 +1186,7 @@ class _RecentProjectsState extends State<RecentProjects>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    for (final entry in [
-                      'RepoMentor',
-                      'Triagem',
-                      'Avalia',
-                      'Bebeu?'
-                    ].asMap().entries)
+                    for (final entry in projectNames.asMap().entries)
                       Tooltip(
                         message: entry.value,
                         child: Semantics(

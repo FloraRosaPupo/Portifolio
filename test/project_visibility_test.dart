@@ -19,11 +19,36 @@ void main() {
         home: page.value,
       ));
       await tester.pumpAndSettle();
+      if (page.key == 'IA') {
+        for (var i = 0; i < 3; i++) {
+          final next = find.byKey(const ValueKey('work-next'));
+          await tester.ensureVisible(next);
+          await tester.pumpAndSettle();
+          await tester.tap(next);
+          await tester.pumpAndSettle();
+        }
+      }
+      var projectIndex = 0;
       for (final project in {
         'Chat com contratos': 'chat-com-contratos',
         'Assistente de pesquisa': 'assistente-pesquisa',
       }.entries) {
-        final title = find.text(project.key);
+        if (page.key == 'desenvolvimento') {
+          expect(tester.widget<TabBar>(find.byType(TabBar)).tabs.length, 6);
+          final tab = find.widgetWithText(Tab, project.key);
+          await tester.ensureVisible(tab);
+          await tester.pumpAndSettle();
+          await tester.tap(tab);
+          await tester.pumpAndSettle();
+        } else if (projectIndex > 0) {
+          final next = find.byKey(const ValueKey('work-next'));
+          await tester.ensureVisible(next);
+          await tester.pumpAndSettle();
+          await tester.tap(next);
+          await tester.pumpAndSettle();
+        }
+        projectIndex++;
+        final title = find.text(project.key).last;
         expect(title, findsOneWidget);
         await tester.ensureVisible(title);
         await tester.pumpAndSettle();

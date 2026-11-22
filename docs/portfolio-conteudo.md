@@ -38,3 +38,5 @@ O PDF de download foi atualizado para Engenharia de IA e Desenvolvimento Full St
 Os certificados também aparecem separadamente na página: Claude in Action e Model Context Protocol: Advanced Topics, ambos da Anthropic, com acesso às credenciais pelo LinkedIn. O nome completo do curso de MCP foi conferido no certificado PDF local.
 
 Os cards de Chat com contratos e Assistente de pesquisa foram posicionados junto dos projetos na página de desenvolvimento e adicionados à seção Meu trabalho com IA na rota `/ia`. Ambas as páginas reutilizam as descrições, imagens e vídeos dos mesmos projetos.
+
+Organização final solicitada: na página de desenvolvimento, os seis projetos estão no mesmo carrossel com abas. Na rota `/ia`, Chat com contratos e Assistente de pesquisa são os itens 4 e 5 do carrossel de trabalho, após os três estudos anteriores. Os cards separados foram removidos.

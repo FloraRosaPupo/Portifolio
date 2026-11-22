@@ -527,38 +527,42 @@ class _AiPageState extends State<AiPage> with SingleTickerProviderStateMixin {
                                         'Implemented projects and postgraduate studies, each with its own context and stage.',
                                         'Proyectos implementados y estudios de posgrado, cada uno con su contexto y etapa.')),
                                     const SizedBox(height: 24),
-                                    for (final entry
-                                        in aiProjects.asMap().entries) ...[
-                                      _NotebookCard(
-                                        wide: wide,
-                                        visual: ProjectPreview(
-                                          image:
-                                              'assets/projects/${aiProjectSlugs[entry.key]}.png',
-                                          video:
-                                              'previews/${aiProjectSlugs[entry.key]}.mp4',
-                                          title: tr(ctx, entry.value.$1),
-                                          aspectRatio: 1440 / 1000,
-                                        ),
-                                        category: tr(ctx, 'ENGENHARIA DE IA'),
-                                        title: tr(ctx, entry.value.$1),
-                                        description: tr(ctx, entry.value.$2),
-                                        tags: entry.value.$3,
-                                        note: tr(ctx,
-                                            'Prévias das interfaces com dados e respostas simulados.'),
-                                        actions: OutlinedButton.icon(
-                                          onPressed: () => open(entry.value.$4),
-                                          icon: const Icon(Icons.open_in_new,
-                                              size: 16),
-                                          label: const Text('GitHub'),
-                                        ),
-                                      ),
-                                      const SizedBox(height: 24),
-                                    ],
                                     _NotebookCarousel(
                                         id: 'work',
-                                        count: 3,
+                                        count: 3 + aiProjects.length,
                                         language: lang,
                                         builder: (i) {
+                                          if (i >= 3) {
+                                            final entry = MapEntry(
+                                                i - 3, aiProjects[i - 3]);
+                                            return _NotebookCard(
+                                              wide: wide,
+                                              visual: ProjectPreview(
+                                                image:
+                                                    'assets/projects/${aiProjectSlugs[entry.key]}.png',
+                                                video:
+                                                    'previews/${aiProjectSlugs[entry.key]}.mp4',
+                                                title: tr(ctx, entry.value.$1),
+                                                aspectRatio: 1440 / 1000,
+                                              ),
+                                              category:
+                                                  tr(ctx, 'ENGENHARIA DE IA'),
+                                              title: tr(ctx, entry.value.$1),
+                                              description:
+                                                  tr(ctx, entry.value.$2),
+                                              tags: entry.value.$3,
+                                              note: tr(ctx,
+                                                  'Prévias das interfaces com dados e respostas simulados.'),
+                                              actions: OutlinedButton.icon(
+                                                onPressed: () =>
+                                                    open(entry.value.$4),
+                                                icon: const Icon(
+                                                    Icons.open_in_new,
+                                                    size: 16),
+                                                label: const Text('GitHub'),
+                                              ),
+                                            );
+                                          }
                                           if (i == 0) {
                                             return _NotebookCard(
                                                 wide: wide,

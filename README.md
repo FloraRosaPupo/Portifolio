@@ -15,7 +15,7 @@ Portfólio profissional de Flora Rosa Pupo, engenheira de IA e desenvolvedora Fu
 | [Avalia](https://github.com/FloraRosaPupo/projeto_Avalia) | Projeto de aprendizado para correção de provas com IA, gestão de turmas e acompanhamento de resultados. | Flutter, Dart, Cubit/BLoC, Supabase, Google Gemini, Equatable, Lottie, Flutter Test, bloc_test e Mocktail. |
 | [Bebeu?](https://github.com/FloraRosaPupo/controle_agua) | Acompanha a hidratação, com histórico, lembretes e widget na tela inicial. | Flutter, Dart, Provider/BLoC, GoRouter, SQLite, Home Widget, notificações locais, Secure Storage, Node.js, TypeScript, Express, Prisma, PostgreSQL e JWT. |
 
-A página principal destaca Engenharia de IA. Chat com contratos e Assistente de pesquisa possuem cards próprios na seção **Projetos de IA aplicada**, junto dos projetos de desenvolvimento, com descrição, tecnologias, código e vídeo. Os mesmos dois projetos e vídeos também estão na rota **/ia**, antes do carrossel de estudos. RepoMentor, Triagem, Avalia e Bebeu? continuam no carrossel de projetos pessoais.
+A página principal destaca Engenharia de IA. Os seis projetos compartilham o mesmo carrossel de **Projetos pessoais**, com abas, descrição, tecnologias, código e vídeo: RepoMentor, Triagem, Avalia, Bebeu?, Chat com contratos e Assistente de pesquisa. Na rota **/ia**, os dois últimos também entram na sequência do carrossel Meu trabalho com IA, após os três estudos existentes.
 
 ### Demonstrações
 
@@ -38,9 +38,8 @@ As gravações mostram interfaces reais. O Triagem usa chamados fictícios e uma
 
 ## O que o portfólio oferece
 
-- Uma seção de **Projetos de IA aplicada** destaca RAG, MCP e integração de modelos de linguagem a dados e ferramentas.
-- O carrossel automático de **Projetos pessoais**, feito com `PageView`, reúne **RepoMentor, Triagem, Avalia e Bebeu?**. Mostra um projeto por vez, com demonstração à esquerda e descrição e tecnologias à direita no desktop; no celular, os elementos ficam empilhados.
-- No desktop, as abas acompanham o projeto selecionado; no celular, quatro indicadores na base permitem ir direto a cada projeto. O `PageView` também aceita deslize.
+- O carrossel automático de **Projetos pessoais**, feito com `PageView`, reúne **RepoMentor, Triagem, Avalia, Bebeu?, Chat com contratos e Assistente de pesquisa**. Mostra um projeto por vez, com demonstração à esquerda e descrição e tecnologias à direita no desktop; no celular, os elementos ficam empilhados.
+- No desktop, as abas acompanham o projeto selecionado; no celular, seis indicadores na base permitem ir direto a cada projeto. O `PageView` também aceita deslize.
 - Troca a cada **12 segundos** enquanto visível e pausa ao passar o mouse.
 - Experiência profissional e voluntária com Easy Comlink, IndicaZ Profissionais, Roteo e ASSID, com links públicos dos produtos.
 - Interface responsiva em **português, inglês e espanhol**, temas claro e escuro e respeito à preferência por movimento reduzido.
@@ -146,6 +145,6 @@ Este repositório não define uma licença de distribuição. As atribuições e
 
 A rota `/ia` abre uma frente autoral que complementa o portfólio principal, com tema escuro fixo e seletor PT/EN/ES. O tema escolhido no portfólio de desenvolvimento é preservado. O menu desktop e mobile inclui Flora × IA.
 
-Dois carrosséis compactos apresentam: (1) Triagem, estudo acadêmico de VGG19 e precificação imobiliária; (2) cinco casos documentados: Amazon, Duolingo, See & Spray, Netflix e Walmart, acompanhados de propostas de adaptação. Cada item abre uma análise em janela de leitura. As propostas citam notícias com fonte, data e link e distinguem o fato publicado da solução exploratória. Manchetes originais são preservadas no idioma da fonte e identificadas como tal; análises e interface têm tradução editorial.
+Dois carrosséis compactos apresentam: (1) Triagem, estudo acadêmico de VGG19, precificação imobiliária, Chat com contratos e Assistente de pesquisa; (2) cinco casos documentados: Amazon, Duolingo, See & Spray, Netflix e Walmart, acompanhados de propostas de adaptação. Cada item abre uma análise em janela de leitura. As propostas citam notícias com fonte, data e link e distinguem o fato publicado da solução exploratória. Manchetes originais são preservadas no idioma da fonte e identificadas como tal; análises e interface têm tradução editorial.
 
 Triagem usa dados pequenos e sintéticos, sem comprovação em produção. O estudo acadêmico não tem treinamento ou resultados medidos. As cinco propostas são pesquisa assistida por IA para revisão da autora, sem alegações de participação nos casos noticiados. Fontes consultadas em 12/11/2026, listadas em `docs/casos-documentados.md`. A animação abstrata respeita movimento reduzido. Navegação manual por setas e gestos, com indicador de posição e altura ajustada ao conteúdo. O modal do Triagem inclui vídeo e fluxo de classificação. O projeto VGG19 recebeu três testes de preparação e verificação de sintaxe, sem treinamento ou inferências sobre rostos. Coautoria preservada.
