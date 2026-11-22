@@ -208,7 +208,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                     const Eyebrow('FLORA ROSA PUPO'),
                                     const SizedBox(height: 20),
                                     PortfolioText(
-                                      'Mobile e backend, conectados.',
+                                      'Inteligência artificial aplicada a produtos.',
                                       style: TextStyle(
                                         fontSize: wide ? 52 : 36,
                                         height: 1.12,
@@ -218,7 +218,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                     ),
                                     const SizedBox(height: 24),
                                     PortfolioText(
-                                      'Desenvolvedora Full Stack',
+                                      'Engenheira de IA',
                                       style: TextStyle(
                                         fontSize: 22,
                                         color: palette(context).accent,
@@ -228,11 +228,11 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                     ),
                                     const SizedBox(height: 20),
                                     const Body(
-                                      'Desenvolvedora com experiência em aplicações multiplataforma, APIs REST e bancos de dados. Atuação em produtos publicados, conectando interface, regras de negócio e integrações.',
+                                      'Engenheira de IA e desenvolvedora Full Stack. Desenvolvo aplicações com modelos de linguagem, RAG e MCP, conectando dados, ferramentas e interfaces. Minha experiência em mobile, APIs e bancos de dados dá base à construção de produtos completos.',
                                     ),
                                     const SizedBox(height: 20),
                                     PortfolioText(
-                                      'Flutter & Dart · Node.js · SQL & PostgreSQL · UX/UI',
+                                      'Python · RAG · MCP · LangGraph · Flutter · Node.js',
                                       style: TextStyle(
                                         fontSize: 15,
                                         height: 1.8,
@@ -420,6 +420,28 @@ class _PortfolioPageState extends State<PortfolioPage> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
+                                  const Eyebrow('ENGENHARIA DE IA'),
+                                  const Heading('Projetos de IA aplicada'),
+                                  const Body(
+                                      'Prévias das interfaces com dados e respostas simulados.'),
+                                  for (final entry
+                                      in aiProjects.asMap().entries) ...[
+                                    const SizedBox(height: 32),
+                                    ProjectCard(
+                                      title: entry.value.$1,
+                                      category: 'ENGENHARIA DE IA',
+                                      image:
+                                          'assets/projects/${aiProjectSlugs[entry.key]}.png',
+                                      video:
+                                          'previews/${aiProjectSlugs[entry.key]}.mp4',
+                                      aspectRatio: 1440 / 1000,
+                                      description: entry.value.$2,
+                                      tags: entry.value.$3,
+                                      onTap: () => open(entry.value.$4),
+                                      background: const Color(0xFFEAD3FF),
+                                    ),
+                                  ],
+                                  const SizedBox(height: 48),
                                   const Eyebrow('AI-FIRST'),
                                   const Heading('Como eu desenvolvo com IA'),
                                   const Body(
@@ -496,6 +518,19 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                           'CONCLUÍDO • 2020 — JUL 2025\nCampus Rio Paranaíba',
                                         ),
                                       ],
+                                    ),
+                                  ),
+                                  const SizedBox(height: 32),
+                                  const Heading('Certificados Anthropic'),
+                                  const Body(
+                                      'Claude in Action e MCP: formação complementar em ferramentas e integrações de IA.'),
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: TextButton(
+                                      onPressed: () => open('$linkedin'
+                                          'details/certifications/'),
+                                      child: const PortfolioText(
+                                          'Ver certificados no LinkedIn ↗'),
                                     ),
                                   ),
                                   const SizedBox(height: 56),

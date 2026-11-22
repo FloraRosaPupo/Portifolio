@@ -1,5 +1,54 @@
-﻿// Portuguese is the source language. Product and technology names stay unchanged.
+// Portuguese is the source language. Product and technology names stay unchanged.
 const translations = <String, (String, String)>{
+  'Prévias das interfaces com dados e respostas simulados.': (
+    'Interface previews with simulated data and responses.',
+    'Vistas previas de las interfaces con datos y respuestas simulados.'
+  ),
+  "Inteligência artificial aplicada a produtos.": (
+    "Artificial intelligence applied to products.",
+    "Inteligencia artificial aplicada a productos."
+  ),
+  "Engenheira de IA e desenvolvedora Full Stack. Desenvolvo aplicações com modelos de linguagem, RAG e MCP, conectando dados, ferramentas e interfaces. Minha experiência em mobile, APIs e bancos de dados dá base à construção de produtos completos.":
+      (
+    "AI Engineer and Full Stack Developer. I build applications with language models, RAG and MCP, connecting data, tools and interfaces. My experience in mobile, APIs and databases supports building complete products.",
+    "Ingeniera de IA y desarrolladora Full Stack. Desarrollo aplicaciones con modelos de lenguaje, RAG y MCP, conectando datos, herramientas e interfaces. Mi experiencia en mobile, API y bases de datos sustenta la construcción de productos completos."
+  ),
+  "ENGENHARIA DE IA": ("AI ENGINEERING", "INGENIERÍA DE IA"),
+  "Engenharia de IA": ("AI engineering", "Ingeniería de IA"),
+  "Projetos de IA aplicada": (
+    "Applied AI projects",
+    "Proyectos de IA aplicada"
+  ),
+  "Explorar código ↗": ("Explore code ↗", "Explorar código ↗"),
+  "Chat com contratos": ("Chat with contracts", "Chat con contratos"),
+  "Assistente de pesquisa": (
+    "Research assistant",
+    "Asistente de investigación"
+  ),
+  "RAG local para consultar contratos com citações de cláusula e página. Compara respostas com e sem RAG e inclui avaliações automatizadas na CI.":
+      (
+    "Local RAG for querying contracts with clause and page citations. Compares answers with and without RAG and includes automated evaluations in CI.",
+    "RAG local para consultar contratos con citas de cláusula y página. Compara respuestas con y sin RAG e incluye evaluaciones automatizadas en CI."
+  ),
+  "Consulta artigos científicos com RAG e fontes citadas. LangGraph orquestra a recuperação e a resposta; servidores MCP expõem busca no arXiv, ingestão e consulta de trechos.":
+      (
+    "Queries scientific papers with RAG and cited sources. LangGraph orchestrates retrieval and responses; MCP servers expose arXiv search, ingestion and passage retrieval.",
+    "Consulta artículos científicos con RAG y fuentes citadas. LangGraph orquesta la recuperación y la respuesta; servidores MCP exponen búsqueda en arXiv, ingesta y consulta de fragmentos."
+  ),
+  "Certificados Anthropic": (
+    "Anthropic certificates",
+    "Certificados Anthropic"
+  ),
+  "Claude in Action e MCP: formação complementar em ferramentas e integrações de IA.":
+      (
+    "Claude in Action and MCP: additional training in AI tools and integrations.",
+    "Claude in Action y MCP: formación complementaria en herramientas e integraciones de IA."
+  ),
+  "Ver certificados no LinkedIn ↗": (
+    "View certificates on LinkedIn ↗",
+    "Ver certificados en LinkedIn ↗"
+  ),
+  "Avaliação de respostas": ("Response evaluation", "Evaluación de respuestas"),
   'Projetos recentes': ('Recent projects', 'Proyectos recientes'),
   'Projetos pessoais': ('Personal projects', 'Proyectos personales'),
   'Projeto': ('Project', 'Proyecto'),
@@ -63,6 +112,10 @@ const translations = <String, (String, String)>{
   "Desenvolvedora Full Stack": (
     "Full Stack Developer",
     "Desarrolladora Full Stack",
+  ),
+  "Engenheira de IA": (
+    "AI Engineer",
+    "Ingeniera de IA",
   ),
   "Desenvolvedora com experiência em aplicações multiplataforma, APIs REST e bancos de dados. Atuação em produtos publicados, conectando interface, regras de negócio e integrações.":
       (

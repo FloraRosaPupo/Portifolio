@@ -36,6 +36,16 @@ const career = [
   ),
 ];
 const skills = {
+  'Engenharia de IA': [
+    'Python',
+    'LLMs',
+    'RAG',
+    'MCP',
+    'LangGraph',
+    'Ollama',
+    'Embeddings',
+    'Avaliação de respostas'
+  ],
   'Mobile & interfaces': [
     'Flutter',
     'Dart',
@@ -88,6 +98,11 @@ const aiPractices = [
   ),
 ];
 const aiTools = [
+  'RAG',
+  'MCP',
+  'LangGraph',
+  'Ollama',
+  'Evals',
   'Claude / Claude Code',
   'Agentes orquestradores',
   'Agentes de code review',
@@ -97,3 +112,20 @@ const aiTools = [
   'Testes automatizados',
   'GitHub Actions',
 ];
+
+const aiProjects = [
+  (
+    'Chat com contratos',
+    'RAG local para consultar contratos com citações de cláusula e página. Compara respostas com e sem RAG e inclui avaliações automatizadas na CI.',
+    ['Flutter', 'Python', 'FastAPI', 'ChromaDB', 'Ollama'],
+    'https://github.com/FloraRosaPupo/chat-com-contratos',
+  ),
+  (
+    'Assistente de pesquisa',
+    'Consulta artigos científicos com RAG e fontes citadas. LangGraph orquestra a recuperação e a resposta; servidores MCP expõem busca no arXiv, ingestão e consulta de trechos.',
+    ['Python', 'LangGraph', 'MCP', 'pgvector', 'RAG'],
+    'https://github.com/FloraRosaPupo/assistente-pesquisa',
+  ),
+];
+
+const aiProjectSlugs = ['chat-com-contratos', 'assistente-pesquisa'];

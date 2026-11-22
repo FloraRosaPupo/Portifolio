@@ -18,3 +18,15 @@ A captura do Avalia foi conferida contra a branch `main`, commit `9a4d090108dfb6
 - Bebeu: adição de 250 ml com feedback visual e progresso de 1.200 para 1.450 ml, histórico semanal e configuração de lembretes a cada hora, das 08:00 às 20:00 nos dias úteis. Histórico, sessão e preferências são fictícios; nenhuma notificação real é agendada.
 
 O vídeo só é solicitado quando entra na área visível. A reprodução é silenciosa e em loop, com controles nativos para pausar. Ao sair da tela ou ocultar a aba, ele pausa. Movimento reduzido e falhas de vídeo usam as imagens estáticas.
+
+## Posicionamento em Engenharia de IA
+
+Página principal atualizada para Engenharia de IA com experiência Full Stack complementar. Projetos Chat com contratos e Assistente de pesquisa descritos a partir dos READMEs locais. Certificados Claude in Action e MCP incluídos conforme informação da autora, com link para a seção de certificações do LinkedIn, sem inventar datas ou credenciais individuais.
+
+## Prévias dos projetos de IA
+
+Chat com contratos e Assistente de pesquisa agora possuem capturas PNG das interfaces reais e MP4 H.264, 1080 × 750, 12 quadros/s, sem áudio e com faststart. Os dois vídeos somam aproximadamente 231 KB e usam o componente existente de reprodução em loop, com pausa fora da tela e imagem estática para movimento reduzido.
+
+Todas as capturas trazem o aviso visível de dados e respostas simulados. Chat com contratos usa respostas HTTP determinísticas apenas durante a gravação, com contratos fictícios, comparação de respostas e navegação pelos painéis de recuperação, prompt e mapa. Os números exibidos são fixtures de apresentação, não métricas medidas. Assistente de pesquisa utiliza a interface Streamlit real e um servidor SSE de captura com texto e fonte demonstrativos; não há inferência de modelo nem consulta real ao arXiv na gravação.
+
+Os scripts `capture-ai-projects.cjs`, `capture-research-api.py` e `encode-ai-projects.py` documentam a captura e codificação. A gravação não modifica os projetos de origem.
