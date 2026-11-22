@@ -116,9 +116,8 @@
       if (element) element.textContent = startupCopy[key];
     }
     document.title = 'Flora Rosa Pupo | ' + startupCopy.role;
-    const slowStartup=setTimeout(()=>{const message=document.getElementById('loading-message');if(message){message.classList.remove('sr');message.textContent=startupCopy.slow;}},20000);
-    window.addEventListener('flutter-first-frame',()=>{clearTimeout(slowStartup);const initial=document.getElementById('initial-content');if(!initial)return;initial.classList.add('done');setTimeout(()=>initial.remove(),500);});
-    window.showStartupError=()=>{clearTimeout(slowStartup);const loading=document.getElementById('loading-state');if(loading)loading.hidden=true;for(const id of ['fallback-intro','startup-error','fallback-contacts']){const element=document.getElementById(id);if(element)element.hidden=false;}};
+    window.addEventListener('flutter-first-frame',()=>{const initial=document.getElementById('initial-content');if(!initial)return;initial.classList.add('done');setTimeout(()=>initial.remove(),500);});
+    window.showStartupError=()=>{const loading=document.getElementById('loading-state');if(loading)loading.hidden=true;for(const id of ['fallback-intro','startup-error','fallback-contacts']){const element=document.getElementById(id);if(element)element.hidden=false;}};
   </script>
   <noscript><style>#loading-state{display:none}#fallback-intro[hidden],#fallback-contacts[hidden]{display:block}</style><p style="padding:24px">Ative o JavaScript para explorar o portfólio. Os links de contato continuam disponíveis.</p></noscript>
   <script src="flutter_bootstrap.js?v=dashboard-2" async onerror="showStartupError()"></script>

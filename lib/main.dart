@@ -1,10 +1,15 @@
+import 'package:flutter_web_plugins/url_strategy.dart';
+import 'features/ai/presentation/ai_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'features/portfolio/presentation/portfolio_page.dart';
 import 'features/portfolio/presentation/preferences.dart';
 import 'features/portfolio/presentation/preference_storage.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  usePathUrlStrategy();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -75,7 +80,10 @@ class _MyAppState extends State<MyApp> {
           theme: makeTheme(Brightness.light),
           darkTheme: makeTheme(Brightness.dark),
           themeMode: themeMode,
-          home: const PortfolioPage(),
+          routes: {
+            '/': (_) => const PortfolioPage(),
+            '/ia': (_) => const AiPage()
+          },
         ),
       );
 }

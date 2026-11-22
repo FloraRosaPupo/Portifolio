@@ -94,7 +94,7 @@ const aiPractices = [
   ),
   (
     'IA também no produto',
-    'Curso a pós-graduação em Inteligência Artificial Aplicada aos Negócios (UniBH) e levo esse olhar para onde a IA gera valor no produto.',
+    'Sou pós-graduada em Inteligência Artificial Aplicada aos Negócios pela UniBH e levo esse olhar para onde a IA gera valor no produto.',
   ),
 ];
 const aiTools = [
