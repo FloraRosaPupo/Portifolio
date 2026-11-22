@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../portfolio/presentation/preferences.dart';
 import '../../portfolio/presentation/project_preview.dart';
+import '../../portfolio/data/content.dart';
 import '../data/business_ideas.dart';
 import '../data/business_localizations.dart';
 import '../data/property_study.dart';
@@ -526,6 +527,33 @@ class _AiPageState extends State<AiPage> with SingleTickerProviderStateMixin {
                                         'Implemented projects and postgraduate studies, each with its own context and stage.',
                                         'Proyectos implementados y estudios de posgrado, cada uno con su contexto y etapa.')),
                                     const SizedBox(height: 24),
+                                    for (final entry
+                                        in aiProjects.asMap().entries) ...[
+                                      _NotebookCard(
+                                        wide: wide,
+                                        visual: ProjectPreview(
+                                          image:
+                                              'assets/projects/${aiProjectSlugs[entry.key]}.png',
+                                          video:
+                                              'previews/${aiProjectSlugs[entry.key]}.mp4',
+                                          title: tr(ctx, entry.value.$1),
+                                          aspectRatio: 1440 / 1000,
+                                        ),
+                                        category: tr(ctx, 'ENGENHARIA DE IA'),
+                                        title: tr(ctx, entry.value.$1),
+                                        description: tr(ctx, entry.value.$2),
+                                        tags: entry.value.$3,
+                                        note: tr(ctx,
+                                            'Prévias das interfaces com dados e respostas simulados.'),
+                                        actions: OutlinedButton.icon(
+                                          onPressed: () => open(entry.value.$4),
+                                          icon: const Icon(Icons.open_in_new,
+                                              size: 16),
+                                          label: const Text('GitHub'),
+                                        ),
+                                      ),
+                                      const SizedBox(height: 24),
+                                    ],
                                     _NotebookCarousel(
                                         id: 'work',
                                         count: 3,

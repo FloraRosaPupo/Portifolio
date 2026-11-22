@@ -384,6 +384,28 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                         open('https://www.assid.org.br/'),
                                   ),
                                   const SizedBox(height: 64),
+                                  const Eyebrow('ENGENHARIA DE IA'),
+                                  const Heading('Projetos de IA aplicada'),
+                                  const Body(
+                                      'Prévias das interfaces com dados e respostas simulados.'),
+                                  for (final entry
+                                      in aiProjects.asMap().entries) ...[
+                                    const SizedBox(height: 32),
+                                    ProjectCard(
+                                      title: entry.value.$1,
+                                      category: 'ENGENHARIA DE IA',
+                                      image:
+                                          'assets/projects/${aiProjectSlugs[entry.key]}.png',
+                                      video:
+                                          'previews/${aiProjectSlugs[entry.key]}.mp4',
+                                      aspectRatio: 1440 / 1000,
+                                      description: entry.value.$2,
+                                      tags: entry.value.$3,
+                                      onTap: () => open(entry.value.$4),
+                                      background: const Color(0xFFEAD3FF),
+                                    ),
+                                  ],
+                                  const SizedBox(height: 48),
                                   const Heading('Projetos pessoais'),
                                   const Body(
                                       'Aplicações que desenvolvi para explorar mobile, backend, inteligência artificial e machine learning.'),
@@ -424,28 +446,6 @@ class _PortfolioPageState extends State<PortfolioPage> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Eyebrow('ENGENHARIA DE IA'),
-                                  const Heading('Projetos de IA aplicada'),
-                                  const Body(
-                                      'Prévias das interfaces com dados e respostas simulados.'),
-                                  for (final entry
-                                      in aiProjects.asMap().entries) ...[
-                                    const SizedBox(height: 32),
-                                    ProjectCard(
-                                      title: entry.value.$1,
-                                      category: 'ENGENHARIA DE IA',
-                                      image:
-                                          'assets/projects/${aiProjectSlugs[entry.key]}.png',
-                                      video:
-                                          'previews/${aiProjectSlugs[entry.key]}.mp4',
-                                      aspectRatio: 1440 / 1000,
-                                      description: entry.value.$2,
-                                      tags: entry.value.$3,
-                                      onTap: () => open(entry.value.$4),
-                                      background: const Color(0xFFEAD3FF),
-                                    ),
-                                  ],
-                                  const SizedBox(height: 48),
                                   const Eyebrow('AI-FIRST'),
                                   const Heading('Como eu desenvolvo com IA'),
                                   const Body(

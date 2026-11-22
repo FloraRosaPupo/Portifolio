@@ -15,7 +15,7 @@ Portfólio profissional de Flora Rosa Pupo, engenheira de IA e desenvolvedora Fu
 | [Avalia](https://github.com/FloraRosaPupo/projeto_Avalia) | Projeto de aprendizado para correção de provas com IA, gestão de turmas e acompanhamento de resultados. | Flutter, Dart, Cubit/BLoC, Supabase, Google Gemini, Equatable, Lottie, Flutter Test, bloc_test e Mocktail. |
 | [Bebeu?](https://github.com/FloraRosaPupo/controle_agua) | Acompanha a hidratação, com histórico, lembretes e widget na tela inicial. | Flutter, Dart, Provider/BLoC, GoRouter, SQLite, Home Widget, notificações locais, Secure Storage, Node.js, TypeScript, Express, Prisma, PostgreSQL e JWT. |
 
-A página principal destaca Engenharia de IA. Chat com contratos e Assistente de pesquisa possuem cards próprios na seção **Projetos de IA aplicada**, com descrição, tecnologias, código e vídeo. RepoMentor, Triagem, Avalia e Bebeu? continuam no carrossel de projetos pessoais.
+A página principal destaca Engenharia de IA. Chat com contratos e Assistente de pesquisa possuem cards próprios na seção **Projetos de IA aplicada**, junto dos projetos de desenvolvimento, com descrição, tecnologias, código e vídeo. Os mesmos dois projetos e vídeos também estão na rota **/ia**, antes do carrossel de estudos. RepoMentor, Triagem, Avalia e Bebeu? continuam no carrossel de projetos pessoais.
 
 ### Demonstrações
 

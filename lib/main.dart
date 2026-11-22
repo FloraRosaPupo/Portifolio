@@ -73,7 +73,7 @@ class _MyAppState extends State<MyApp> {
         },
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'Flora Rosa Pupo • Full Stack',
+          title: 'Flora Rosa Pupo | Engenharia de IA e Full Stack',
           locale: Locale(language),
           supportedLocales: const [Locale('pt'), Locale('en'), Locale('es')],
           localizationsDelegates: GlobalMaterialLocalizations.delegates,
