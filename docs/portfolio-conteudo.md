@@ -30,3 +30,9 @@ Chat com contratos e Assistente de pesquisa agora possuem capturas PNG das inter
 Todas as capturas trazem o aviso visível de dados e respostas simulados. Chat com contratos usa respostas HTTP determinísticas apenas durante a gravação, com contratos fictícios, comparação de respostas e navegação pelos painéis de recuperação, prompt e mapa. Os números exibidos são fixtures de apresentação, não métricas medidas. Assistente de pesquisa utiliza a interface Streamlit real e um servidor SSE de captura com texto e fonte demonstrativos; não há inferência de modelo nem consulta real ao arXiv na gravação.
 
 Os scripts `capture-ai-projects.cjs`, `capture-research-api.py` e `encode-ai-projects.py` documentam a captura e codificação. A gravação não modifica os projetos de origem.
+
+## Currículo geral para ATS
+
+O PDF de download foi atualizado para Engenharia de IA e Desenvolvimento Full Stack, em duas páginas e uma coluna, com texto selecionável e links clicáveis. Inclui os projetos Chat com contratos, Assistente de pesquisa, RepoMentor e Triagem e os cursos Claude in Action e MCP informados pela autora. Não inclui Briefa. As datas da DoubleX (maio de 2025 a outubro de 2026) seguem a versão mais recente de currículo de IA presente nos Downloads; a pós-graduação mantém o status em andamento do portfólio. A geração pode ser reproduzida com `python scripts/build-general-resume.py` (ReportLab e fontes Arial do Windows).
+
+Os certificados também aparecem separadamente na página: Claude in Action e Model Context Protocol: Advanced Topics, ambos da Anthropic, com acesso às credenciais pelo LinkedIn. O nome completo do curso de MCP foi conferido no certificado PDF local.

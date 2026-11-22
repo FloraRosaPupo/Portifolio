@@ -522,8 +522,13 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                   ),
                                   const SizedBox(height: 32),
                                   const Heading('Certificados Anthropic'),
-                                  const Body(
-                                      'Claude in Action e MCP: formação complementar em ferramentas e integrações de IA.'),
+                                  const SizedBox(height: 16),
+                                  const AiPractice(
+                                      'Claude in Action', 'Anthropic'),
+                                  const AiPractice(
+                                    'Model Context Protocol: Advanced Topics',
+                                    'Anthropic',
+                                  ),
                                   Align(
                                     alignment: Alignment.centerLeft,
                                     child: TextButton(

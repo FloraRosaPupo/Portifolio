@@ -39,11 +39,6 @@ const translations = <String, (String, String)>{
     "Anthropic certificates",
     "Certificados Anthropic"
   ),
-  "Claude in Action e MCP: formação complementar em ferramentas e integrações de IA.":
-      (
-    "Claude in Action and MCP: additional training in AI tools and integrations.",
-    "Claude in Action y MCP: formación complementaria en herramientas e integraciones de IA."
-  ),
   "Ver certificados no LinkedIn ↗": (
     "View certificates on LinkedIn ↗",
     "Ver certificados en LinkedIn ↗"
