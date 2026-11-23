@@ -889,7 +889,8 @@ class _RecentProjectsState extends State<RecentProjects>
     'Avalia',
     'Bebeu?',
     'Chat com contratos',
-    'Assistente de pesquisa'
+    'Assistente de pesquisa',
+    'Base Aurora',
   ];
   final pages = PageController();
   late final TabController tabs;
@@ -1107,7 +1108,7 @@ class _RecentProjectsState extends State<RecentProjects>
             category: 'ENGENHARIA DE IA',
             image: 'assets/projects/${aiProjectSlugs[entry.key]}.png',
             video: 'previews/${aiProjectSlugs[entry.key]}.mp4',
-            aspectRatio: 1440 / 1000,
+            aspectRatio: aiProjectPreviewAspectRatio(entry.key),
             description: entry.value.$2,
             tags: entry.value.$3,
             onTap: () => widget.onOpen(entry.value.$4),

@@ -35,6 +35,14 @@ const translations = <String, (String, String)>{
     "Queries scientific papers with RAG and cited sources. LangGraph orchestrates retrieval and responses; MCP servers expose arXiv search, ingestion and passage retrieval.",
     "Consulta artículos científicos con RAG y fuentes citadas. LangGraph orquesta la recuperación y la respuesta; servidores MCP exponen búsqueda en arXiv, ingesta y consulta de fragmentos."
   ),
+  'Simulador educativo de uma base em Marte, criado com Kevyn na equipe Kera para o NASA Space Apps Challenge 2026. Flutter Web e Dart sustentam as decisões da missão, com uma cena 3D em Three.js. A assistente AURA usa busca lexical local em referências da NASA. O backend opcional em Node.js permite usar RAG com modelos de linguagem e validação de fontes.': (
+    'An educational Mars base simulator built with Kevyn on Team Kera for the 2026 NASA Space Apps Challenge. Flutter Web and Dart power the mission decisions, with a 3D scene in Three.js. The AURA assistant searches NASA references locally using lexical retrieval. An optional Node.js backend supports RAG with language models and source validation.',
+    'Simulador educativo de una base en Marte, creado con Kevyn en el equipo Kera para el NASA Space Apps Challenge 2026. Flutter Web y Dart permiten tomar decisiones durante la misión, con una escena 3D en Three.js. La asistente AURA realiza búsquedas léxicas locales en referencias de la NASA. El backend opcional en Node.js permite usar RAG con modelos de lenguaje y validación de fuentes.'
+  ),
+  'Gravação do protótipo Base Aurora.': (
+    'Recording of the Base Aurora prototype.',
+    'Grabación del prototipo Base Aurora.'
+  ),
   "Certificados Anthropic": (
     "Anthropic certificates",
     "Certificados Anthropic"

@@ -126,6 +126,15 @@ const aiProjects = [
     ['Python', 'LangGraph', 'MCP', 'pgvector', 'RAG'],
     'https://github.com/FloraRosaPupo/assistente-pesquisa',
   ),
+  (
+    'Base Aurora',
+    'Simulador educativo de uma base em Marte, criado com Kevyn na equipe Kera para o NASA Space Apps Challenge 2026. Flutter Web e Dart sustentam as decisões da missão, com uma cena 3D em Three.js. A assistente AURA usa busca lexical local em referências da NASA. O backend opcional em Node.js permite usar RAG com modelos de linguagem e validação de fontes.',
+    ['Flutter Web', 'Dart', 'Three.js', 'WebGL', 'Node.js', 'RAG'],
+    'https://github.com/FloraRosaPupo/base-aurora',
+  ),
 ];
 
-const aiProjectSlugs = ['chat-com-contratos', 'assistente-pesquisa'];
+const aiProjectSlugs = ['chat-com-contratos', 'assistente-pesquisa', 'base-aurora'];
+
+double aiProjectPreviewAspectRatio(int index) =>
+    aiProjectSlugs[index] == 'base-aurora' ? 16 / 9 : 1440 / 1000;

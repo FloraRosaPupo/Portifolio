@@ -543,7 +543,7 @@ class _AiPageState extends State<AiPage> with SingleTickerProviderStateMixin {
                                                 video:
                                                     'previews/${aiProjectSlugs[entry.key]}.mp4',
                                                 title: tr(ctx, entry.value.$1),
-                                                aspectRatio: 1440 / 1000,
+                                                aspectRatio: aiProjectPreviewAspectRatio(entry.key),
                                               ),
                                               category:
                                                   tr(ctx, 'ENGENHARIA DE IA'),
@@ -551,8 +551,9 @@ class _AiPageState extends State<AiPage> with SingleTickerProviderStateMixin {
                                               description:
                                                   tr(ctx, entry.value.$2),
                                               tags: entry.value.$3,
-                                              note: tr(ctx,
-                                                  'Prévias das interfaces com dados e respostas simulados.'),
+                                              note: tr(ctx, aiProjectSlugs[entry.key] == 'base-aurora'
+                                                  ? 'Gravação do protótipo Base Aurora.'
+                                                  : 'Prévias das interfaces com dados e respostas simulados.'),
                                               actions: OutlinedButton.icon(
                                                 onPressed: () =>
                                                     open(entry.value.$4),

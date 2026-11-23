@@ -9,7 +9,7 @@ void main() {
     'desenvolvimento': const PortfolioPage(),
     'IA': const AiPage(),
   }.entries) {
-    testWidgets('projetos RAG e MCP têm vídeos na página de ${page.key}',
+    testWidgets('projetos de IA têm vídeos na página de ${page.key}',
         (tester) async {
       await tester.pumpWidget(MaterialApp(
         builder: (context, child) => MediaQuery(
@@ -32,9 +32,10 @@ void main() {
       for (final project in {
         'Chat com contratos': 'chat-com-contratos',
         'Assistente de pesquisa': 'assistente-pesquisa',
+        'Base Aurora': 'base-aurora',
       }.entries) {
         if (page.key == 'desenvolvimento') {
-          expect(tester.widget<TabBar>(find.byType(TabBar)).tabs.length, 6);
+          expect(tester.widget<TabBar>(find.byType(TabBar)).tabs.length, 7);
           final tab = find.widgetWithText(Tab, project.key);
           await tester.ensureVisible(tab);
           await tester.pumpAndSettle();
