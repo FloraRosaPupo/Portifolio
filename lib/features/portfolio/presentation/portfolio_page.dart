@@ -214,7 +214,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                     PortfolioText(
                                       'Inteligência artificial aplicada a produtos.',
                                       style: TextStyle(
-                                        fontSize: wide ? 52 : 36,
+                                        fontSize: wide ? 44 : 36,
                                         height: 1.12,
                                         letterSpacing: -1.8,
                                         fontWeight: FontWeight.w600,
