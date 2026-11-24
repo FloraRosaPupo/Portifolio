@@ -8,10 +8,10 @@ const translations = <String, (String, String)>{
     "Artificial intelligence applied to products.",
     "Inteligencia artificial aplicada a productos."
   ),
-  "Engenheira de IA e desenvolvedora Full Stack. Desenvolvo aplicações com modelos de linguagem, RAG e MCP, conectando dados, ferramentas e interfaces. Minha experiência em mobile, APIs e bancos de dados dá base à construção de produtos completos.":
+  "Desenvolvo produtos com IA, de apps mobile a integrações com APIs e bancos de dados.":
       (
-    "AI Engineer and Full Stack Developer. I build applications with language models, RAG and MCP, connecting data, tools and interfaces. My experience in mobile, APIs and databases supports building complete products.",
-    "Ingeniera de IA y desarrolladora Full Stack. Desarrollo aplicaciones con modelos de lenguaje, RAG y MCP, conectando datos, herramientas e interfaces. Mi experiencia en mobile, API y bases de datos sustenta la construcción de productos completos."
+    "I build AI-powered products, from mobile apps to integrations with APIs and databases.",
+    "Desarrollo productos con IA, desde apps móviles hasta integraciones con API y bases de datos."
   ),
   "ENGENHARIA DE IA": ("AI ENGINEERING", "INGENIERÍA DE IA"),
   "Engenharia de IA": ("AI engineering", "Ingeniería de IA"),

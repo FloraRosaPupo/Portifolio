@@ -232,7 +232,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                     ),
                                     const SizedBox(height: 20),
                                     const Body(
-                                      'Engenheira de IA e desenvolvedora Full Stack. Desenvolvo aplicações com modelos de linguagem, RAG e MCP, conectando dados, ferramentas e interfaces. Minha experiência em mobile, APIs e bancos de dados dá base à construção de produtos completos.',
+                                      'Desenvolvo produtos com IA, de apps mobile a integrações com APIs e bancos de dados.',
                                     ),
                                     const SizedBox(height: 20),
                                     PortfolioText(
