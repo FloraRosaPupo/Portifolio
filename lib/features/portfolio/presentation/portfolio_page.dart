@@ -216,8 +216,8 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                       style: TextStyle(
                                         fontSize: wide ? 44 : 36,
                                         height: 1.12,
-                                        letterSpacing: -1.8,
-                                        fontWeight: FontWeight.w600,
+                                        letterSpacing: wide ? -0.8 : -1.8,
+                                        fontWeight: wide ? FontWeight.w500 : FontWeight.w600,
                                       ),
                                     ),
                                     const SizedBox(height: 24),
